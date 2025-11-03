@@ -13,6 +13,7 @@ public class InventoryItemUI : MonoBehaviour, IPointerClickHandler
     //References
     [SerializeField] private Image image;
     [SerializeField] private TextMeshProUGUI countText;
+    [SerializeField] private Vector2 iconSize = new Vector2(200f, 200f); // Adjust this size as needed
 
     //Class Reference
     private ItemSO currentItemData;
@@ -42,6 +43,14 @@ public class InventoryItemUI : MonoBehaviour, IPointerClickHandler
         currentItemData = itemType;
         image.sprite = itemType.icon;
         CurrentSlotIndex = slot;
+
+        // Resize the icon
+        RectTransform rectTransform = image.GetComponent<RectTransform>();
+        if (rectTransform != null)
+        {
+            rectTransform.sizeDelta = iconSize;
+        }
+
         UpdateAmount(amount);
     }
 
