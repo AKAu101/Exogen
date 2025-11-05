@@ -4675,6 +4675,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 1167afb5-48b0-427c-9f45-a59258e0f91a
     m_ActionName: 'Movement/DumpInventory[/Keyboard/k]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3285536276046815513}
+        m_TargetAssemblyTypeName: FirstPersonController, Assembly-CSharp
+        m_MethodName: OnDuck
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b54481c6-f03f-4c99-ad8a-fe782cdaaf5d
+    m_ActionName: 'PlayerActions/Crouch[/Keyboard/ctrl]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerActions
@@ -5030,6 +5046,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  duckCamHeight: 0.12
+  duckCenter: {x: 0, y: 0, z: 0}
 --- !u!1001 &3286352363664390165
 PrefabInstance:
   m_ObjectHideFlags: 0

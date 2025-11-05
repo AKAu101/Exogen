@@ -23,13 +23,25 @@ public class FirstPersonController : MonoBehaviour
 
     [Header("Ground Check")] [SerializeField]
     private Transform groundCheck;
-
     [SerializeField] private float groundDistance = 0.2f;
     [SerializeField] private LayerMask groundMask;
+
+    [Header("Head Check")] [SerializeField]
+    private float duckCamHeight = 0.12f;
+
+    [SerializeField] private Vector3 duckCenter;
+    private Vector3 baseCenter;
+
+    // Duck variables
+    private float baseHeight;
+    private float cameraBaseHeight;
     private float cameraPitch;
 
     // Components
     private CharacterController controller;
+    private bool isDucking;
+
+    //States
     private bool isGrounded;
     private bool isSprinting;
     private bool jumpPressed;
@@ -38,8 +50,6 @@ public class FirstPersonController : MonoBehaviour
     // Input values
     private Vector2 moveInput;
     private IUIStateManagement uiStateManagement;
-
-    // Movement variables
     private Vector3 velocity;
 
     private void Awake()
@@ -52,6 +62,10 @@ public class FirstPersonController : MonoBehaviour
 
         // Find camera if not assigned
         if (cameraTransform == null) cameraTransform = Camera.main.transform;
+
+        baseHeight = controller.height;
+        baseCenter = controller.center;
+        cameraBaseHeight = cameraTransform.localPosition.y;
     }
 
     private void Start()
@@ -69,6 +83,7 @@ public class FirstPersonController : MonoBehaviour
         HandleMovement();
         HandleMouseLook();
         HandleJump();
+        HandleDuck();
     }
 
     private void HandleGroundCheck()
@@ -86,7 +101,7 @@ public class FirstPersonController : MonoBehaviour
 
         if (uiStateManagement != null && uiStateManagement.IsInventoryVisible) return;
 
-        var currentSpeed = isSprinting ? sprintSpeed : walkSpeed;
+        var currentSpeed = isSprinting ? sprintSpeed : isDucking ? walkSpeed / 2 : walkSpeed;
 
         var move = transform.right * moveInput.x + transform.forward * moveInput.y;
         controller.Move(move * currentSpeed * Time.deltaTime);
@@ -124,6 +139,47 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
+    private void HandleDuck()
+    {
+        if (isDucking && isGrounded)
+        {
+            //set collider height
+            //set camera height, if not parented to Head-Bone
+
+            controller.height = baseHeight / 2;
+            controller.center = duckCenter;
+
+            //hack till bone parented
+            var camPos = cameraTransform.localPosition;
+            camPos.y = duckCamHeight;
+            cameraTransform.localPosition = camPos;
+        }
+        else
+        {
+            //if not ducking unduck
+
+            //check if you can unduck
+            var canStandUp = !Physics.Raycast(groundCheck.position, Vector3.up, baseHeight, groundMask,
+                QueryTriggerInteraction.Collide);
+
+            if (canStandUp)
+            {
+                controller.height = baseHeight;
+                controller.center = baseCenter;
+
+                //hack till bone parented
+                var camPos = cameraTransform.localPosition;
+                camPos.y = cameraBaseHeight;
+                cameraTransform.localPosition = camPos;
+            }
+            else
+            {
+                //give feedback to player
+                Debug.Log("Cant stand up! space too tiny");
+            }
+        }
+    }
+
     // Input System callback methods
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -138,6 +194,14 @@ public class FirstPersonController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.performed) jumpPressed = true;
+    }
+
+    public void OnDuck(InputAction.CallbackContext context)
+    {
+        if (context.performed || context.started)
+            isDucking = true;
+        else if (context.canceled)
+            isDucking = false;
     }
 
     public void OnSprint(InputAction.CallbackContext context)
