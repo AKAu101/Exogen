@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c0927f3221a154da6e629c42705c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
-  message: 
+  message: Pickup Dumbbell
   OnInteract:
     m_PersistentCalls:
       m_Calls:
