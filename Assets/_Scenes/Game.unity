@@ -4922,10 +4922,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d1fde80967d1242ba2dc00ba972872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonController
-  walkSpeed: 5
-  sprintSpeed: 8
-  jumpHeight: 2
-  gravity: -19.71
+  walkSpeed: 2
+  sprintSpeed: 4
+  jumpHeight: 0.5
+  gravity: -9
   mouseSensitivity: 0.1
   maxLookAngle: 80
   cameraTransform: {fileID: 4313150040180428302}
