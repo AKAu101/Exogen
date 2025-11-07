@@ -5,6 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Terrain/New Terrain 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Terrain/New Terrain 2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_3a4cce18-60c6-4ca6-9137-32a918ebf74e.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_3a4cce18-60c6-4ca6-9137-32a918ebf74e.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_43db56a9-4e69-4dc9-aaa2-f87d14edef02.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_43db56a9-4e69-4dc9-aaa2-f87d14edef02.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_f362d48e-6f7d-4267-bb5a-95607b282183.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_f362d48e-6f7d-4267-bb5a-95607b282183.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

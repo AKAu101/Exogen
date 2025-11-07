@@ -89,7 +89,8 @@ public class FirstPersonController : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0) velocity.y = -2f;
+        // only apply grounding force when truly grounded and not falling fast
+        if (isGrounded && velocity.y < 0 && velocity.y > -3f) velocity.y = -2f;
     }
 
     private void HandleMovement()
@@ -100,9 +101,9 @@ public class FirstPersonController : MonoBehaviour
 
         if (uiStateManagement != null && uiStateManagement.IsInventoryVisible) return;
 
-        var currentSpeed = isSprinting ? sprintSpeed : isDucking ? walkSpeed / 2 : walkSpeed;
+        float currentSpeed = isSprinting ? sprintSpeed : isDucking ? walkSpeed / 2 : walkSpeed;
 
-        var move = transform.right * moveInput.x + transform.forward * moveInput.y;
+        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
         controller.Move(move * currentSpeed * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime;
@@ -117,8 +118,8 @@ public class FirstPersonController : MonoBehaviour
 
         if (uiStateManagement != null && uiStateManagement.IsInventoryVisible) return;
 
-        var mouseX = lookInput.x * mouseSensitivity;
-        var mouseY = lookInput.y * mouseSensitivity;
+        float mouseX = lookInput.x * mouseSensitivity;
+        float mouseY = lookInput.y * mouseSensitivity;
 
         // Rotate player body left/right
         transform.Rotate(Vector3.up * mouseX);
@@ -149,7 +150,7 @@ public class FirstPersonController : MonoBehaviour
             controller.center = duckCenter;
 
             //hack till bone parented
-            var camPos = cameraTransform.localPosition;
+            Vector3 camPos = cameraTransform.localPosition;
             camPos.y = duckCamHeight;
             cameraTransform.localPosition = camPos;
         }
@@ -167,7 +168,7 @@ public class FirstPersonController : MonoBehaviour
                 controller.center = baseCenter;
 
                 //hack till bone parented
-                var camPos = cameraTransform.localPosition;
+                Vector3 camPos = cameraTransform.localPosition;
                 camPos.y = cameraBaseHeight;
                 cameraTransform.localPosition = camPos;
             }
