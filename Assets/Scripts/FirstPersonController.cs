@@ -28,7 +28,6 @@ public class FirstPersonController : MonoBehaviour
 
     [Header("Head Check")] [SerializeField]
     private float duckCamHeight = 0.12f;
-
     [SerializeField] private Vector3 duckCenter;
     private Vector3 baseCenter;
 
