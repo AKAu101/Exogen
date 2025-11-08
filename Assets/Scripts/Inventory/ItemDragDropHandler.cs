@@ -1,4 +1,5 @@
 using Generals;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,11 +11,14 @@ public class ItemDragDropHandler : MonoBehaviour, IBeginDragHandler, IDragHandle
 {
     //References
     [SerializeField] private GameObject wrapper;
+    [SerializeField] private LayerMask slotAreaLayer;
     [SerializeField] private LayerMask dropAreaLayer;
 
     //Properties
     private Transform dragStartParent;
     private Vector3 dragStartPosition;
+    InventoryUI dragStartUI;
+
     private IInventoryManagement inventoryManagement;
 
     //Class References
@@ -44,12 +48,27 @@ public class ItemDragDropHandler : MonoBehaviour, IBeginDragHandler, IDragHandle
             return;
         }
 
-        wrapper.SetActive(true);
+        if (Physics.Raycast(transform.position + Vector3.back, transform.forward, out var hit,100f, slotAreaLayer))
+        {
+            Debug.Log("Hit something, looking for InventoryUI");
+            //dragStartUI = hit.transform.gameObject.GetComponentInParent<InventoryUI>();
+            dragStartUI = hit.transform.gameObject.GetComponent<SlotView>().InventoryUI;
+        }
+        else
+        {
+            Debug.LogWarning("InventoryUI not found! using fallback");
+            dragStartUI = wrapper.GetComponentInParent<InventoryUI>();
+        }
+
+        if (dragStartUI == null) { Debug.LogError("InventoryUI not found in parent"); }
+        else { }
+
+            wrapper.SetActive(true);
         dragStartPosition = transform.position;
         dragStartParent = transform.parent;
 
         // Move to InventoryUIManager root for free positioning
-        transform.SetParent(InventoryUIManager.Instance.gameObject.transform);
+        transform.SetParent(dragStartUI.gameObject.transform);
         transform.position = MouseInputUtility.GetRawMouse();
     }
 
@@ -69,18 +88,36 @@ public class ItemDragDropHandler : MonoBehaviour, IBeginDragHandler, IDragHandle
         var origin = transform.position;
         var raycastDistance = 100f;
 
-        if (Physics.Raycast(transform.position, transform.forward, out var hit, raycastDistance, dropAreaLayer))
+        if (Physics.Raycast(transform.position + Vector3.back, transform.forward, out var hit, raycastDistance, slotAreaLayer))
         {
             var slotView = hit.transform.gameObject.GetComponent<SlotView>();
+
+            if(!slotView.AllowInput)
+            {
+                Debug.Log("This slot is output only! Give Feedback  to player");
+                ReturnToOriginalPosition();
+                return;
+
+            }
+
+            InventoryUI endInventory = slotView.InventoryUI;
+            Debug.Log($"startInventory {dragStartUI}");
+            Debug.Log($"endInventory {endInventory}");
             if (slotView != null)
             {
                 var targetSlot = slotView.Slot;
 
                 if (inventoryManagement != null &&
-                    inventoryManagement.TryMoveItem(itemView.CurrentSlotIndex, targetSlot))
+                    inventoryManagement.TryMoveItem(dragStartUI.AssignedInventory,itemView.CurrentSlotIndex,endInventory.AssignedInventory, targetSlot))
                     // Item moved successfully, let InventoryUIManager handle view updates
                     return;
             }
+        }
+        else if (Physics.Raycast(transform.position + Vector3.back, transform.forward, out var dropHit, raycastDistance, dropAreaLayer))
+        {
+            Debug.Log("DropArea hit");
+            InventoryManager.Instance.DropItem(dragStartUI.AssignedInventory, itemView.CurrentSlotIndex);
+            return;
         }
 
         // Failed to drop or no valid drop area, return to original position

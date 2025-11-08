@@ -23,7 +23,7 @@ public class WorldItem : MonoBehaviour
 
         if (inventoryManagement != null)
         {
-            inventoryManagement.AddItem(itemType);
+            inventoryManagement.AddItem(InventoryManager.Instance.PlayerInventory,itemType);
             Destroy(gameObject);
         }
         else

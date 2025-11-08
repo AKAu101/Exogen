@@ -7,6 +7,7 @@ using UnityEngine;
 public class TestInventoryDump : MonoBehaviour
 {
     [SerializeField] private KeyCode dumpKey = KeyCode.K;
+    [SerializeField] private Inventory playerInventory;
 
     private void Update()
     {
@@ -15,7 +16,7 @@ public class TestInventoryDump : MonoBehaviour
             Debug.Log("Testing inventory dump...");
 
             // Spawn the drop chest at player position
-            var chest = Inventory.Instance.SpawnDropChestAtPlayer(transform);
+            var chest = InventoryManager.Instance.SpawnDropChestAtPlayer(playerInventory,transform);
 
             if (chest != null)
             {

@@ -14,6 +14,7 @@ public class InventoryItemContextMenu : MonoBehaviour
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private Button consumeButton;
     [SerializeField] private Button dropButton;
+    [SerializeField] private LayerMask slotAreaLayer;
     private ItemSO currentItemData;
 
     //Class Reference
@@ -101,7 +102,8 @@ public class InventoryItemContextMenu : MonoBehaviour
         {
             if (currentItemData.isConsumable)
             {
-                inventoryManagement.RemoveItemFromSlot(currentSlotIndex);
+                var inv = currentItemView.GetComponentInParent<InventoryUI>().AssignedInventory;
+                inventoryManagement.RemoveItemFromSlot(inv,currentSlotIndex);
                 Debug.Log($"Consumed {currentItemData.name} from slot {currentSlotIndex}");
             }
             else
@@ -118,19 +120,31 @@ public class InventoryItemContextMenu : MonoBehaviour
         if (inventoryManagement != null && currentItemData != null && currentSlotIndex >= 0)
         {
             // Remove from inventory
-            inventoryManagement.RemoveItemFromSlot(currentSlotIndex);
+            var slot = currentItemView.CurrentSlotIndex;
 
-            // Spawn in world
-            if (currentItemData.itemPrefab != null && Camera.main != null)
+            Physics.Raycast(currentItemView.transform.position + Vector3.back, transform.forward, out var hit, 100f, slotAreaLayer);
+            var inv = hit.transform.gameObject.GetComponent<SlotView>().InventoryUI;
+            if(inv == null)
             {
-                var dropPosition = Camera.main.transform.position + Camera.main.transform.forward * 2f;
-                Instantiate(currentItemData.itemPrefab, dropPosition, Quaternion.identity);
-                Debug.Log($"Dropped {currentItemData.name} at position {dropPosition}");
+                Debug.LogError("could not find inventory corresponding to item you are trying to drop");
+                return;
             }
-            else
-            {
-                Debug.LogWarning("Item prefab or camera not found!");
-            }
+
+            InventoryManager.Instance.DropItem(inv.AssignedInventory,slot);
+
+            // inventoryManagement.RemoveItemFromSlot(inv.AssignedInventory,currentSlotIndex);
+            //
+            //// Spawn in world
+            //if (currentItemData.itemPrefab != null && Camera.main != null)
+            //{
+            //    var dropPosition = Camera.main.transform.position + Camera.main.transform.forward * 2f;
+            //    Instantiate(currentItemData.itemPrefab, dropPosition, Quaternion.identity);
+            //    Debug.Log($"Dropped {currentItemData.name} at position {dropPosition}");
+            //}
+            //else
+            //{
+            //    Debug.LogWarning("Item prefab or camera not found!");
+            //}
         }
 
         HideMenu();

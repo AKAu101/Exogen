@@ -7,5 +7,10 @@ using UnityEngine;
 public class SlotView : MonoBehaviour
 {
     [SerializeField] private int slot;
+    [SerializeField] private InventoryUI UIHandler;
+    [SerializeField] private bool allowInput = true;
     public int Slot => slot;
+    public InventoryUI InventoryUI => UIHandler;
+
+    public bool AllowInput => allowInput;
 }

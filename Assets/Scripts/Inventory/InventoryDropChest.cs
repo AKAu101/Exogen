@@ -8,7 +8,7 @@ using UnityEngine;
 public class InventoryDropChest : MonoBehaviour
 {
     [SerializeField] private List<ItemStack> storedItems = new();
-    private IInventoryManagement playerInventory;
+    private IInventoryManagement inventoryManager;
     private Interactable interactable;
 
     private void Awake()
@@ -25,7 +25,7 @@ public class InventoryDropChest : MonoBehaviour
         // Get the player's inventory service
         if (ServiceLocator.Instance.IsRegistered<IInventoryManagement>())
         {
-            playerInventory = ServiceLocator.Instance.Get<IInventoryManagement>();
+            inventoryManager = ServiceLocator.Instance.Get<IInventoryManagement>();
         }
 
         // Set up the interaction callback
@@ -47,17 +47,25 @@ public class InventoryDropChest : MonoBehaviour
         UpdateInteractionMessage();
     }
 
-    private void OnChestInteract()
+    private void OnChestInteract(GameObject interactor)
     {
         // Lazy initialization if service wasn't available at Start
-        if (playerInventory == null && ServiceLocator.Instance.IsRegistered<IInventoryManagement>())
+        if (inventoryManager == null && ServiceLocator.Instance.IsRegistered<IInventoryManagement>())
         {
-            playerInventory = ServiceLocator.Instance.Get<IInventoryManagement>();
+            inventoryManager = ServiceLocator.Instance.Get<IInventoryManagement>();
         }
 
-        if (playerInventory == null)
+        if (inventoryManager == null)
         {
             Debug.LogError("Player inventory not found!");
+            return;
+        }
+
+        //IInventory inv = interactor.GetComponent<IInventory>();
+        var inv = InventoryManager.Instance.PlayerInventory;
+        if (inv == null)
+        {
+            Debug.Log("Your mysterious try to get the interactor didnt work! greetings from death chest");
             return;
         }
 
@@ -68,7 +76,7 @@ public class InventoryDropChest : MonoBehaviour
             var amountToAdd = itemStack.Amount;
             for (var i = 0; i < amountToAdd; i++)
             {
-                if (playerInventory.AddItem(itemStack.ItemType))
+                if (inventoryManager.AddItem(inv,itemStack.ItemType))
                 {
                     itemStack.Amount--;
                 }

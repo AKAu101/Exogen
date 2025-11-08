@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour
 {
     public string message;
-    public UnityEvent OnInteract;
+    public GameObjectEvent OnInteract;
     private Outline outline;
 
     private void Start()
@@ -17,9 +17,9 @@ public class Interactable : MonoBehaviour
         DisableOutline();
     }
 
-    public void Interact()
+    public void Interact(GameObject interactor)
     {
-        OnInteract.Invoke();
+        OnInteract.Invoke(interactor);
     }
 
     public void DisableOutline()

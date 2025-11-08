@@ -314,6 +314,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemDragDropHandler
   wrapper: {fileID: 5035166749796648578}
-  dropAreaLayer:
+  slotAreaLayer:
     serializedVersion: 2
     m_Bits: 64
+  dropAreaLayer:
+    serializedVersion: 2
+    m_Bits: 128

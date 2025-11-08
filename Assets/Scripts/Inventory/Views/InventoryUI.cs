@@ -9,28 +9,38 @@ using UnityEngine.InputSystem;
 /// Manages the inventory UI, including item display, slot management, and visibility toggling.
 /// Listens to inventory events and updates the visual representation accordingly.
 /// </summary>
-public class InventoryUIManager : Singleton<InventoryUIManager>, IUIStateManagement
+public class InventoryUI : MonoBehaviour, IUIStateManagement
 {
     //References
     [SerializeField] private GameObject wrapper;
+    [SerializeField] private GameObject slotRoot;
+    public Transform SlotRoot => slotRoot.transform;
     [SerializeField] private GameObject itemViewPrefab;
     [SerializeField] private List<GameObject> slotObjects;
 
     //Properties
     private readonly Dictionary<int, GameObject> slotIndexToContainer = new();
+    public Dictionary<int, GameObject> SlotIndexToContainer => slotIndexToContainer;
     private bool eventsSubscribed;
+    private IInventory assignedInventory;
+    public IInventory AssignedInventory => assignedInventory;
+    [SerializeField] Inventory _Inventory;
 
     //References
     private IInventoryManagement inventoryManagement;
     public Dictionary<int, InventoryItemUI> slotToView = new();
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
+        //base.Awake();
         for (var i = 0; i < slotObjects.Count; i++) slotIndexToContainer[i] = slotObjects[i];
 
         // Register this instance as the IUIStateManagement service
         ServiceLocator.Instance.Register<IUIStateManagement>(this);
+
+        assignedInventory = _Inventory.GetComponent<IInventory>();
+
+        InventoryUIHelper.Register(assignedInventory, this);
     }
 
     private void Start()
@@ -124,15 +134,15 @@ public class InventoryUIManager : Singleton<InventoryUIManager>, IUIStateManagem
         if (slotToView.Count > 0) return;
 
         // Recreate views for all items currently in inventory
-        foreach (var kvp in inventoryManagement.SlotToStack)
+        foreach (var kvp in assignedInventory.SlotToStack)
         {
             var slot = kvp.Key;
             var stack = kvp.Value;
-            HandleItemAdded(stack.ItemType, slot);
+            HandleItemAdded(assignedInventory,stack.ItemType, slot);
         }
     }
 
-    private void HandleItemAdded(ItemSO itemType, int slot)
+    private void HandleItemAdded(IInventory inv,ItemSO itemType, int slot)
     {
         if (inventoryManagement == null)
         {
@@ -146,13 +156,19 @@ public class InventoryUIManager : Singleton<InventoryUIManager>, IUIStateManagem
             return;
         }
 
+        if(inv != assignedInventory)
+        {
+            Debug.Log($"Not my({this}) Inventory!");
+            return;
+        }
+
         if (!slotToView.ContainsKey(slot))
         {
             var instance = Instantiate(itemViewPrefab);
             var view = instance.GetComponent<InventoryItemUI>();
             if (view != null)
             {
-                var stack = inventoryManagement.SlotToStack[slot];
+                var stack = inv.SlotToStack[slot];
                 view.Setup(itemType, slot, stack.Amount);
                 IntegrateView(view);
             }
@@ -163,25 +179,30 @@ public class InventoryUIManager : Singleton<InventoryUIManager>, IUIStateManagem
         }
         else
         {
-            // Item already exists in this slot, just update the count
             var view = slotToView[slot];
-            var stack = inventoryManagement.SlotToStack[slot];
+            var stack = inv.SlotToStack[slot];
             view.UpdateAmount(stack.Amount);
         }
     }
 
-    private void HandleItemRemoved(ItemSO itemType, int slot)
+    private void HandleItemRemoved(IInventory inv,ItemSO itemType, int slot)
     {
         if (inventoryManagement == null) return;
+
+        if (inv != assignedInventory)
+        {
+            Debug.Log("Not my Inventory!");
+            return;
+        }
 
         if (slotToView.ContainsKey(slot))
         {
             // Check if the slot still has items
-            if (inventoryManagement.SlotToStack.ContainsKey(slot))
+            if (inv.SlotToStack.ContainsKey(slot))
             {
                 // Update the count
                 var view = slotToView[slot];
-                var stack = inventoryManagement.SlotToStack[slot];
+                var stack = inv.SlotToStack[slot];
                 view.UpdateAmount(stack.Amount);
             }
             else
@@ -194,15 +215,31 @@ public class InventoryUIManager : Singleton<InventoryUIManager>, IUIStateManagem
         }
     }
 
-    private void HandleItemMoved(int sourceSlot, int targetSlot)
+    private void HandleItemMoved(IInventory invOne,int sourceSlot, IInventory invTwo, int targetSlot)
     {
-        MoveViewDict(sourceSlot, targetSlot);
+        if (invOne != assignedInventory)
+        {
+            Debug.Log($"Not my{this} Inventory!");
+            return;
+        }
+        else
+        {
+            Debug.Log($"Handling Item Moved! I am {this}");
+        }
+
+        MoveViewDict(invTwo, sourceSlot, invTwo,targetSlot);
         UpdateView();
     }
 
-    private void HandleItemSwapped(int sourceSlot, int targetSlot)
+    private void HandleItemSwapped(IInventory invOne, int sourceSlot, IInventory invTwo,int targetSlot)
     {
-        SwapViewDictEntries(sourceSlot, targetSlot);
+        if (invOne != assignedInventory)
+        {
+            Debug.Log("Not my Inventory!");
+            return;
+        }
+
+        InventoryUIHelper.SwapViewDictEntries(this,sourceSlot, InventoryUIHelper.GetUI(invTwo), targetSlot);
         UpdateView();
     }
 
@@ -235,32 +272,36 @@ public class InventoryUIManager : Singleton<InventoryUIManager>, IUIStateManagem
         return slotToView[slot];
     }
 
-    public void MoveViewDict(int sourceSlot, int targetSlot)
+    public void MoveViewDict(IInventory inv,int sourceSlot, IInventory targetInv,int targetSlot)
     {
-        if (!slotToView.ContainsKey(sourceSlot))
-        {
-            Debug.LogError($"MoveViewDict: Source slot {sourceSlot} not found in slotToView dictionary!");
-            return;
-        }
+        //
+        //
+        //if(inv == targetInv)
+        //{
+        //    if (!slotToView.ContainsKey(sourceSlot))
+        //    {
+        //        Debug.LogError($"MoveViewDict: Source slot {sourceSlot} not found in slotToView dictionary!");
+        //        return;
+        //    }
+        //
+        //    slotToView[targetSlot] = slotToView[sourceSlot];
+        //    slotToView.Remove(sourceSlot);
+        //    slotToView[targetSlot].SetReferencedSlot(targetSlot);
+        //}
+        //else
+        //{
+        //    //move view into other dictioanry
+        //    //reparent!
+        //    //remove old stuff
+        //
+        //    InventoryUIHelper.MoveViewDict
+        //}
+        var targetUI = InventoryUIHelper.GetUI(targetInv);
+        InventoryUIHelper.MoveViewDict(this, sourceSlot, targetUI, targetSlot);
 
-        slotToView[targetSlot] = slotToView[sourceSlot];
-        slotToView.Remove(sourceSlot);
-        slotToView[targetSlot].SetReferencedSlot(targetSlot);
     }
 
-    public bool SwapViewDictEntries(int sourceSlot, int targetSlot)
-    {
-        if (!slotToView.ContainsKey(sourceSlot) || !slotToView.ContainsKey(targetSlot))
-        {
-            Debug.LogError(
-                $"SwapViewDictEntries: Source slot {sourceSlot} or target slot {targetSlot} not found in slotToView dictionary!");
-            return false;
-        }
-
-        slotToView[sourceSlot].SetReferencedSlot(targetSlot);
-        slotToView[targetSlot].SetReferencedSlot(sourceSlot);
-        return slotToView.SwapEntries(sourceSlot, targetSlot);
-    }
+    
 
     public void UpdateView()
     {

@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class PlayerInteractionController : MonoBehaviour
 {
     public float playerReach = 3f;
-    [SerializeField] private Inventory inventory;
+    [SerializeField] private InventoryManager inventory;
     private Interactable currentInteractable;
 
     private void Update()
@@ -20,7 +20,7 @@ public class PlayerInteractionController : MonoBehaviour
     {
         if (context.performed && currentInteractable != null)
         {
-            currentInteractable.Interact();
+            currentInteractable.Interact(this.gameObject);
             Debug.Log($"Interacted with: {currentInteractable.gameObject.name}");
         }
     }
