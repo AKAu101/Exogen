@@ -316,7 +316,7 @@ MonoBehaviour:
   wrapper: {fileID: 5035166749796648578}
   slotAreaLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   dropAreaLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
