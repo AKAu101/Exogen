@@ -10,14 +10,12 @@ public class FirstPersonController : MonoBehaviour
 {
     [Header("Movement Settings")] [SerializeField]
     private float walkSpeed = 5f;
-
     [SerializeField] private float sprintSpeed = 8f;
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -18f;
 
     [Header("Mouse Look Settings")] [SerializeField]
     private float mouseSensitivity = 2f;
-
     [SerializeField] private float maxLookAngle = 80f;
     [SerializeField] private Transform cameraTransform;
 
@@ -38,15 +36,18 @@ public class FirstPersonController : MonoBehaviour
 
     // Components
     private CharacterController controller;
-    private bool isDucking;
-
+    
+    //Getter
+    public bool IsSprinting => isSprinting;
+    
     //States
     private bool isGrounded;
     private bool isSprinting;
     private bool jumpPressed;
-    private Vector2 lookInput;
+    private bool isDucking;
 
     // Input values
+    private Vector2 lookInput;
     private Vector2 moveInput;
     private IUIStateManagement uiStateManagement;
     private Vector3 velocity;
