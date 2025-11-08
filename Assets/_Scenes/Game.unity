@@ -613,7 +613,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.003
+  m_Intensity: 0.004
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -6950,7 +6950,7 @@ MonoBehaviour:
   oxygenSlider: {fileID: 7809875363481439021}
   playerController: {fileID: 3285536276046815513}
   normalDepletionRate: 0.5
-  sprintDepletionRate: 1.5
+  sprintDepletionRate: 1
 --- !u!1001 &7549379215898797157
 PrefabInstance:
   m_ObjectHideFlags: 0
