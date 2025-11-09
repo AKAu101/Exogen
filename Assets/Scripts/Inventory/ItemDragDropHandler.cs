@@ -68,8 +68,7 @@ public class ItemDragDropHandler : MonoBehaviour, IBeginDragHandler, IDragHandle
         dragStartPosition = transform.position;
         dragStartParent = transform.parent;
 
-        // Move to InventoryUIManager root for free positioning
-        transform.SetParent(InventoryUIManager.Instance.gameObject.transform);
+        // Move to drag start UI transform for free positioning
         transform.SetParent(dragStartUI.gameObject.transform);
         transform.position = MouseInputUtility.GetRawMouse();
     }
@@ -90,7 +89,6 @@ public class ItemDragDropHandler : MonoBehaviour, IBeginDragHandler, IDragHandle
         var origin = transform.position;
         var raycastDistance = 100f;
 
-        if (Physics.Raycast(transform.position, transform.forward, out var hit, raycastDistance, dropAreaLayer))
         if (Physics.Raycast(transform.position + Vector3.back, transform.forward, out var hit, raycastDistance, slotAreaLayer))
         {
             var slotView = hit.transform.gameObject.GetComponent<SlotView>();
@@ -110,11 +108,13 @@ public class ItemDragDropHandler : MonoBehaviour, IBeginDragHandler, IDragHandle
             {
                 var targetSlot = slotView.Slot;
 
-                if (inventoryManagement != null &&
-                    inventoryManagement.TryMoveItem(itemView.CurrentSlotIndex, targetSlot)) 
-                    inventoryManagement.TryMoveItem(dragStartUI.AssignedInventory,itemView.CurrentSlotIndex,endInventory.AssignedInventory, targetSlot))
+                if (inventoryManagement != null)
+                {
+                    inventoryManagement.TryMoveItem(dragStartUI.AssignedInventory, itemView.CurrentSlotIndex,
+                        endInventory.AssignedInventory, targetSlot);
                     // Item moved successfully, let InventoryUIManager handle view updates
                     return;
+                }
             }
         }
         else if (Physics.Raycast(transform.position + Vector3.back, transform.forward, out var dropHit, raycastDistance, dropAreaLayer))

@@ -13,19 +13,19 @@ public interface IInventoryManagement
     bool RemoveItem(ItemSO itemType);
     bool RemoveItemFromSlot(int slot, int amount = 1);
     bool TryMoveItem(int sourceSlot, int targetSlot);
-    bool AddItem(IInventory inv,ItemSO itemType);
+    bool AddItem(IInventory inv, ItemSO itemType);
     bool RemoveItem(IInventory inv, ItemSO itemType);
     bool RemoveItemFromSlot(IInventory inv, int slot, int amount = 1);
-    bool TryMoveItem(IInventory invOne, int sourceSlot, IInventory invTwo,int targetSlot);
+    bool TryMoveItem(IInventory invOne, int sourceSlot, IInventory invTwo, int targetSlot);
 
     // Events
-    event Action<ItemSO, int> OnItemAdded;
-    event Action<ItemSO, int> OnItemRemoved;
-    event Action<int, int> OnItemMoved;
-    event Action<int, int> OnItemSwapped;
-    event Action<IInventory,ItemSO, int> OnItemAdded;
-    event Action<IInventory,ItemSO, int> OnItemRemoved;
+    event Action<IInventory, ItemSO, int> OnItemAdded;
+
+    event Action<IInventory, ItemSO, int> OnItemRemoved;
+
     //Moved item from inventory one in slot x to inventory two in slot y
-    event Action<IInventory,int, IInventory,int> OnItemMoved;
+    event Action<IInventory, int, IInventory, int> OnItemMoved;
+    
     //swapped item from inventory one in slot x to inventory two in slot y
-    event Action<IInventory, int, IInventory,int> OnItemSwapped;
+    event Action<IInventory, int, IInventory, int> OnItemSwapped;
+}

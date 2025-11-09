@@ -33,7 +33,6 @@ public class InventoryManager : Singleton<InventoryManager>, IInventoryManagemen
 
     [SerializeField] Inventory playerInventory;
     public Inventory PlayerInventory => playerInventory;
-    //public Dictionary<int, ItemStack> slotToStack = new();
 
     protected override void Awake()
     {
@@ -42,14 +41,36 @@ public class InventoryManager : Singleton<InventoryManager>, IInventoryManagemen
         ServiceLocator.Instance.Register<IInventoryManagement>(this);
     }
 
-    // Interface property
-    //public Dictionary<int, ItemStack> SlotToStack => slotToStack;
+    // Interface property - returns player inventory's SlotToStack
+    public Dictionary<int, ItemStack> SlotToStack => (playerInventory as IInventory)?.SlotToStack;
 
     public event Action<IInventory,ItemSO, int> OnItemAdded;
     public event Action<IInventory,ItemSO, int> OnItemRemoved;
     public event Action<IInventory,int, IInventory,int> OnItemMoved;
     public event Action<IInventory,int, IInventory,int> OnItemSwapped;
 
+    // Interface methods without IInventory parameter - operate on playerInventory
+    public bool AddItem(ItemSO itemType)
+    {
+        return AddItem(playerInventory, itemType);
+    }
+
+    public bool RemoveItem(ItemSO itemType)
+    {
+        return RemoveItem(playerInventory, itemType);
+    }
+
+    public bool RemoveItemFromSlot(int slot, int amount = 1)
+    {
+        return RemoveItemFromSlot(playerInventory, slot, amount);
+    }
+
+    public bool TryMoveItem(int sourceSlot, int targetSlot)
+    {
+        return TryMoveItem(playerInventory, sourceSlot, playerInventory, targetSlot);
+    }
+
+    // Interface methods with IInventory parameter
     public bool AddItem(IInventory inv, ItemSO itemType)
     {
         var slotToStack = inv.SlotToStack;
@@ -244,7 +265,7 @@ public class InventoryManager : Singleton<InventoryManager>, IInventoryManagemen
                 }
                 // if no spaceLeft, fall through to swap logic below
             }
-            // different item types (or no space to combine) — allow the existing swap code below to run
+            // different item types (or no space to combine) ï¿½ allow the existing swap code below to run
         }
         if (firstSlotToStack == secondSlotToStack)
         {
