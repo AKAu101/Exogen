@@ -19,25 +19,10 @@ public static class InventoryUIHelper
         invTwo.slotToView[targetSlot].SetReferencedSlot(sourceSlot);
 
         return invOne.slotToView.SwapEntries(sourceSlot, targetSlot, invTwo.slotToView);
-
-        //return slotToView.SwapEntries(sourceSlot, targetSlot);
     }
 
     public static void MoveViewDict(InventoryUI sourceInvUI, int sourceSlot, InventoryUI targetInvUI,int targetSlot)
     {
-        //if (inv != assignedInventory)
-        //{
-        //    Debug.Log("Not my Inventory!");
-        //    return;
-        //}
-
-        //if (!sourceInvUI.slotToView.ContainsKey(sourceSlot))
-        //{
-        //    Debug.LogError($"MoveViewDict: Source slot {sourceSlot} not found in slotToView dictionary!");
-        //    return;
-        //}
-
-        //reparenting is missing probably
         Debug.Log($"Moving {sourceSlot} from {sourceInvUI} to {targetInvUI} at {targetSlot}");
         Debug.Log($"Source Slotview Ref: {sourceInvUI.slotToView[sourceSlot].CurrentSlotIndex}");
 
@@ -45,14 +30,12 @@ public static class InventoryUIHelper
         sourceInvUI.slotToView.Remove(sourceSlot);
         targetInvUI.slotToView[targetSlot].SetReferencedSlot(targetSlot);
         Debug.Log($"target Slotview Ref: {targetInvUI.slotToView[targetSlot].CurrentSlotIndex}");
-        //targetInvUI.slotToView[targetSlot].transform.SetParent(targetInvUI.Gets);
+
         var view = targetInvUI.slotToView[targetSlot];
         view.transform.SetParent(targetInvUI.SlotIndexToContainer[view.CurrentSlotIndex].transform);
 
         sourceInvUI.UpdateView();
         targetInvUI.UpdateView();
-
-
     }
 
     public static bool Register(IInventory inv,InventoryUI ui)

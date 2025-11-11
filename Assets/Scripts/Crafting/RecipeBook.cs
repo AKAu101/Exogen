@@ -1,7 +1,6 @@
 using Generals;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class RecipeBook : Singleton<RecipeBook>
 {

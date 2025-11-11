@@ -274,31 +274,8 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
 
     public void MoveViewDict(IInventory inv,int sourceSlot, IInventory targetInv,int targetSlot)
     {
-        //
-        //
-        //if(inv == targetInv)
-        //{
-        //    if (!slotToView.ContainsKey(sourceSlot))
-        //    {
-        //        Debug.LogError($"MoveViewDict: Source slot {sourceSlot} not found in slotToView dictionary!");
-        //        return;
-        //    }
-        //
-        //    slotToView[targetSlot] = slotToView[sourceSlot];
-        //    slotToView.Remove(sourceSlot);
-        //    slotToView[targetSlot].SetReferencedSlot(targetSlot);
-        //}
-        //else
-        //{
-        //    //move view into other dictioanry
-        //    //reparent!
-        //    //remove old stuff
-        //
-        //    InventoryUIHelper.MoveViewDict
-        //}
         var targetUI = InventoryUIHelper.GetUI(targetInv);
         InventoryUIHelper.MoveViewDict(this, sourceSlot, targetUI, targetSlot);
-
     }
 
     

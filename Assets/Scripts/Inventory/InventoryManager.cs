@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 /// <summary>
 ///     Represents a stack of items in the inventory with a type and quantity.
@@ -33,6 +31,7 @@ public class InventoryManager : Singleton<InventoryManager>, IInventoryManagemen
 
     [SerializeField] Inventory playerInventory;
     public Inventory PlayerInventory => playerInventory;
+    
 
     protected override void Awake()
     {
@@ -148,7 +147,22 @@ public class InventoryManager : Singleton<InventoryManager>, IInventoryManagemen
     public void DropItem(IInventory inv, int slot)
     {
         Debug.Log("Trying to drop item");
-        var currentItemData = inv.SlotToStack[slot].ItemType;
+
+        // Check if slot contains an item
+        if (!inv.SlotToStack.TryGetValue(slot, out var stack))
+        {
+            Debug.LogWarning($"Cannot drop item: Slot {slot} is empty");
+            return;
+        }
+
+        var currentItemData = stack.ItemType;
+
+        // Check if item data is valid
+        if (currentItemData == null)
+        {
+            Debug.LogError($"Cannot drop item: ItemType in slot {slot} is null");
+            return;
+        }
 
         // Spawn in world
         if (currentItemData.itemPrefab != null && Camera.main != null)
