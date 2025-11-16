@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6511050862450305638}
   - component: {fileID: 2792453103463177942}
   - component: {fileID: 1365828111752668607}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Death Chest
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6709849556783237323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc9c1fc54416c8a4bafd0ce126f9b02e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f3966e57748e4c4b9037029a4025fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryDropChest
 --- !u!114 &1365828111752668607

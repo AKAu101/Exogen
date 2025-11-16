@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef7bcb4245c0fc4a9c40f586339812f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bf93a23b7d461c4bb592c642e4e4af9, type: 3}
   m_Name: AstroFoodSO
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
+  name: Astro Food
   icon: {fileID: 21300000, guid: 5ca666a6d6d5e0f448e2f943770bb478, type: 3}
-  name: AstroFood
-  description: not tasty
-  amount: 0
+  iconSize: {x: 200, y: 200}
+  description: food
+  amount: 1
   isConsumable: 0
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 919132149155446097, guid: 240aa151473f7404c8455dfb4869b593, type: 3}

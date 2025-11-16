@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 public class PlayerInteractionController : MonoBehaviour
 {
     public float playerReach = 3f;
-    [SerializeField] private InventoryManager inventory;
     private Interactable currentInteractable;
 
     private void Update()
