@@ -2114,7 +2114,6 @@ GameObject:
   m_Component:
   - component: {fileID: 758942894}
   - component: {fileID: 758942898}
-  - component: {fileID: 758942899}
   - component: {fileID: 758942897}
   - component: {fileID: 758942896}
   - component: {fileID: 758942895}
@@ -2139,8 +2138,8 @@ RectTransform:
   m_Children:
   - {fileID: 1414726420}
   - {fileID: 608938920}
-  - {fileID: 267566400}
   - {fileID: 321005622}
+  - {fileID: 267566400}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2224,24 +2223,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionTextUI
   interactionText: {fileID: 1139098150}
---- !u!114 &758942899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 758942893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb28d2b97697ff448139deb959af8e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemSlot
-  slotIndex: 16
-  inventoryUI: {fileID: 403256319}
-  allowInput: 1
-  slotBackground: {fileID: 0}
-  defaultSlotSprite: {fileID: 0}
-  hoverSlotSprite: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -8631,6 +8612,12 @@ MonoBehaviour:
   maxStackSize: 99
   inventoryDropChestPrefab: {fileID: 6709849556783237323, guid: 0f2783624a3fa1a48ba576c2d9bfdca9, type: 3}
   playerInventory: {fileID: 1763931103}
+  slotAreaLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  dropAreaLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!154 &5425511400354896308
 TerrainCollider:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
     // ==================== STATIC REGISTRY (from InventoryUIHelper) ====================
     private static Dictionary<IInventoryData, InventoryUI> inventoryRegistry = new();
 
+
+
     public static void RegisterInventory(IInventoryData inv, InventoryUI ui)
     {
         if (inventoryRegistry.ContainsKey(inv))
@@ -120,6 +122,7 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
             {
                 dragHandler = slotObjects[i].AddComponent<ItemDragHandler>();
             }
+
         }
 
         // Register this instance as the IUIStateManagement service

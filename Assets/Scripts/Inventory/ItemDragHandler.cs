@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 
 /// <summary>
 ///     Handles drag and drop behavior for inventory items.
@@ -11,8 +12,8 @@ using System.Collections.Generic;
 public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     //References
-    [SerializeField] private LayerMask slotAreaLayer;
-    [SerializeField] private LayerMask dropAreaLayer;
+    [SerializeField] public LayerMask slotAreaLayer;
+    [SerializeField] public LayerMask dropAreaLayer;
 
     //Properties
     private GameObject dragIcon;
@@ -32,6 +33,9 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         if (itemView == null)
             Debug.LogError("ItemDragHandler requires ItemSlot component on the same GameObject!");
+
+        slotAreaLayer = InventorySystem.Instance.slotAreaLayer;
+        dropAreaLayer = InventorySystem.Instance.dropAreaLayer;
     }
 
     private void Start()
@@ -164,20 +168,28 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         }
         else
         {
-            Debug.Log("No slot found under mouse");
-            // Check if dropped in drop area (3D physics for world drop)
-            var raycastDistance = 100f;
-            Vector3 rayStart = MouseInputUtility.GetRawMouse() + Vector3.back;
-
-            if (Physics.Raycast(rayStart, Vector3.forward, out var dropHit, raycastDistance, dropAreaLayer))
+            Debug.Log("No slot found under mouse, checking if should drop item");
+            ///old with Physics raycasting and not UI
+            //// Check if dropped in drop area (3D physics for world drop)
+            //var raycastDistance = 100f;
+            //Vector3 rayStart = MouseInputUtility.GetRawMouse() + Vector3.back;
+            //
+            //if (Physics.Raycast(rayStart, Vector3.forward, out var dropHit, raycastDistance, dropAreaLayer))
+            //{
+            //    Debug.Log("DropArea hit");
+            //    if (inventoryManagement != null)
+            //    {
+            //        inventoryManagement.DropItem(dragStartUI.AssignedInventory, dragStartSlot);
+            //        validDrop = true;
+            //    }
+            //}
+            if(ShouldDrop(eventData))
             {
-                Debug.Log("DropArea hit");
-                if (inventoryManagement != null)
-                {
-                    inventoryManagement.DropItem(dragStartUI.AssignedInventory, dragStartSlot);
-                    validDrop = true;
-                }
+                Debug.Log("Trying to drop item");
+                InventorySystem.Instance.DropItem(dragStartUI.AssignedInventory,dragStartSlot);
             }
+
+
         }
 
         // If drop was invalid, show the icon again in the original slot
@@ -209,8 +221,8 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         //custom layer check
         foreach (RaycastResult result in results)
         {
-            Debug.Log($"slotAreaLayer is {slotAreaLayer.value}");
-            if (result.gameObject.layer == 7)
+            Debug.Log($"slotAreaLayer is {slotAreaLayer}");
+            if (LayerHelpers.IsInLayerMask(result.gameObject,slotAreaLayer))
             {
                 Debug.Log($"{result.gameObject.name} has slotAreaLayer");
 
@@ -227,5 +239,32 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         Debug.Log("  No ItemSlot found in any raycast results");
         return null;
+    }
+
+
+    bool ShouldDrop(PointerEventData eventData)
+    {
+        if (graphicRaycaster == null || eventSystem == null)
+        {
+            Debug.LogWarning("GraphicRaycaster or EventSystem not found!");
+            return false;
+        }
+
+        // Set up the raycast data
+        PointerEventData pointerData = new PointerEventData(eventSystem);
+        pointerData.position = Input.mousePosition;
+
+        // Raycast to find UI elements under mouse
+        List<RaycastResult> results = new List<RaycastResult>();
+        graphicRaycaster.Raycast(pointerData, results);
+
+        foreach (RaycastResult result in results)
+        {
+            if(LayerHelpers.IsInLayerMask(result.gameObject, dropAreaLayer))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

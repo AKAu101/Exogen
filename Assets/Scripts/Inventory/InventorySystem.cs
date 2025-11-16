@@ -31,7 +31,11 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
 
     [SerializeField] InventoryData playerInventory;
     public InventoryData PlayerInventory => playerInventory;
-    
+
+
+    //AUA AUA FALSCHER PLATZ
+    [SerializeField] public LayerMask slotAreaLayer;
+    [SerializeField] public LayerMask dropAreaLayer;
 
     protected override void Awake()
     {
