@@ -9194,8 +9194,11 @@ MonoBehaviour:
   isInBreathableAir: 0
   oxygenSlider: {fileID: 0}
   playerController: {fileID: 3285536276046815513}
+  globalVolume: {fileID: 832575518}
   normalDepletionRate: 0.5
-  sprintDepletionRate: 1
+  sprintDepletionRate: 1.5
+  vignetteThreshold: 8
+  maxVignetteIntensity: 1
 --- !u!114 &7530630501979765724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9213,7 +9216,6 @@ MonoBehaviour:
   cameraTransform: {fileID: 4313150040180428302}
   leftHandOffset: {x: -0.3, y: -0.2, z: 0.5}
   rightHandOffset: {x: 0.3, y: -0.2, z: 0.5}
-  itemScale: 0.5
   mouseSensitivity: 2
   maxRotationX: 45
   maxRotationY: 45

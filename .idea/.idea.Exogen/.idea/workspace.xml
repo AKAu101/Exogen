@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Lantern.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Lantern.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/VineLantern.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/VineLantern.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/EquipmentManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/EquipmentManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Oxygen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Oxygen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
