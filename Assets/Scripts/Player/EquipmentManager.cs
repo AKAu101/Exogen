@@ -15,7 +15,7 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private Vector3 leftHandOffset = new Vector3(-0.3f, -0.2f, 0.5f);
     [SerializeField] private Vector3 rightHandOffset = new Vector3(0.3f, -0.2f, 0.5f);
-    [SerializeField] private float itemScale = 0.5f;
+    // [SerializeField] private float itemScale = 0.5f;
 
     [Header("Mouse Follow Settings")]
     [SerializeField] private float mouseSensitivity = 2f;
@@ -243,10 +243,7 @@ public class EquipmentManager : MonoBehaviour
             collider.enabled = false;
         }
 
-        // Scale the item down for holding
-        handItem.transform.localScale = Vector3.one * itemScale;
-
-        Debug.Log($"EquipmentManager: Equipped {itemData.name} in hand at scale {itemScale}");
+        Debug.Log($"EquipmentManager: Equipped {itemData.name} in hand at original scale");
     }
 
     private void UnequipItem(ref GameObject handItem)
