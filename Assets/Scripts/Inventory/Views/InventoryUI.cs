@@ -1,10 +1,28 @@
+using Generals;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Generals;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+
+public struct InventoryUISyncPackage
+{
+    public InventoryUI inventoryUI;
+    public bool isOpen;
+}
+
+
+[System.Serializable]
+public class InventoryUISyncEntry
+{
+    public InventoryUI inventory;
+    [SerializeField] bool open;
+    [SerializeField] bool close;
+    public bool Open => open;
+    public bool Close => close;
+}
 
 /// <summary>
 /// Manages the inventory UI, including item display, sl
@@ -16,8 +34,6 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
 {
     // ==================== STATIC REGISTRY (from InventoryUIHelper) ====================
     private static Dictionary<IInventoryData, InventoryUI> inventoryRegistry = new();
-
-
 
     public static void RegisterInventory(IInventoryData inv, InventoryUI ui)
     {
@@ -89,6 +105,7 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
     //References
     private IInventorySystem inventoryManagement;
     public Dictionary<int, ItemSlot> slotToView = new();
+    [SerializeField] List<InventoryUISyncEntry> syncOpenWith;
 
     protected void Awake()
     {
@@ -143,6 +160,11 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
     private void OnEnable()
     {
         TrySubscribeToEvents();
+
+        foreach(var InvUI in syncOpenWith)
+        {
+            InvUI.inventory.OnInventoryVisibilitySync += OnSyncCalled;
+        }
     }
 
     private void OnDisable()
@@ -155,11 +177,17 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
             inventoryManagement.OnItemSwapped -= HandleItemSwapped;
             eventsSubscribed = false;
         }
+
+        foreach (var InvUI in syncOpenWith)
+        {
+            InvUI.inventory.OnInventoryVisibilitySync -= OnSyncCalled; //kann sein dass das beim play mode exit die nullref throwt
+        }
     }
 
     public bool IsInventoryVisible { get; private set; }
 
     public event Action<bool> OnInventoryVisibilityChanged;
+    public event Action<InventoryUISyncPackage> OnInventoryVisibilitySync;
 
     public void SetInventoryVisible(bool visible)
     {
@@ -188,6 +216,7 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
         }
 
         OnInventoryVisibilityChanged?.Invoke(IsInventoryVisible);
+        OnInventoryVisibilitySync?.Invoke(new InventoryUISyncPackage{ inventoryUI = this,isOpen = visible});
     }
 
     public void ToggleInventory()
@@ -444,4 +473,21 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
     {
         if (context.performed) ToggleInventory();
     }
+
+    void OnSyncCalled(InventoryUISyncPackage pkg)
+    {
+        var entry = syncOpenWith.Find(e => e.inventory == pkg.inventoryUI);
+        if (entry == null)
+            return;
+
+        if (entry.Close && !pkg.isOpen)
+        {
+            SetInventoryVisible(false);
+        }
+        else if (entry.Open && pkg.isOpen)
+        {
+            SetInventoryVisible(true);
+        }
+    }
+
 }

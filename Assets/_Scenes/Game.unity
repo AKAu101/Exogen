@@ -1335,6 +1335,10 @@ MonoBehaviour:
   - {fileID: 1507915448}
   - {fileID: 1952968130}
   _Inventory: {fileID: 1763931103}
+  syncOpenWith:
+  - inventory: {fileID: 1972135006}
+    open: 1
+    close: 1
 --- !u!224 &403256320
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6896,6 +6900,10 @@ MonoBehaviour:
   - {fileID: 266749750}
   - {fileID: 500689815}
   _Inventory: {fileID: 300900701}
+  syncOpenWith:
+  - inventory: {fileID: 403256319}
+    open: 0
+    close: 1
 --- !u!224 &1972135007
 RectTransform:
   m_ObjectHideFlags: 0
