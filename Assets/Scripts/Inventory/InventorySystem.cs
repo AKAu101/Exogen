@@ -139,7 +139,7 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
         var itemType = stack.ItemType;
 
         stack.Amount -= amount;
-        Debug.Log($"Consumed {itemType.name} from slot {slot}. Amount remaining: {stack.Amount}");
+        Debug.Log($"Removed {amount}x {itemType.name} from slot {slot}. Amount remaining: {stack.Amount}");
 
         if (stack.Amount <= 0) slotToStack.Remove(slot);
 

@@ -152,6 +152,14 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                     return;
                 }
 
+                // If dropping on the same slot, just show the icon again
+                if (endInventory == dragStartUI && targetSlot.SlotIndex == dragStartSlot)
+                {
+                    Debug.Log("Dropped on same slot, showing icon again");
+                    itemView.ShowIcon();
+                    return;
+                }
+
                 Debug.Log($"Calling TryMoveItem: from {dragStartUI.AssignedInventory} slot {dragStartSlot} to {endInventory.AssignedInventory} slot {targetSlot.SlotIndex}");
 
                 bool success = inventoryManagement.TryMoveItem(
@@ -187,6 +195,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             {
                 Debug.Log("Trying to drop item");
                 InventorySystem.Instance.DropItem(dragStartUI.AssignedInventory,dragStartSlot);
+                validDrop = true; // Mark as valid so icon doesn't reappear
             }
 
 

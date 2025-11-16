@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/AstroFoodSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/AstroFoodSO.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/MoneySO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/MoneySO.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/AstroFoodRecipe.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/AstroFoodRecipe.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/MoneyRecipe.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/MoneyRecipe.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Crafting/CraftingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Crafting/CraftingSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/Views/ItemContextMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/Views/ItemContextMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/InventorySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/InventorySystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemDragHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemDragHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +40,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "ich-bin-ein-fraud",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
