@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf93a23b7d461c4bb592c642e4e4af9, type: 3}
   m_Name: MoneySO
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  icon: {fileID: 21300000, guid: aece156578bce5f4085e5924ade8f0db, type: 3}
   name: Money
+  icon: {fileID: 21300000, guid: aece156578bce5f4085e5924ade8f0db, type: 3}
+  iconSize: {x: 200, y: 200}
   description: Money is World
   amount: 0
-  isConsumable: 0
+  isConsumable: 1
   itemPrefab: {fileID: 4168843507142889419, guid: c8bb8fb89cec98f44901fa58756cf99b, type: 3}

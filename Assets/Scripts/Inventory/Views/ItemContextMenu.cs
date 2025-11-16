@@ -102,7 +102,7 @@ public class ItemContextMenu : MonoBehaviour
         {
             if (currentItemData.isConsumable)
             {
-                var inv = currentItemView.GetComponentInParent<InventoryUI>().AssignedInventory;
+                var inv = currentItemView.InventoryUI.AssignedInventory;
                 inventoryManagement.RemoveItemFromSlot(inv,currentSlotIndex);
                 Debug.Log($"Consumed {currentItemData.name} from slot {currentSlotIndex}");
             }
