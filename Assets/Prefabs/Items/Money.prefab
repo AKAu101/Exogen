@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4705448149304621217}
   - component: {fileID: 6821486610952665740}
   - component: {fileID: 7237085919170388048}
-  - component: {fileID: 6154394222820794403}
+  - component: {fileID: 8240047773725378203}
   - component: {fileID: 3876662098744990028}
   - component: {fileID: 1874022317907739275}
   m_Layer: 0
@@ -140,8 +140,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6154394222820794403}
-        m_TargetAssemblyTypeName: WorldItem, Assembly-CSharp
+      - m_Target: {fileID: 8240047773725378203}
+        m_TargetAssemblyTypeName: PickupItem, Assembly-CSharp
         m_MethodName: PickUp
         m_Mode: 1
         m_Arguments:
@@ -152,7 +152,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6154394222820794403
+--- !u!114 &8240047773725378203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,9 +161,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4168843507142889419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dedeaefd626b740873463de24e8e1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 20f29d8521b7c65498a153c80ab8251a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WorldItem
+  m_EditorClassIdentifier: Assembly-CSharp::PickupItem
   itemType: {fileID: 11400000, guid: a2e7e95323bb1aa4db30f0882b4c549c, type: 2}
 --- !u!65 &3876662098744990028
 BoxCollider:

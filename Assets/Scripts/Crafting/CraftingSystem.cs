@@ -1,0 +1,26 @@
+using Generals;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CraftingSystem : Singleton<CraftingSystem>
+{
+
+    [SerializeField] private List<RecipeData> recipes;
+
+    private Dictionary<RecipeKey, RecipeData> lookup;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        lookup = new Dictionary<RecipeKey, RecipeData>(recipes.Count);
+        foreach (var r in recipes)
+        {
+            var key = new RecipeKey(r.FirstIngredient, r.SecondIngredient);
+            lookup[key] = r;
+        }
+    }
+
+    public bool TryGetRecipe(ItemData a, ItemData b, out RecipeData recipe)
+        => lookup.TryGetValue(new RecipeKey(a, b), out recipe);
+}

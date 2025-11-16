@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef7bcb4245c0fc4a9c40f586339812f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bf93a23b7d461c4bb592c642e4e4af9, type: 3}
   m_Name: MoneySO
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   icon: {fileID: 21300000, guid: aece156578bce5f4085e5924ade8f0db, type: 3}
   name: Money
-  description: money is expensive
-  isConsumable: 1
+  description: Money is World
+  amount: 0
+  isConsumable: 0
   itemPrefab: {fileID: 4168843507142889419, guid: c8bb8fb89cec98f44901fa58756cf99b, type: 3}

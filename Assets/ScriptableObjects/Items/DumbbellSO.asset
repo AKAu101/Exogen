@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef7bcb4245c0fc4a9c40f586339812f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bf93a23b7d461c4bb592c642e4e4af9, type: 3}
   m_Name: DumbbellSO
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  icon: {fileID: 21300000, guid: 6874111768113534eaa9c70ed8554639, type: 3}
   name: Dumbbell
-  description: Light Weight
+  icon: {fileID: 21300000, guid: 6874111768113534eaa9c70ed8554639, type: 3}
+  iconSize: {x: 200, y: 200}
+  description: heavy
+  amount: 1
   isConsumable: 0
   itemPrefab: {fileID: 3538834392430873350, guid: b8419a77af58e6349abf8c7faeca4cda, type: 3}
