@@ -312,7 +312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b1dbc9083a9594fa2c40c14e68a0f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemDragHandler
-  wrapper: {fileID: 5035166749796648578}
   slotAreaLayer:
     serializedVersion: 2
     m_Bits: 128

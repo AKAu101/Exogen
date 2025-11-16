@@ -11,6 +11,7 @@ using System.Collections.Generic;
 public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     //References
+    [SerializeField] private LayerMask slotAreaLayer;
     [SerializeField] private LayerMask dropAreaLayer;
 
     //Properties
@@ -205,26 +206,23 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         Debug.Log($"UI Raycast found {results.Count} objects under mouse");
 
-        // Find the first ItemSlot in the results
+        //custom layer check
         foreach (RaycastResult result in results)
         {
-            Debug.Log($"  - Hit: {result.gameObject.name}");
-
-            // Check the object itself
-            ItemSlot slot = result.gameObject.GetComponent<ItemSlot>();
-            if (slot != null)
+            Debug.Log($"slotAreaLayer is {slotAreaLayer.value}");
+            if (result.gameObject.layer == 7)
             {
-                Debug.Log($"    Found ItemSlot on object itself: {slot.SlotIndex}");
-                return slot;
-            }
+                Debug.Log($"{result.gameObject.name} has slotAreaLayer");
 
-            // Check parent hierarchy
-            slot = result.gameObject.GetComponentInParent<ItemSlot>();
-            if (slot != null)
-            {
-                Debug.Log($"    Found ItemSlot in parent: {slot.SlotIndex}");
-                return slot;
+                ItemSlot slot = result.gameObject.GetComponent<ItemSlot>();
+                if (slot != null)
+                {
+                    Debug.Log($"    Found ItemSlot on object itself: {slot.SlotIndex}");
+                    return slot;
+                }
             }
+            else Debug.Log($"{result.gameObject.name} doesnt have slotAreaLayer its Layer is {result.gameObject.layer}");
+
         }
 
         Debug.Log("  No ItemSlot found in any raycast results");

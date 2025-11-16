@@ -4,6 +4,7 @@ using System.Linq;
 using Generals;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 /// <summary>
 /// Manages the inventory UI, including item display, sl

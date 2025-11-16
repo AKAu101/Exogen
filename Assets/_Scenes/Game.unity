@@ -1314,7 +1314,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUIManager
   wrapper: {fileID: 1339575391}
   slotRoot: {fileID: 0}
-  itemViewPrefab: {fileID: 7934908506650247288, guid: 0b95636622847574f976927ab3428ac9, type: 3}
   slotObjects:
   - {fileID: 1222990667}
   - {fileID: 569126048}
@@ -1738,7 +1737,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5874176616313987835, guid: daf31e4067f12824f9a35707cb13e67f, type: 3}
       propertyPath: slotIndex
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5874176616313987835, guid: daf31e4067f12824f9a35707cb13e67f, type: 3}
       propertyPath: inventoryUI
@@ -1893,9 +1892,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 588309322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb35e964bbd9294aa2a4084c6c12134, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fb28d2b97697ff448139deb959af8e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  slotIndex: 16
+  inventoryUI: {fileID: 0}
+  allowInput: 1
+  slotBackground: {fileID: 0}
+  defaultSlotSprite: {fileID: 0}
+  hoverSlotSprite: {fileID: 0}
 --- !u!114 &588309325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2234,8 +2239,6 @@ MonoBehaviour:
   slotIndex: 16
   inventoryUI: {fileID: 403256319}
   allowInput: 1
-  itemDisplayPrefab: {fileID: 0}
-  displayContainer: {fileID: 0}
   slotBackground: {fileID: 0}
   defaultSlotSprite: {fileID: 0}
   hoverSlotSprite: {fileID: 0}
@@ -3109,7 +3112,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5874176616313987835, guid: daf31e4067f12824f9a35707cb13e67f, type: 3}
       propertyPath: slotIndex
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5874176616313987835, guid: daf31e4067f12824f9a35707cb13e67f, type: 3}
       propertyPath: inventoryUI
@@ -3711,6 +3714,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1522992645}
     m_Modifications:
+    - target: {fileID: 5874176616313987835, guid: daf31e4067f12824f9a35707cb13e67f, type: 3}
+      propertyPath: slotIndex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5874176616313987835, guid: daf31e4067f12824f9a35707cb13e67f, type: 3}
       propertyPath: inventoryUI
       value: 
@@ -5360,9 +5367,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1507915448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb35e964bbd9294aa2a4084c6c12134, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fb28d2b97697ff448139deb959af8e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  slotIndex: 17
+  inventoryUI: {fileID: 0}
+  allowInput: 1
+  slotBackground: {fileID: 0}
+  defaultSlotSprite: {fileID: 0}
+  hoverSlotSprite: {fileID: 0}
 --- !u!114 &1507915451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5867,18 +5880,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4168843507142889419, guid: c8bb8fb89cec98f44901fa58756cf99b, type: 3}
   m_PrefabInstance: {fileID: 1723063281}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1711993884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1711993875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f35b996884341f949a71048c7b05b42b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RecipeBook
 --- !u!114 &1711993885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5888,9 +5889,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1711993875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd277a23dc467424b8c649f02dbb9d4a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7134bfdd7662e5a4687ccab907ba05e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CraftingStation
+  recipes: []
 --- !u!4 &1711993893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8199846146349392539, guid: c8bb8fb89cec98f44901fa58756cf99b, type: 3}
@@ -6118,9 +6120,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4168843507142889419, guid: c8bb8fb89cec98f44901fa58756cf99b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1711993885}
-    - targetCorrespondingSourceObject: {fileID: 4168843507142889419, guid: c8bb8fb89cec98f44901fa58756cf99b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1711993884}
   m_SourcePrefab: {fileID: 100100000, guid: c8bb8fb89cec98f44901fa58756cf99b, type: 3}
 --- !u!1 &1724647466
 GameObject:
@@ -6783,9 +6782,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1952968130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb35e964bbd9294aa2a4084c6c12134, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fb28d2b97697ff448139deb959af8e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  slotIndex: 18
+  inventoryUI: {fileID: 0}
+  allowInput: 1
+  slotBackground: {fileID: 0}
+  defaultSlotSprite: {fileID: 0}
+  hoverSlotSprite: {fileID: 0}
 --- !u!114 &1952968133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6905,7 +6910,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUIManager
   wrapper: {fileID: 413947082}
   slotRoot: {fileID: 0}
-  itemViewPrefab: {fileID: 7934908506650247288, guid: 0b95636622847574f976927ab3428ac9, type: 3}
   slotObjects:
   - {fileID: 1350993467}
   - {fileID: 266749750}

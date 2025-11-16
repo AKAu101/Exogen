@@ -54,8 +54,6 @@ MonoBehaviour:
   slotIndex: 1
   inventoryUI: {fileID: 0}
   allowInput: 1
-  itemDisplayPrefab: {fileID: 0}
-  displayContainer: {fileID: 0}
   slotBackground: {fileID: 0}
   defaultSlotSprite: {fileID: 0}
   hoverSlotSprite: {fileID: 0}
