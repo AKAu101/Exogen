@@ -33,9 +33,6 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         if (itemView == null)
             Debug.LogError("ItemDragHandler requires ItemSlot component on the same GameObject!");
-
-        slotAreaLayer = InventorySystem.Instance.slotAreaLayer;
-        dropAreaLayer = InventorySystem.Instance.dropAreaLayer;
     }
 
     private void Start()
@@ -44,6 +41,17 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         // Using Start() instead of Awake() to ensure singletons have registered themselves
         if (ServiceLocator.Instance.IsRegistered<IInventorySystem>())
             inventoryManagement = ServiceLocator.Instance.Get<IInventorySystem>();
+
+        // Get layers from InventorySystem (must be in Start to ensure InventorySystem.Instance exists)
+        if (InventorySystem.Instance != null)
+        {
+            slotAreaLayer = InventorySystem.Instance.slotAreaLayer;
+            dropAreaLayer = InventorySystem.Instance.dropAreaLayer;
+        }
+        else
+        {
+            Debug.LogError("InventorySystem.Instance is null in ItemDragHandler.Start()!");
+        }
 
         // Get UI raycasting components
         Canvas canvas = GetComponentInParent<Canvas>();
