@@ -10,9 +10,11 @@ public class Oxygen : MonoBehaviour
 
     //References
     [Header("References")]
-    [SerializeField] private Slider oxygenSlider;
     [SerializeField] private FirstPersonController playerController;
     [SerializeField] private Volume globalVolume;
+    
+    [Header("UI (optional)")]
+    [SerializeField] private Slider oxygenSlider;
 
     [Header("Depletion Rates")]
     [SerializeField] private float normalDepletionRate = 1f;
@@ -69,11 +71,31 @@ public class Oxygen : MonoBehaviour
         UpdateOxygenUI();
         UpdateVignette();
 
-        if (oxygenLevel <= 0.0f)
+        if (oxygenLevel <= 0.0f && !isDead)
         {
             isDead = true;
             DebugManager.Log("Oxygen depleted");
         }
+    }
+
+    /// <summary>
+    /// Check if oxygen has been depleted
+    /// </summary>
+    public bool IsOxygenDepleted()
+    {
+        return isDead;
+    }
+
+    /// <summary>
+    /// Reset oxygen to max capacity (used on respawn)
+    /// </summary>
+    public void ResetOxygen()
+    {
+        oxygenLevel = oxygenMaxCapacity;
+        isDead = false;
+        UpdateOxygenUI();
+        UpdateVignette();
+        DebugManager.Log("Oxygen reset to max capacity");
     }
     
     private void UpdateOxygenUI()
@@ -121,4 +143,9 @@ public class Oxygen : MonoBehaviour
             DebugManager.Log("Left safe zone - oxygen depleting");
         }
     }
+
+    // Public getters
+    public float CurrentOxygen => oxygenLevel;
+    public float MaxOxygen => oxygenMaxCapacity;
+    public bool IsDead => isDead;
 }

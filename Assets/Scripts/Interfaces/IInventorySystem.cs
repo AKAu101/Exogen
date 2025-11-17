@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 ///     Core inventory system interface managing item operations across multiple inventories.
@@ -23,6 +24,15 @@ public interface IInventorySystem
     bool TryMoveItem(IInventoryData invOne, int sourceSlot, IInventoryData invTwo, int targetSlot);
     void ForceSetSlot(IInventoryData inv, int slot, ItemData itemType, int amount);
     void DropItem(IInventoryData inv, int slot);
+
+    // Inventory management
+    void ClearInventory(IInventoryData inv);
+    List<ItemStack> DumpInventory(IInventoryData inv);
+    GameObject SpawnDropChest(IInventoryData inv, Vector3 position);
+    GameObject SpawnDropChestAtPlayer(IInventoryData inv, Transform playerTransform);
+    List<ItemStack> GetStacks(IInventoryData inv);
+    bool HasItem(IInventoryData inv, ItemData itemType);
+    int GetItemCount(IInventoryData inv);
 
     // Events
     event Action<IInventoryData, ItemData, int> OnItemAdded;
