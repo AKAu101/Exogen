@@ -39,10 +39,10 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
     {
         if (inventoryRegistry.ContainsKey(inv))
         {
-            Debug.LogWarning($"Inventory {inv} already registered, overwriting.");
+            DebugManager.LogWarning($"Inventory {inv} already registered, overwriting.");
         }
         inventoryRegistry[inv] = ui;
-        Debug.Log($"Registered {inv} - {ui}");
+        DebugManager.Log($"Registered {inv} - {ui}");
     }
 
     public static InventoryUI GetUI(IInventoryData inv)
@@ -51,7 +51,7 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
         {
             return ui;
         }
-        Debug.LogError($"No UI registered for inventory {inv}");
+        DebugManager.LogError($"No UI registered for inventory {inv}");
         return null;
     }
 
@@ -59,7 +59,7 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
     {
         if (!invOne.slotToView.ContainsKey(sourceSlot) || !invTwo.slotToView.ContainsKey(targetSlot))
         {
-            Debug.LogError($"SwapViews: Source slot {sourceSlot} or target slot {targetSlot} not found!");
+            DebugManager.LogError($"SwapViews: Source slot {sourceSlot} or target slot {targetSlot} not found!");
             return false;
         }
 
@@ -71,13 +71,13 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
 
     public static void MoveViewBetweenInventories(InventoryUI sourceUI, int sourceSlot, InventoryUI targetUI, int targetSlot)
     {
-        Debug.Log($"Moving {sourceSlot} from {sourceUI} to {targetUI} at {targetSlot}");
-        Debug.Log($"Source SlotView Ref: {sourceUI.slotToView[sourceSlot].CurrentSlotIndex}");
+        DebugManager.Log($"Moving {sourceSlot} from {sourceUI} to {targetUI} at {targetSlot}");
+        DebugManager.Log($"Source SlotView Ref: {sourceUI.slotToView[sourceSlot].CurrentSlotIndex}");
 
         targetUI.slotToView[targetSlot] = sourceUI.slotToView[sourceSlot];
         sourceUI.slotToView.Remove(sourceSlot);
         targetUI.slotToView[targetSlot].SetReferencedSlot(targetSlot);
-        Debug.Log($"Target SlotView Ref: {targetUI.slotToView[targetSlot].CurrentSlotIndex}");
+        DebugManager.Log($"Target SlotView Ref: {targetUI.slotToView[targetSlot].CurrentSlotIndex}");
 
         var view = targetUI.slotToView[targetSlot];
         view.transform.SetParent(targetUI.SlotIndexToContainer[view.CurrentSlotIndex].transform);
@@ -266,20 +266,20 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
     {
         if (inventoryManagement == null)
         {
-            Debug.LogError("HandleItemAdded: inventoryManagement is null!");
+            DebugManager.LogError("HandleItemAdded: inventoryManagement is null!");
             return;
         }
 
         if (inv != assignedInventory)
         {
-            Debug.Log($"Not my({this}) Inventory!");
+            DebugManager.Log($"Not my({this}) Inventory!");
             return;
         }
 
         // Use existing slot GameObject from slotIndexToContainer
         if (!slotIndexToContainer.ContainsKey(slot))
         {
-            Debug.LogError($"Slot {slot} not found in slotIndexToContainer! Max slots: {slotIndexToContainer.Count}");
+            DebugManager.LogError($"Slot {slot} not found in slotIndexToContainer! Max slots: {slotIndexToContainer.Count}");
             return;
         }
 
@@ -288,7 +288,7 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
 
         if (itemSlot == null)
         {
-            Debug.LogError($"ItemSlot component not found on slot {slot}!");
+            DebugManager.LogError($"ItemSlot component not found on slot {slot}!");
             return;
         }
 
@@ -313,7 +313,7 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
 
         if (inv != assignedInventory)
         {
-            Debug.Log("Not my Inventory!");
+            DebugManager.Log("Not my Inventory!");
             return;
         }
 
@@ -344,11 +344,11 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
     {
         if (invOne != assignedInventory && invTwo != assignedInventory)
         {
-            Debug.Log($"Not my({this}) Inventory!");
+            DebugManager.Log($"Not my({this}) Inventory!");
             return;
         }
 
-        Debug.Log($"Handling Item Moved! I am {this}");
+        DebugManager.Log($"Handling Item Moved! I am {this}");
 
         // Update source slot (clear it if item was moved away)
         if (invOne == assignedInventory && slotToView.ContainsKey(sourceSlot))
@@ -386,7 +386,7 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
     {
         if (invOne != assignedInventory && invTwo != assignedInventory)
         {
-            Debug.Log("Not my Inventory!");
+            DebugManager.Log("Not my Inventory!");
             return;
         }
 
@@ -428,7 +428,7 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
     {
         if (view == null)
         {
-            Debug.LogWarning("ItemSlot is null in IntegrateView!");
+            DebugManager.LogWarning("ItemSlot is null in IntegrateView!");
             return;
         }
 
@@ -437,7 +437,7 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
         // Use indexer instead of Add to handle cases where key might already exist
         if (slotToView.ContainsKey(view.CurrentSlotIndex))
         {
-            Debug.LogWarning(
+            DebugManager.LogWarning(
                 $"IntegrateView: Slot {view.CurrentSlotIndex} already exists in slotToView, replacing it.");
             Destroy(slotToView[view.CurrentSlotIndex].gameObject);
         }

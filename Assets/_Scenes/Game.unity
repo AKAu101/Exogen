@@ -2076,6 +2076,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AstroFood
       objectReference: {fileID: 0}
+    - target: {fileID: 7237085919170388048, guid: 9fbfeeb02f3ac704cb30534741d9b73f, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8199846146349392539, guid: 9fbfeeb02f3ac704cb30534741d9b73f, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.66044
@@ -2128,7 +2132,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6154394222820794403, guid: 9fbfeeb02f3ac704cb30534741d9b73f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4243,6 +4248,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231522744}
   m_CullTransparentMesh: 1
+--- !u!1 &1292449455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1292449456}
+  m_Layer: 0
+  m_Name: Debug Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1292449456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292449455}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1300598161
 GameObject:
   m_ObjectHideFlags: 0
@@ -9399,7 +9435,10 @@ MonoBehaviour:
   lanternItemName: Lantern
   leftHandSlot: 17
   rightHandSlot: 18
-  lightOffset: {x: -0.307, y: -0.198, z: 0.495}
+  leftHandPosition: {x: -0.3, y: -0.2, z: 0.5}
+  leftHandRotation: {x: 0, y: 0, z: 0}
+  rightHandPosition: {x: 0.3, y: -0.2, z: 0.5}
+  rightHandRotation: {x: 0, y: 0, z: 0}
 --- !u!1001 &7549379215898797157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9655,6 +9694,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1467685934}
+  - {fileID: 1292449456}
   - {fileID: 1559392329470563563}
   - {fileID: 1965705723}
   - {fileID: 410087041}

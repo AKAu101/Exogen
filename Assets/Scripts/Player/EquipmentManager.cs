@@ -34,7 +34,7 @@ public class EquipmentManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("EquipmentManager: Starting initialization");
+        DebugManager.Log("EquipmentManager: Starting initialization");
 
         // Find camera if not assigned
         if (cameraTransform == null)
@@ -42,7 +42,7 @@ public class EquipmentManager : MonoBehaviour
             cameraTransform = Camera.main.transform;
         }
 
-        Debug.Log($"EquipmentManager: Camera found: {cameraTransform != null}");
+        DebugManager.Log($"EquipmentManager: Camera found: {cameraTransform != null}");
 
         // Get inventory system from ServiceLocator
         if (ServiceLocator.Instance.IsRegistered<IInventorySystem>())
@@ -52,8 +52,8 @@ public class EquipmentManager : MonoBehaviour
             // Get player inventory reference
             playerInventory = InventorySystem.Instance.PlayerInventory;
 
-            Debug.Log($"EquipmentManager: Inventory system found. PlayerInventory: {playerInventory != null}");
-            Debug.Log($"EquipmentManager: Hand slots configured - Left: {leftHandSlot}, Right: {rightHandSlot}");
+            DebugManager.Log($"EquipmentManager: Inventory system found. PlayerInventory: {playerInventory != null}");
+            DebugManager.Log($"EquipmentManager: Hand slots configured - Left: {leftHandSlot}, Right: {rightHandSlot}");
 
             // Subscribe to inventory events
             inventorySystem.OnItemAdded += HandleItemAdded;
@@ -61,11 +61,11 @@ public class EquipmentManager : MonoBehaviour
             inventorySystem.OnItemMoved += HandleItemMoved;
             inventorySystem.OnItemSwapped += HandleItemSwapped;
 
-            Debug.Log("EquipmentManager: Subscribed to inventory events");
+            DebugManager.Log("EquipmentManager: Subscribed to inventory events");
         }
         else
         {
-            Debug.LogError("EquipmentManager: IInventorySystem not found in ServiceLocator!");
+            DebugManager.LogError("EquipmentManager: IInventorySystem not found in ServiceLocator!");
         }
 
         // Get UI state management
@@ -74,7 +74,7 @@ public class EquipmentManager : MonoBehaviour
             uiStateManagement = ServiceLocator.Instance.Get<IUIStateManagement>();
         }
 
-        Debug.Log("EquipmentManager: Initialization complete");
+        DebugManager.Log("EquipmentManager: Initialization complete");
     }
 
     private void OnDestroy()
@@ -97,28 +97,28 @@ public class EquipmentManager : MonoBehaviour
 
     private void HandleItemAdded(IInventoryData inv, ItemData itemData, int slot)
     {
-        Debug.Log($"EquipmentManager: HandleItemAdded called - Slot: {slot}, Item: {itemData.name}, Is PlayerInv: {inv == playerInventory}");
+        DebugManager.Log($"EquipmentManager: HandleItemAdded called - Slot: {slot}, Item: {itemData.name}, Is PlayerInv: {inv == playerInventory}");
 
         // Only handle player inventory
         if (inv != playerInventory)
         {
-            Debug.Log($"EquipmentManager: Not player inventory, ignoring");
+            DebugManager.Log($"EquipmentManager: Not player inventory, ignoring");
             return;
         }
 
         if (slot == leftHandSlot)
         {
-            Debug.Log($"EquipmentManager: Equipping to LEFT hand (slot {leftHandSlot})");
+            DebugManager.Log($"EquipmentManager: Equipping to LEFT hand (slot {leftHandSlot})");
             EquipItem(itemData, ref leftHandItem, leftHandOffset);
         }
         else if (slot == rightHandSlot)
         {
-            Debug.Log($"EquipmentManager: Equipping to RIGHT hand (slot {rightHandSlot})");
+            DebugManager.Log($"EquipmentManager: Equipping to RIGHT hand (slot {rightHandSlot})");
             EquipItem(itemData, ref rightHandItem, rightHandOffset);
         }
         else
         {
-            Debug.Log($"EquipmentManager: Slot {slot} is not a hand slot");
+            DebugManager.Log($"EquipmentManager: Slot {slot} is not a hand slot");
         }
     }
 
@@ -139,12 +139,12 @@ public class EquipmentManager : MonoBehaviour
 
     private void HandleItemMoved(IInventoryData invOne, int sourceSlot, IInventoryData invTwo, int targetSlot)
     {
-        Debug.Log($"EquipmentManager: HandleItemMoved - From slot {sourceSlot} to slot {targetSlot}");
+        DebugManager.Log($"EquipmentManager: HandleItemMoved - From slot {sourceSlot} to slot {targetSlot}");
 
         // Only handle player inventory
         if (invOne != playerInventory && invTwo != playerInventory)
         {
-            Debug.Log("EquipmentManager: Not player inventory in HandleItemMoved");
+            DebugManager.Log("EquipmentManager: Not player inventory in HandleItemMoved");
             return;
         }
 
@@ -153,12 +153,12 @@ public class EquipmentManager : MonoBehaviour
         {
             if (targetSlot == leftHandSlot)
             {
-                Debug.Log($"EquipmentManager: Item moved TO left hand slot");
+                DebugManager.Log($"EquipmentManager: Item moved TO left hand slot");
                 RefreshHandSlot(leftHandSlot, ref leftHandItem, leftHandOffset);
             }
             else if (targetSlot == rightHandSlot)
             {
-                Debug.Log($"EquipmentManager: Item moved TO right hand slot");
+                DebugManager.Log($"EquipmentManager: Item moved TO right hand slot");
                 RefreshHandSlot(rightHandSlot, ref rightHandItem, rightHandOffset);
             }
         }
@@ -168,12 +168,12 @@ public class EquipmentManager : MonoBehaviour
         {
             if (sourceSlot == leftHandSlot)
             {
-                Debug.Log($"EquipmentManager: Item moved FROM left hand slot");
+                DebugManager.Log($"EquipmentManager: Item moved FROM left hand slot");
                 UnequipItem(ref leftHandItem);
             }
             else if (sourceSlot == rightHandSlot)
             {
-                Debug.Log($"EquipmentManager: Item moved FROM right hand slot");
+                DebugManager.Log($"EquipmentManager: Item moved FROM right hand slot");
                 UnequipItem(ref rightHandItem);
             }
         }
@@ -197,7 +197,7 @@ public class EquipmentManager : MonoBehaviour
 
     private void EquipItem(ItemData itemData, ref GameObject handItem, Vector3 offset)
     {
-        Debug.Log($"EquipmentManager: EquipItem called for {itemData.name}");
+        DebugManager.Log($"EquipmentManager: EquipItem called for {itemData.name}");
 
         // Clear existing item first
         UnequipItem(ref handItem);
@@ -205,22 +205,22 @@ public class EquipmentManager : MonoBehaviour
         // Check if item has a prefab
         if (itemData.itemPrefab == null)
         {
-            Debug.LogWarning($"EquipmentManager: Cannot equip {itemData.name}: no itemPrefab assigned!");
+            DebugManager.LogWarning($"EquipmentManager: Cannot equip {itemData.name}: no itemPrefab assigned!");
             return;
         }
 
-        Debug.Log($"EquipmentManager: Instantiating prefab {itemData.itemPrefab.name}");
+        DebugManager.Log($"EquipmentManager: Instantiating prefab {itemData.itemPrefab.name}");
 
         // Spawn the item prefab
         handItem = Instantiate(itemData.itemPrefab);
 
         if (handItem == null)
         {
-            Debug.LogError($"EquipmentManager: Failed to instantiate {itemData.itemPrefab.name}!");
+            DebugManager.LogError($"EquipmentManager: Failed to instantiate {itemData.itemPrefab.name}!");
             return;
         }
 
-        Debug.Log($"EquipmentManager: Item instantiated successfully at position {handItem.transform.position}");
+        DebugManager.Log($"EquipmentManager: Item instantiated successfully at position {handItem.transform.position}");
 
         // Disable any pickup-related components
         var pickupComponent = handItem.GetComponent<PickupItem>();
@@ -243,7 +243,7 @@ public class EquipmentManager : MonoBehaviour
             collider.enabled = false;
         }
 
-        Debug.Log($"EquipmentManager: Equipped {itemData.name} in hand at original scale");
+        DebugManager.Log($"EquipmentManager: Equipped {itemData.name} in hand at original scale");
     }
 
     private void UnequipItem(ref GameObject handItem)

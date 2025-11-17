@@ -32,7 +32,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         itemView = GetComponent<ItemSlot>();
 
         if (itemView == null)
-            Debug.LogError("ItemDragHandler requires ItemSlot component on the same GameObject!");
+            DebugManager.LogError("ItemDragHandler requires ItemSlot component on the same GameObject!");
     }
 
     private void Start()
@@ -50,7 +50,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         }
         else
         {
-            Debug.LogError("InventorySystem.Instance is null in ItemDragHandler.Start()!");
+            DebugManager.LogError("InventorySystem.Instance is null in ItemDragHandler.Start()!");
         }
 
         // Get UI raycasting components
@@ -146,9 +146,9 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         if (targetSlot != null)
         {
-            Debug.Log($"Dropped on slot: {targetSlot.SlotIndex}");
-            Debug.Log($"Target slot InventoryUI: {targetSlot.InventoryUI}");
-            Debug.Log($"Drag start InventoryUI: {dragStartUI}");
+            DebugManager.Log($"Dropped on slot: {targetSlot.SlotIndex}");
+            DebugManager.Log($"Target slot InventoryUI: {targetSlot.InventoryUI}");
+            DebugManager.Log($"Drag start InventoryUI: {dragStartUI}");
 
             if (targetSlot.AllowInput && inventoryManagement != null)
             {
@@ -156,35 +156,35 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
                 if (endInventory == null)
                 {
-                    Debug.LogError("Target slot has null InventoryUI!");
+                    DebugManager.LogError("Target slot has null InventoryUI!");
                     return;
                 }
 
                 // If dropping on the same slot, just show the icon again
                 if (endInventory == dragStartUI && targetSlot.SlotIndex == dragStartSlot)
                 {
-                    Debug.Log("Dropped on same slot, showing icon again");
+                    DebugManager.Log("Dropped on same slot, showing icon again");
                     itemView.ShowIcon();
                     return;
                 }
 
-                Debug.Log($"Calling TryMoveItem: from {dragStartUI.AssignedInventory} slot {dragStartSlot} to {endInventory.AssignedInventory} slot {targetSlot.SlotIndex}");
+                DebugManager.Log($"Calling TryMoveItem: from {dragStartUI.AssignedInventory} slot {dragStartSlot} to {endInventory.AssignedInventory} slot {targetSlot.SlotIndex}");
 
                 bool success = inventoryManagement.TryMoveItem(
                     dragStartUI.AssignedInventory, dragStartSlot,
                     endInventory.AssignedInventory, targetSlot.SlotIndex);
 
                 validDrop = success;
-                Debug.Log($"Move success: {success}");
+                DebugManager.Log($"Move success: {success}");
             }
             else
             {
-                Debug.Log($"Slot doesn't allow input: {!targetSlot.AllowInput}, inventory management is null: {inventoryManagement == null}");
+                DebugManager.Log($"Slot doesn't allow input: {!targetSlot.AllowInput}, inventory management is null: {inventoryManagement == null}");
             }
         }
         else
         {
-            Debug.Log("No slot found under mouse, checking if should drop item");
+            DebugManager.Log("No slot found under mouse, checking if should drop item");
             ///old with Physics raycasting and not UI
             //// Check if dropped in drop area (3D physics for world drop)
             //var raycastDistance = 100f;
@@ -201,7 +201,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             //}
             if(ShouldDrop(eventData))
             {
-                Debug.Log("Trying to drop item");
+                DebugManager.Log("Trying to drop item");
                 InventorySystem.Instance.DropItem(dragStartUI.AssignedInventory,dragStartSlot);
                 validDrop = true; // Mark as valid so icon doesn't reappear
             }
@@ -212,7 +212,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         // If drop was invalid, show the icon again in the original slot
         if (!validDrop)
         {
-            Debug.Log("Invalid drop, showing icon again");
+            DebugManager.Log("Invalid drop, showing icon again");
             itemView.ShowIcon();
         }
     }
@@ -221,7 +221,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         if (graphicRaycaster == null || eventSystem == null)
         {
-            Debug.LogWarning("GraphicRaycaster or EventSystem not found!");
+            DebugManager.LogWarning("GraphicRaycaster or EventSystem not found!");
             return null;
         }
 
@@ -233,28 +233,28 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         List<RaycastResult> results = new List<RaycastResult>();
         graphicRaycaster.Raycast(pointerData, results);
 
-        Debug.Log($"UI Raycast found {results.Count} objects under mouse");
+        DebugManager.Log($"UI Raycast found {results.Count} objects under mouse");
 
         //custom layer check
         foreach (RaycastResult result in results)
         {
-            Debug.Log($"slotAreaLayer is {slotAreaLayer}");
+            DebugManager.Log($"slotAreaLayer is {slotAreaLayer}");
             if (LayerHelpers.IsInLayerMask(result.gameObject,slotAreaLayer))
             {
-                Debug.Log($"{result.gameObject.name} has slotAreaLayer");
+                DebugManager.Log($"{result.gameObject.name} has slotAreaLayer");
 
                 ItemSlot slot = result.gameObject.GetComponent<ItemSlot>();
                 if (slot != null)
                 {
-                    Debug.Log($"    Found ItemSlot on object itself: {slot.SlotIndex}");
+                    DebugManager.Log($"    Found ItemSlot on object itself: {slot.SlotIndex}");
                     return slot;
                 }
             }
-            else Debug.Log($"{result.gameObject.name} doesnt have slotAreaLayer its Layer is {result.gameObject.layer}");
+            else DebugManager.Log($"{result.gameObject.name} doesnt have slotAreaLayer its Layer is {result.gameObject.layer}");
 
         }
 
-        Debug.Log("  No ItemSlot found in any raycast results");
+        DebugManager.Log("  No ItemSlot found in any raycast results");
         return null;
     }
 
@@ -263,7 +263,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         if (graphicRaycaster == null || eventSystem == null)
         {
-            Debug.LogWarning("GraphicRaycaster or EventSystem not found!");
+            DebugManager.LogWarning("GraphicRaycaster or EventSystem not found!");
             return false;
         }
 

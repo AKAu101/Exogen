@@ -33,11 +33,11 @@ public class Oxygen : MonoBehaviour
         if (globalVolume != null && globalVolume.profile.TryGet(out vignette))
         {
             vignette.active = true;
-            Debug.Log("Vignette component found and initialized");
+            DebugManager.Log("Vignette component found and initialized");
         }
         else
         {
-            Debug.LogWarning("Vignette component not found in Global Volume!");
+            DebugManager.LogWarning("Vignette component not found in Global Volume!");
         }
 
         UpdateVignette();
@@ -72,7 +72,7 @@ public class Oxygen : MonoBehaviour
         if (oxygenLevel <= 0.0f)
         {
             isDead = true;
-            Debug.Log("Oxygen depleted");
+            DebugManager.Log("Oxygen depleted");
         }
     }
     
@@ -109,7 +109,7 @@ public class Oxygen : MonoBehaviour
         if (other.CompareTag("OxygenArea"))
         {
             isInBreathableAir = true;
-            Debug.Log("Entered safe zone - oxygen restoring");
+            DebugManager.Log("Entered safe zone - oxygen restoring");
         }
     }
 
@@ -118,7 +118,7 @@ public class Oxygen : MonoBehaviour
         if (other.CompareTag("OxygenArea"))
         {
             isInBreathableAir = false;
-            Debug.Log("Left safe zone - oxygen depleting");
+            DebugManager.Log("Left safe zone - oxygen depleting");
         }
     }
 }

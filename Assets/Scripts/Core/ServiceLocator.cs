@@ -29,13 +29,13 @@ public class ServiceLocator
 
         if (services.ContainsKey(type))
         {
-            Debug.LogWarning($"Service of type {type.Name} is already registered. Overwriting.");
+            DebugManager.LogWarning($"Service of type {type.Name} is already registered. Overwriting.");
             services[type] = implementation;
         }
         else
         {
             services.Add(type, implementation);
-            Debug.Log($"Service registered: {type.Name}");
+            DebugManager.Log($"Service registered: {type.Name}");
         }
     }
 
@@ -46,7 +46,7 @@ public class ServiceLocator
 
         if (services.TryGetValue(type, out var service)) return service as TInterface;
 
-        Debug.LogError($"Service of type {type.Name} not found. Make sure it's registered.");
+        DebugManager.LogError($"Service of type {type.Name} not found. Make sure it's registered.");
         return null;
     }
 
@@ -63,7 +63,7 @@ public class ServiceLocator
         if (services.ContainsKey(type))
         {
             services.Remove(type);
-            Debug.Log($"Service unregistered: {type.Name}");
+            DebugManager.Log($"Service unregistered: {type.Name}");
         }
     }
 
@@ -72,6 +72,6 @@ public class ServiceLocator
     public void Clear()
     {
         services.Clear();
-        Debug.Log("All services cleared from ServiceLocator.");
+        DebugManager.Log("All services cleared from ServiceLocator.");
     }
 }

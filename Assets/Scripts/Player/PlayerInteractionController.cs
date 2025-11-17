@@ -20,7 +20,7 @@ public class PlayerInteractionController : MonoBehaviour
         if (context.performed && currentInteractable != null)
         {
             currentInteractable.Interact(this.gameObject);
-            Debug.Log($"Interacted with: {currentInteractable.gameObject.name}");
+            DebugManager.Log($"Interacted with: {currentInteractable.gameObject.name}");
         }
     }
 

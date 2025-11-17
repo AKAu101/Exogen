@@ -25,7 +25,7 @@ public class LanternController : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("LanternController: Starting initialization");
+        DebugManager.Log("LanternController: Starting initialization");
 
         // Find camera if not assigned
         if (cameraTransform == null)
@@ -45,7 +45,7 @@ public class LanternController : MonoBehaviour
             inventorySystem = ServiceLocator.Instance.Get<IInventorySystem>();
             playerInventory = InventorySystem.Instance.PlayerInventory;
 
-            Debug.Log($"LanternController: Inventory system found");
+            DebugManager.Log($"LanternController: Inventory system found");
 
             // Subscribe to inventory events
             inventorySystem.OnItemAdded += HandleInventoryChanged;
@@ -53,25 +53,25 @@ public class LanternController : MonoBehaviour
             inventorySystem.OnItemMoved += HandleItemMoved;
             inventorySystem.OnItemSwapped += HandleItemSwapped;
 
-            Debug.Log("LanternController: Subscribed to inventory events");
+            DebugManager.Log("LanternController: Subscribed to inventory events");
         }
         else
         {
-            Debug.LogError("LanternController: IInventorySystem not found in ServiceLocator!");
+            DebugManager.LogError("LanternController: IInventorySystem not found in ServiceLocator!");
         }
 
         // Ensure lantern light is off at start
         if (lanternLight != null)
         {
             lanternLight.enabled = false;
-            Debug.Log("LanternController: Lantern light initialized and disabled");
+            DebugManager.Log("LanternController: Lantern light initialized and disabled");
         }
         else
         {
-            Debug.LogWarning("LanternController: Lantern light not assigned!");
+            DebugManager.LogWarning("LanternController: Lantern light not assigned!");
         }
 
-        Debug.Log("LanternController: Initialization complete");
+        DebugManager.Log("LanternController: Initialization complete");
     }
 
     private void Update()
@@ -110,7 +110,7 @@ public class LanternController : MonoBehaviour
         if (inv != playerInventory) return;
         if (slot != leftHandSlot && slot != rightHandSlot) return;
 
-        Debug.Log($"LanternController: Inventory changed in hand slot {slot}");
+        DebugManager.Log($"LanternController: Inventory changed in hand slot {slot}");
         UpdateLanternLight();
     }
 
@@ -131,7 +131,7 @@ public class LanternController : MonoBehaviour
 
         if (involvesHands)
         {
-            Debug.Log($"LanternController: Item moved involving hand slots");
+            DebugManager.Log($"LanternController: Item moved involving hand slots");
             UpdateLanternLight();
         }
     }
@@ -153,7 +153,7 @@ public class LanternController : MonoBehaviour
 
         if (involvesHands)
         {
-            Debug.Log($"LanternController: Item swapped involving hand slots");
+            DebugManager.Log($"LanternController: Item swapped involving hand slots");
             UpdateLanternLight();
         }
     }
@@ -172,7 +172,7 @@ public class LanternController : MonoBehaviour
             {
                 hasLantern = true;
                 isLeftHand = true;
-                Debug.Log($"LanternController: Lantern found in LEFT hand");
+                DebugManager.Log($"LanternController: Lantern found in LEFT hand");
             }
         }
 
@@ -183,7 +183,7 @@ public class LanternController : MonoBehaviour
             {
                 hasLantern = true;
                 isLeftHand = false;
-                Debug.Log($"LanternController: Lantern found in RIGHT hand");
+                DebugManager.Log($"LanternController: Lantern found in RIGHT hand");
             }
         }
 
@@ -192,11 +192,11 @@ public class LanternController : MonoBehaviour
 
         if (hasLantern)
         {
-            Debug.Log($"LanternController: Lantern equipped in {(isLeftHand ? "LEFT" : "RIGHT")} hand, light ENABLED");
+            DebugManager.Log($"LanternController: Lantern equipped in {(isLeftHand ? "LEFT" : "RIGHT")} hand, light ENABLED");
         }
         else
         {
-            Debug.Log("LanternController: No lantern equipped, light DISABLED");
+            DebugManager.Log("LanternController: No lantern equipped, light DISABLED");
         }
     }
 }

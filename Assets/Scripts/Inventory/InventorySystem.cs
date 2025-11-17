@@ -80,7 +80,7 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
         
         if (slotToStack.Count >= maxInventorySize)
         {
-            Debug.Log("Inventory is full!");
+            DebugManager.Log("Inventory is full!");
             return false;
         }
 
@@ -102,7 +102,7 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
         }
 
         if (OnItemAdded != null) OnItemAdded.Invoke(inv,itemType, slot);
-        Debug.Log($"Added {itemType.name} to inventory at slot {slot}. Stack amount: {slotToStack[slot].Amount}");
+        DebugManager.Log($"Added {itemType.name} to inventory at slot {slot}. Stack amount: {slotToStack[slot].Amount}");
         return true;
     }
 
@@ -117,11 +117,11 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
 
             if (slotToStack[slot].Amount <= 0) slotToStack.Remove(slot);
             if (OnItemRemoved != null) OnItemRemoved.Invoke(inv, itemType, slot);
-            Debug.Log($"Removed {itemType.name} from inventory. Items remaining: {slotToStack.Count}");
+            DebugManager.Log($"Removed {itemType.name} from inventory. Items remaining: {slotToStack.Count}");
             return true;
         }
 
-        Debug.Log($"{itemType.name} not found in inventory.");
+        DebugManager.Log($"{itemType.name} not found in inventory.");
         return false;
     }
 
@@ -131,7 +131,7 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
 
         if (!slotToStack.ContainsKey(slot))
         {
-            Debug.LogWarning($"No item found in slot {slot}");
+            DebugManager.LogWarning($"No item found in slot {slot}");
             return false;
         }
 
@@ -139,7 +139,7 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
         var itemType = stack.ItemType;
 
         stack.Amount -= amount;
-        Debug.Log($"Removed {amount}x {itemType.name} from slot {slot}. Amount remaining: {stack.Amount}");
+        DebugManager.Log($"Removed {amount}x {itemType.name} from slot {slot}. Amount remaining: {stack.Amount}");
 
         if (stack.Amount <= 0) slotToStack.Remove(slot);
 
@@ -150,12 +150,12 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
 
     public void DropItem(IInventoryData inv, int slot)
     {
-        Debug.Log("Trying to drop item");
+        DebugManager.Log("Trying to drop item");
 
         // Check if slot contains an item
         if (!inv.SlotToStack.TryGetValue(slot, out var stack))
         {
-            Debug.LogWarning($"Cannot drop item: Slot {slot} is empty");
+            DebugManager.LogWarning($"Cannot drop item: Slot {slot} is empty");
             return;
         }
 
@@ -164,7 +164,7 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
         // Check if item data is valid
         if (currentItemData == null)
         {
-            Debug.LogError($"Cannot drop item: ItemType in slot {slot} is null");
+            DebugManager.LogError($"Cannot drop item: ItemType in slot {slot} is null");
             return;
         }
 
@@ -174,11 +174,11 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
             var dropPosition = Camera.main.transform.position + Camera.main.transform.forward * 2f;
             Instantiate(currentItemData.itemPrefab, dropPosition, Quaternion.identity);
             RemoveItemFromSlot(inv, slot); //remove from inv after dropping in world
-            Debug.Log($"Dropped {currentItemData.name} at position {dropPosition}");
+            DebugManager.Log($"Dropped {currentItemData.name} at position {dropPosition}");
         }
         else
         {
-            Debug.LogWarning("Item prefab or camera not found!");
+            DebugManager.LogWarning("Item prefab or camera not found!");
         }
         InventoryUI.GetUI(inv).UpdateView();
     }
@@ -215,8 +215,8 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
 
     public bool TryMoveItem(IInventoryData invOne,int sourceSlot, IInventoryData invTwo,int targetSlot)
     {
-        Debug.Log("TryMoveItem");
-        Debug.Log($"InvOne: {invOne}  -  InvTwo: {invTwo}");
+        DebugManager.Log("TryMoveItem");
+        DebugManager.Log($"InvOne: {invOne}  -  InvTwo: {invTwo}");
 
 
         var firstSlotToStack = invOne.SlotToStack;
@@ -230,7 +230,7 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
 
         if (!firstSlotToStack.ContainsKey(sourceSlot))
         {
-            Debug.LogError($"Source slot {sourceSlot} does not contain an item!");
+            DebugManager.LogError($"Source slot {sourceSlot} does not contain an item!");
             return false;
         }
 
@@ -290,7 +290,7 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
             {
                 if (!firstSlotToStack.SwapEntries(sourceSlot, targetSlot))
                 {
-                    Debug.LogError("Failed to swap slotToStack dictionary entries");
+                    DebugManager.LogError("Failed to swap slotToStack dictionary entries");
                     return false;
                 }
 
@@ -376,7 +376,7 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
     {
         var slotToStack = inv.SlotToStack;
         slotToStack.Clear();
-        Debug.Log("Inventory cleared.");
+        DebugManager.Log("Inventory cleared.");
     }
 
     public List<ItemStack> DumpInventory(IInventoryData inv)
@@ -399,7 +399,7 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
             if (OnItemRemoved != null) OnItemRemoved.Invoke(inv, itemType, slot);
         }
 
-        Debug.Log($"Inventory dumped. {dumpedItems.Count} unique item stacks removed.");
+        DebugManager.Log($"Inventory dumped. {dumpedItems.Count} unique item stacks removed.");
         return dumpedItems;
     }
 
@@ -411,7 +411,7 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
     {
         if (inventoryDropChestPrefab == null)
         {
-            Debug.LogError("DeathChestPrefab is not assigned in Inventory! Cannot spawn drop chest.");
+            DebugManager.LogError("DeathChestPrefab is not assigned in Inventory! Cannot spawn drop chest.");
             return null;
         }
 
@@ -421,7 +421,7 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
         // Don't spawn chest if inventory is empty
         if (dumpedItems.Count == 0)
         {
-            Debug.Log("Inventory is empty, no drop chest spawned.");
+            DebugManager.Log("Inventory is empty, no drop chest spawned.");
             return null;
         }
 
@@ -433,11 +433,11 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
         if (chest != null)
         {
             chest.Initialize(dumpedItems);
-            Debug.Log($"Spawned drop chest at {position} with {dumpedItems.Count} item stacks");
+            DebugManager.Log($"Spawned drop chest at {position} with {dumpedItems.Count} item stacks");
         }
         else
         {
-            Debug.LogError("Spawned chest prefab does not have DeathChest component!");
+            DebugManager.LogError("Spawned chest prefab does not have DeathChest component!");
             Destroy(chestObject);
             return null;
         }
@@ -453,7 +453,7 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
     {
         if (playerTransform == null)
         {
-            Debug.LogError("Player transform is null! Cannot spawn drop chest.");
+            DebugManager.LogError("Player transform is null! Cannot spawn drop chest.");
             return null;
         }
 

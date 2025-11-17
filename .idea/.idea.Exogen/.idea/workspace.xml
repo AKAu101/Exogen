@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Oxygen System/BreathableAtmosphere.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Oxygen System/BreathableAtmosphere.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
