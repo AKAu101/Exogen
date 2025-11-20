@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Environment.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/EnterBuildingFogTrigger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/EnterBuildingFogTrigger.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel1.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel1.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel2.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel3.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel3.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel4.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel4.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel5.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel5.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Terrain/New Terrain 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Terrain/New Terrain 2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_3a4cce18-60c6-4ca6-9137-32a918ebf74e.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_3a4cce18-60c6-4ca6-9137-32a918ebf74e.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_43db56a9-4e69-4dc9-aaa2-f87d14edef02.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_43db56a9-4e69-4dc9-aaa2-f87d14edef02.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_f362d48e-6f7d-4267-bb5a-95607b282183.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_f362d48e-6f7d-4267-bb5a-95607b282183.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/EquipmentManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/EquipmentManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,12 +30,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Environment/EnterBuildingFogTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/InventorySystem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Oxygen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/ItemData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/RecipeData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scenes/Game.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@be6c4fd0abf5/InputSystem/Editor/ProjectWideActions/ProjectWideActionsAsset.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@ba467ec059b9/Shaders/Lit.shader" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@ba467ec059b9/Shaders/Terrain/TerrainLit.shader" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -31,22 +47,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.general",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.7f2\Editor\Unity.exe" />
@@ -122,6 +138,7 @@
       <workItem from="1763221431278" duration="1292000" />
       <workItem from="1763234706931" duration="1280000" />
       <workItem from="1763298777254" duration="1611000" />
+      <workItem from="1763590573412" duration="4986000" />
     </task>
     <servers />
   </component>
