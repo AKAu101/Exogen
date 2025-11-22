@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Environment.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/EnterBuildingFogTrigger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/EnterBuildingFogTrigger.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel1.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel1.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel2.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel3.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel3.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel4.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel4.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel5.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/TreeModel5.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Terrain/New Terrain 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Terrain/New Terrain 2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_3a4cce18-60c6-4ca6-9137-32a918ebf74e.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_3a4cce18-60c6-4ca6-9137-32a918ebf74e.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_43db56a9-4e69-4dc9-aaa2-f87d14edef02.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_43db56a9-4e69-4dc9-aaa2-f87d14edef02.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_f362d48e-6f7d-4267-bb5a-95607b282183.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Terrain/TerrainData_f362d48e-6f7d-4267-bb5a-95607b282183.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/EquipmentManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/EquipmentManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/indexLayout.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,9 +55,10 @@
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\adikr\Documents\Unity\Exogen -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\adikr\Documents\Unity\Exogen" />
       <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
-      <option name="MIXED_MODE_DEBUG" value="0" />
+      <option name="PTY_MODE" value="Auto" />
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
@@ -79,9 +66,10 @@
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\adikr\Documents\Unity\Exogen -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\adikr\Documents\Unity\Exogen" />
       <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
-      <option name="MIXED_MODE_DEBUG" value="0" />
+      <option name="PTY_MODE" value="Auto" />
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
