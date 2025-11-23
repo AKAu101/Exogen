@@ -25,6 +25,9 @@ public class AtmosphereTransition : MonoBehaviour
     public float insideMotionBlur = 0.1f;
     
     private bool isInside = false;
+
+    //Getter
+    public bool IsInside => isInside;
     private float currentLerp = 1f; // 1 = outside, 0 = inside
     
     // Post processing components

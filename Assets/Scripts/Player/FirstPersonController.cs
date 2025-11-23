@@ -39,6 +39,8 @@ public class FirstPersonController : MonoBehaviour
     
     //Getter
     public bool IsSprinting => isSprinting;
+    public bool IsGrounded => isGrounded;
+    public bool JumpPressed => jumpPressed;
     
     //States
     private bool isGrounded;

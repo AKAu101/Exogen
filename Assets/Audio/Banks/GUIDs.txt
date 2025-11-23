@@ -1,0 +1,14 @@
+{3cbbd952-d745-4223-8b89-9220a73b8aa7} bank:/Footsteps Grass
+{7a19b4eb-dae1-46c2-8e34-b3c88afea3b4} bank:/Footsteps Metal
+{070f97cc-f304-4f5c-9e80-92535654ca2a} bank:/Lumini
+{7f5a9f3d-3011-4032-bb78-8cb7db5fdf77} bank:/Master
+{e747bfe9-416a-0c70-3d31-06492aacd9ef} bank:/Master.strings
+{c484f15a-7cc4-4b26-a993-814045a8d06e} bus:/
+{54971083-c6bb-4e0c-b626-560fad160721} bus:/Reverb
+{42252985-e993-40a5-972e-5ebe7cb6659e} event:/Footsteps Grass Run
+{01d192e2-d710-4f5a-bfad-067219f63cd0} event:/Footsteps Grass Walk
+{2e777134-600f-4bd5-a9e1-98d2433e3949} event:/Footsteps Metal Jump
+{b36c4388-ef74-4f46-b909-7af35b2e6840} event:/Footsteps Metal Run
+{83057777-28d7-4ee6-99eb-3f83f876397e} event:/Footsteps Metal Walk
+{2bf5a1cf-3953-4766-b17a-3333a49b702c} event:/Lumini Caught
+{792e9517-ee94-4054-8c54-c8844272b6a5} event:/Lumini Hover
