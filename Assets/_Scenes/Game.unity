@@ -3929,7 +3929,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2054534763}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1160335792
 SphereCollider:
@@ -4164,6 +4164,7 @@ MonoBehaviour:
   player: {fileID: 1971861281667583386}
   controller: {fileID: 3285536276046815513}
   atmosphere: {fileID: 1062821180}
+  masterVolume: 1
 --- !u!4 &1170346671
 Transform:
   m_ObjectHideFlags: 0
@@ -4179,11 +4180,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1188587806 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 87d0a74ca58908c4aa6fd0f404342419, type: 3}
-  m_PrefabInstance: {fileID: 1429528208}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1195355832
 GameObject:
   m_ObjectHideFlags: 0
@@ -9627,3 +9623,4 @@ SceneRoots:
   - {fileID: 1195355833}
   - {fileID: 758942894}
   - {fileID: 488645052}
+  - {fileID: 1160335789}
