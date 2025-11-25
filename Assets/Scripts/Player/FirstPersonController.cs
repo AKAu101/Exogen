@@ -37,16 +37,22 @@ public class FirstPersonController : MonoBehaviour
     // Components
     private CharacterController controller;
     
-    //Getter
+    //Getters for Audio/FMOD
     public bool IsSprinting => isSprinting;
     public bool IsGrounded => isGrounded;
     public bool JumpPressed => jumpPressed;
-    
+    public bool IsWalking => moveInput.sqrMagnitude > 0.01f && !isSprinting && !isDucking && isGrounded;
+    public bool IsFalling => !isGrounded && velocity.y < -1f;
+    public bool IsDuckWalking => moveInput.sqrMagnitude > 0.01f && isDucking && isGrounded;
+    public bool IsLanding => isLanding;
+
     //States
     private bool isGrounded;
     private bool isSprinting;
     private bool jumpPressed;
     private bool isDucking;
+    private bool isLanding;
+    private bool wasGroundedLastFrame;
 
     // Input values
     private Vector2 lookInput;
@@ -91,6 +97,10 @@ public class FirstPersonController : MonoBehaviour
     private void HandleGroundCheck()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        // Detect landing (transition from air to ground)
+        isLanding = isGrounded && !wasGroundedLastFrame;
+        wasGroundedLastFrame = isGrounded;
 
         // only apply grounding force when truly grounded and not falling fast
         if (isGrounded && velocity.y < 0 && velocity.y > -3f) velocity.y = -2f;

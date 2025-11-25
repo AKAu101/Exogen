@@ -21,6 +21,10 @@ public class LuminiPickup : MonoBehaviour
     private AudioSource audioSource;
     private LanternController lanternController;
     private string originalMessage;
+    private bool isBeingPickedUp;
+
+    // Getter for external systems (like audio)
+    public bool IsBeingPickedUp => isBeingPickedUp;
 
     private void Awake()
     {
@@ -141,6 +145,7 @@ public class LuminiPickup : MonoBehaviour
     /// <param name="interactor">The GameObject that interacted (player)</param>
     private void OnLuminiPickedUp(GameObject interactor)
     {
+        isBeingPickedUp = true;
         DebugManager.Log($"Lumini picked up by {interactor.name}, recharging lantern for {rechargeTime} seconds");
 
         // Find and recharge the lantern
