@@ -29,6 +29,9 @@ public class LanternController : MonoBehaviour
     private float currentLanternTime; // Current remaining time for the lantern
     private bool hasLanternEquipped; // Whether a lantern is currently equipped
 
+    // Public accessor for other systems (like enemy AI)
+    public bool IsLightOn => lanternLight != null && lanternLight.enabled;
+
     // Properties for external access
     public float CurrentLanternTime => currentLanternTime;
     public float MaxLanternTime => maxLanternTime;
