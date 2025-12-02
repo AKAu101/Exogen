@@ -25,12 +25,11 @@ public class InventoryUISyncEntry
 }
 
 /// <summary>
-/// Manages the inventory UI, including item display, sl
-/// ot management, and visibility toggling.
+/// Manages the inventory UI, including item display, slot management, and visibility toggling.
 /// Listens to inventory events and updates the visual representation accordingly.
 /// Includes static registry for multi-inventory support (integrated from InventoryUIHelper).
 /// </summary>
-public class InventoryUI : MonoBehaviour, IUIStateManagement
+public class InventoryUI : MonoBehaviour
 {
     // ==================== STATIC REGISTRY (from InventoryUIHelper) ====================
     private static Dictionary<IInventoryData, InventoryUI> inventoryRegistry = new();
@@ -142,9 +141,6 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
 
         }
 
-        // Register this instance as the IUIStateManagement service
-        ServiceLocator.Instance.Register<IUIStateManagement>(this);
-
         assignedInventory = _Inventory.GetComponent<IInventoryData>();
 
         // Register in static registry
@@ -203,6 +199,9 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
             wrapper.SetActive(true);
+
+            // Notify centralized UI state manager
+            UIStateManager.EnsureInstance().RegisterInventoryOpened(this);
         }
         else
         {
@@ -213,6 +212,9 @@ public class InventoryUI : MonoBehaviour, IUIStateManagement
             // Hide context menu when closing inventory
             var contextMenu = FindFirstObjectByType<ItemContextMenu>();
             if (contextMenu != null) contextMenu.HideMenu();
+
+            // Notify centralized UI state manager
+            UIStateManager.EnsureInstance().RegisterInventoryClosed(this);
         }
 
         OnInventoryVisibilityChanged?.Invoke(IsInventoryVisible);

@@ -112,13 +112,17 @@ public class FirstPersonController : MonoBehaviour
         if (uiStateManagement == null && ServiceLocator.Instance.IsRegistered<IUIStateManagement>())
             uiStateManagement = ServiceLocator.Instance.Get<IUIStateManagement>();
 
-        if (uiStateManagement != null && uiStateManagement.IsInventoryVisible) return;
+        bool uiIsOpen = uiStateManagement != null && uiStateManagement.IsInventoryVisible;
 
-        float currentSpeed = isSprinting ? sprintSpeed : isDucking ? walkSpeed / 2 : walkSpeed;
+        // Only apply horizontal movement if UI is not open
+        if (!uiIsOpen)
+        {
+            float currentSpeed = isSprinting ? sprintSpeed : isDucking ? walkSpeed / 2 : walkSpeed;
+            Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
+            controller.Move(move * currentSpeed * Time.deltaTime);
+        }
 
-        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
-        controller.Move(move * currentSpeed * Time.deltaTime);
-
+        // Always apply gravity, even when UI is open
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
@@ -129,7 +133,12 @@ public class FirstPersonController : MonoBehaviour
         if (uiStateManagement == null && ServiceLocator.Instance.IsRegistered<IUIStateManagement>())
             uiStateManagement = ServiceLocator.Instance.Get<IUIStateManagement>();
 
-        if (uiStateManagement != null && uiStateManagement.IsInventoryVisible) return;
+        if (uiStateManagement != null && uiStateManagement.IsInventoryVisible)
+        {
+            // Clear look input to prevent camera rotation while UI is open
+            lookInput = Vector2.zero;
+            return;
+        }
 
         float mouseX = lookInput.x * mouseSensitivity;
         float mouseY = lookInput.y * mouseSensitivity;
