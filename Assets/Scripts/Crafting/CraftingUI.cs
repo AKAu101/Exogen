@@ -27,7 +27,7 @@ public class CraftingUI : MonoBehaviour
             return;
         }
 
-        // Check if ingredient slots contain items
+        // Check if ingredient slots contain items (slots 0 and 1 are required, 2 and 3 are optional)
         if (!inv.AssignedInventory.SlotToStack.TryGetValue(0, out var first))
         {
             Debug.LogWarning("Crafting failed: Slot 0 is empty");
@@ -40,6 +40,10 @@ public class CraftingUI : MonoBehaviour
             return;
         }
 
+        // Slots 2 and 3 are optional - use null if empty
+        inv.AssignedInventory.SlotToStack.TryGetValue(2, out var third);
+        inv.AssignedInventory.SlotToStack.TryGetValue(3, out var fourth);
+
         // Check if output slot is empty
         if (inv.AssignedInventory.SlotToStack.ContainsKey(outputSlot.SlotIndex))
         {
@@ -47,12 +51,22 @@ public class CraftingUI : MonoBehaviour
             return;
         }
 
-        if(craftingSystem.TryGetRecipe(first.ItemType, second.ItemType, out var recipe))
+        ItemData thirdItem = third?.ItemType;
+        ItemData fourthItem = fourth?.ItemType;
+
+        if(craftingSystem.TryGetRecipe(first.ItemType, second.ItemType, thirdItem, fourthItem, out var recipe))
         {
             Debug.Log("Crafting item: " + recipe.Result.name);
 
             inventorySystem.RemoveItemFromSlot(inv.AssignedInventory, 0, 1);
             inventorySystem.RemoveItemFromSlot(inv.AssignedInventory, 1, 1);
+
+            // Only remove from slots 2 and 3 if they had items
+            if (third != null)
+                inventorySystem.RemoveItemFromSlot(inv.AssignedInventory, 2, 1);
+            if (fourth != null)
+                inventorySystem.RemoveItemFromSlot(inv.AssignedInventory, 3, 1);
+
             inventorySystem.ForceSetSlot(inv.AssignedInventory, outputSlot.SlotIndex, recipe.Result, 1);
 
             inv.UpdateView();

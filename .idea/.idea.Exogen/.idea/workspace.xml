@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="" />
+    <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/SPACE SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/SPACE SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/DumbbellRecipe.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/DumbbellRecipe.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Crafting/CraftingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Crafting/CraftingSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Crafting/CraftingUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Crafting/CraftingUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/RecipeData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/RecipeData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -126,6 +134,7 @@
       <workItem from="1764103991865" duration="18000" />
       <workItem from="1764328734947" duration="1996000" />
       <workItem from="1764341480282" duration="4266000" />
+      <workItem from="1764636062379" duration="589000" />
     </task>
     <servers />
   </component>

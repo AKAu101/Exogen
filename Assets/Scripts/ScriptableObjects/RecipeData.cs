@@ -8,11 +8,15 @@ public class RecipeData : ScriptableObject
 
     [SerializeField] private ItemData firstIngredient;
     [SerializeField] private ItemData secondIngredient;
+    [SerializeField] private ItemData thirdIngredient;
+    [SerializeField] private ItemData fourthIngredient;
 
     [SerializeField] private ItemData result;
 
     public ItemData FirstIngredient => firstIngredient;
     public ItemData SecondIngredient => secondIngredient;
+    public ItemData ThirdIngredient => thirdIngredient;
+    public ItemData FourthIngredient => fourthIngredient;
     public ItemData Result => result;
 
 
@@ -22,19 +26,34 @@ public readonly struct RecipeKey : IEquatable<RecipeKey>
 {
     public readonly ItemData A;
     public readonly ItemData B;
+    public readonly ItemData C;
+    public readonly ItemData D;
 
-    public RecipeKey(ItemData x, ItemData y)
+    public RecipeKey(ItemData w, ItemData x, ItemData y, ItemData z)
     {
-        // Normalize so (A,B) == (B,A)
-        // Use instance IDs to pick a canonical order.
-        if (x == null || y == null) { A = x; B = y; return; }
-        int ix = x.GetInstanceID();
-        int iy = y.GetInstanceID();
-        if (ix <= iy) { A = x; B = y; }
-        else { A = y; B = x; }
+        // Normalize so any permutation of (w,x,y,z) results in the same key
+        // Sort by instance ID to create canonical order
+        ItemData[] items = new ItemData[] { w, x, y, z };
+        System.Array.Sort(items, (a, b) =>
+        {
+            if (a == null && b == null) return 0;
+            if (a == null) return -1;
+            if (b == null) return 1;
+            return a.GetInstanceID().CompareTo(b.GetInstanceID());
+        });
+
+        A = items[0];
+        B = items[1];
+        C = items[2];
+        D = items[3];
     }
 
-    public bool Equals(RecipeKey other) => ReferenceEquals(A, other.A) && ReferenceEquals(B, other.B);
+    public bool Equals(RecipeKey other) =>
+        ReferenceEquals(A, other.A) &&
+        ReferenceEquals(B, other.B) &&
+        ReferenceEquals(C, other.C) &&
+        ReferenceEquals(D, other.D);
+
     public override bool Equals(object obj) => obj is RecipeKey r && Equals(r);
-    public override int GetHashCode() => HashCode.Combine(A, B); // order-independent because we normalized
+    public override int GetHashCode() => HashCode.Combine(A, B, C, D);
 }

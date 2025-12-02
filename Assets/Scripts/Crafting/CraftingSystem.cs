@@ -17,11 +17,11 @@ public class CraftingSystem : Singleton<CraftingSystem>
         lookup = new Dictionary<RecipeKey, RecipeData>(recipes.Count);
         foreach (var r in recipes)
         {
-            var key = new RecipeKey(r.FirstIngredient, r.SecondIngredient);
+            var key = new RecipeKey(r.FirstIngredient, r.SecondIngredient, r.ThirdIngredient, r.FourthIngredient);
             lookup[key] = r;
         }
     }
 
-    public bool TryGetRecipe(ItemData a, ItemData b, out RecipeData recipe)
-        => lookup.TryGetValue(new RecipeKey(a, b), out recipe);
+    public bool TryGetRecipe(ItemData a, ItemData b, ItemData c, ItemData d, out RecipeData recipe)
+        => lookup.TryGetValue(new RecipeKey(a, b, c, d), out recipe);
 }
