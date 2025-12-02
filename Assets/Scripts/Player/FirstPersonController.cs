@@ -41,7 +41,7 @@ public class FirstPersonController : MonoBehaviour
     //Getters for Audio/FMOD
     public bool IsSprinting => isSprinting;
     public bool IsGrounded => isGrounded;
-    public bool JumpPressed => jumpPressedTime >= 0f && (Time.time - jumpPressedTime) <= jumpBufferTime;
+    public bool JumpPressed => jumpPressedThisFrame;
     public bool IsWalking => moveInput.sqrMagnitude > 0.01f && !isSprinting && !isDucking && isGrounded;
     public bool IsFalling => !isGrounded && velocity.y < -1f;
     public bool IsDuckWalking => moveInput.sqrMagnitude > 0.01f && isDucking && isGrounded;
@@ -56,6 +56,7 @@ public class FirstPersonController : MonoBehaviour
 
     // Jump buffer
     private float jumpPressedTime = -1f;
+    private bool jumpPressedThisFrame = false;
 
     // Input values
     private Vector2 lookInput;
@@ -95,6 +96,9 @@ public class FirstPersonController : MonoBehaviour
         HandleMouseLook();
         HandleJump();
         HandleDuck();
+
+        // Clear single-frame flags at end of update
+        jumpPressedThisFrame = false;
     }
 
     private void HandleGroundCheck()
@@ -219,7 +223,11 @@ public class FirstPersonController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed) jumpPressedTime = Time.time;
+        if (context.performed)
+        {
+            jumpPressedTime = Time.time;
+            jumpPressedThisFrame = true;
+        }
     }
 
     public void OnDuck(InputAction.CallbackContext context)
