@@ -13,6 +13,7 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private float sprintSpeed = 8f;
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -18f;
+    [SerializeField] private float jumpBufferTime = 0.15f;
 
     [Header("Mouse Look Settings")] [SerializeField]
     private float mouseSensitivity = 2f;
@@ -40,7 +41,7 @@ public class FirstPersonController : MonoBehaviour
     //Getters for Audio/FMOD
     public bool IsSprinting => isSprinting;
     public bool IsGrounded => isGrounded;
-    public bool JumpPressed => jumpPressed;
+    public bool JumpPressed => jumpPressedTime >= 0f && (Time.time - jumpPressedTime) <= jumpBufferTime;
     public bool IsWalking => moveInput.sqrMagnitude > 0.01f && !isSprinting && !isDucking && isGrounded;
     public bool IsFalling => !isGrounded && velocity.y < -1f;
     public bool IsDuckWalking => moveInput.sqrMagnitude > 0.01f && isDucking && isGrounded;
@@ -49,10 +50,12 @@ public class FirstPersonController : MonoBehaviour
     //States
     private bool isGrounded;
     private bool isSprinting;
-    private bool jumpPressed;
     private bool isDucking;
     private bool isLanding;
     private bool wasGroundedLastFrame;
+
+    // Jump buffer
+    private float jumpPressedTime = -1f;
 
     // Input values
     private Vector2 lookInput;
@@ -154,10 +157,11 @@ public class FirstPersonController : MonoBehaviour
 
     private void HandleJump()
     {
-        if (jumpPressed && isGrounded)
+        // Check if jump was pressed within the buffer time and player is grounded
+        if (jumpPressedTime >= 0f && (Time.time - jumpPressedTime) <= jumpBufferTime && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-            jumpPressed = false;
+            jumpPressedTime = -1f; // Clear the buffer after jumping
         }
     }
 
@@ -215,7 +219,7 @@ public class FirstPersonController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed) jumpPressed = true;
+        if (context.performed) jumpPressedTime = Time.time;
     }
 
     public void OnDuck(InputAction.CallbackContext context)
