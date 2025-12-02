@@ -37,8 +37,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float stalkDuration = 15f; // How long to stalk before approaching
 
     [Header("Safe Zone Settings")]
-    [SerializeField] private float safeZoneCheckDistance = 30f; // How far to detect safe zones
-    [SerializeField] private float minDistanceFromSafeZone = 12f; // How close enemy will get to safe zones
+    [SerializeField] private float safeZoneCheckDistance = 50f; // How far to detect safe zones
+    [SerializeField] private float minDistanceFromSafeZone = 25f; // How close enemy will get to safe zones (when not in attack mode)
+    [SerializeField] private float attackModeStationDistance = 5f; // How close enemy can get to station when in attack/chase mode
     [SerializeField] private string safeZoneTag = "SafeZone"; // Tag for safe zone objects (stations)
 
     [Header("Pack Behavior Settings")]
@@ -162,10 +163,13 @@ public class EnemyAI : MonoBehaviour
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         bool hasLight = IsPlayerLightOn();
-        bool playerInSafeZone = IsNearSafeZone(player.position);
+
+        // Check if player or enemy is near safe zone (use different distances based on state)
+        bool playerInSafeZone = IsNearSafeZone(player.position, minDistanceFromSafeZone);
+        bool enemyNearStation = IsNearSafeZone(transform.position, minDistanceFromSafeZone);
 
         // Determine state based on distance, light, and safe zones
-        EnemyState newState = DetermineState(distanceToPlayer, hasLight, playerInSafeZone);
+        EnemyState newState = DetermineState(distanceToPlayer, hasLight, playerInSafeZone, enemyNearStation);
 
         // Only log state changes
         if (newState != currentState)
@@ -217,15 +221,34 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private EnemyState DetermineState(float distance, bool hasLight, bool playerInSafeZone)
+    private EnemyState DetermineState(float distance, bool hasLight, bool playerInSafeZone, bool enemyNearStation)
     {
+        // PRIORITY 1: If player has light on, ALWAYS retreat immediately (regardless of state)
+        if (hasLight && distance <= approachDistance)
+        {
+            return EnemyState.Retreat;
+        }
+
+        // If enemy itself is too close to station and NOT in chase mode, move away
+        if (enemyNearStation && currentState != EnemyState.Chase)
+        {
+            return EnemyState.Retreat;
+        }
+
         // If player is in safe zone and we're aware of them, don't approach
         if (playerInSafeZone && distance <= approachDistance)
         {
-            // If already chasing, retreat from safe zone
+            // If already chasing, allow closer approach to station in attack mode
             if (currentState == EnemyState.Chase && distance <= approachDistance)
             {
-                return EnemyState.Retreat;
+                // Check if we're too close to station even in attack mode
+                bool tooCloseToStation = IsNearSafeZone(transform.position, attackModeStationDistance);
+                if (tooCloseToStation)
+                {
+                    return EnemyState.Retreat;
+                }
+                // Otherwise keep chasing even near the station
+                return EnemyState.Chase;
             }
             return EnemyState.Wander;
         }
@@ -234,8 +257,15 @@ public class EnemyAI : MonoBehaviour
         // Only stop if player gets too far away or enters safe zone
         if (currentState == EnemyState.Chase)
         {
-            // Keep chasing if player is within approach range (don't let light stop the attack)
-            if (distance <= approachDistance && !playerInSafeZone)
+            // Check if we're too close to station even in attack mode
+            bool tooCloseToStation = IsNearSafeZone(transform.position, attackModeStationDistance);
+            if (tooCloseToStation)
+            {
+                return EnemyState.Retreat;
+            }
+
+            // Keep chasing if player is within approach range and no light
+            if (distance <= approachDistance && !hasLight && !playerInSafeZone)
             {
                 return EnemyState.Chase;
             }
@@ -250,12 +280,6 @@ public class EnemyAI : MonoBehaviour
         if (distance <= attackDistance && !hasLight && !playerInSafeZone)
         {
             return EnemyState.Chase;
-        }
-
-        // Only retreat if NOT already chasing (light scares during approach, not during attack)
-        if (distance < safeDistance && hasLight && currentState != EnemyState.Chase)
-        {
-            return EnemyState.Retreat;
         }
 
         // If within approach range and no light
@@ -307,10 +331,10 @@ public class EnemyAI : MonoBehaviour
             if (NavMesh.SamplePosition(randomDirection, out hit, wanderRadius, NavMesh.AllAreas))
             {
                 // Make sure wander point is not in a safe zone
-                if (!IsNearSafeZone(hit.position))
+                if (!IsNearSafeZone(hit.position, minDistanceFromSafeZone))
                 {
                     float distanceToWanderPoint = Vector3.Distance(transform.position, hit.position);
-                    
+
                     if (distanceToWanderPoint >= minWanderDistance)
                     {
                         wanderTarget = hit.position;
@@ -351,7 +375,7 @@ public class EnemyAI : MonoBehaviour
             if (NavMesh.SamplePosition(circlePosition, out hit, 5f, NavMesh.AllAreas))
             {
                 // Don't stalk into safe zones
-                if (!IsNearSafeZone(hit.position))
+                if (!IsNearSafeZone(hit.position, minDistanceFromSafeZone))
                 {
                     agent.isStopped = false;
                     agent.speed = stalkSpeed;
@@ -379,7 +403,7 @@ public class EnemyAI : MonoBehaviour
             Vector3[] pathCorners = agent.path.corners;
             for (int i = 0; i < pathCorners.Length; i++)
             {
-                if (IsNearSafeZone(pathCorners[i]))
+                if (IsNearSafeZone(pathCorners[i], minDistanceFromSafeZone))
                 {
                     // Path goes through safe zone, stop approaching
                     agent.isStopped = true;
@@ -405,9 +429,20 @@ public class EnemyAI : MonoBehaviour
 
     private void HandleChase()
     {
-        agent.isStopped = false;
-        agent.speed = normalSpeed;
-        agent.SetDestination(player.position);
+        // Even in chase mode, check if we're too close to the station
+        bool tooCloseToStation = IsNearSafeZone(transform.position, attackModeStationDistance);
+
+        if (!tooCloseToStation)
+        {
+            agent.isStopped = false;
+            agent.speed = normalSpeed;
+            agent.SetDestination(player.position);
+        }
+        else
+        {
+            // Don't get closer, but can still attack if in range
+            agent.isStopped = true;
+        }
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (distanceToPlayer <= attackReach)
@@ -443,13 +478,36 @@ public class EnemyAI : MonoBehaviour
 
     private void HandleRetreat(float currentDistance)
     {
+        // Find nearest safe zone to retreat away from it
+        GameObject[] safeZones = GameObject.FindGameObjectsWithTag(safeZoneTag);
+        Vector3 retreatDirection = Vector3.zero;
+        bool shouldRetreatFromStation = false;
+
+        // Check if near any safe zone
+        foreach (GameObject safeZone in safeZones)
+        {
+            float distanceToStation = Vector3.Distance(transform.position, safeZone.transform.position);
+            if (distanceToStation <= minDistanceFromSafeZone)
+            {
+                // Retreat away from station
+                retreatDirection += (transform.position - safeZone.transform.position).normalized;
+                shouldRetreatFromStation = true;
+            }
+        }
+
+        // Also retreat from player if they have light and are too close
         if (currentDistance < safeDistance)
+        {
+            retreatDirection += (transform.position - player.position).normalized;
+        }
+
+        if (retreatDirection != Vector3.zero || shouldRetreatFromStation)
         {
             agent.isStopped = false;
             agent.speed = retreatSpeed;
 
-            Vector3 directionAwayFromPlayer = (transform.position - player.position).normalized;
-            Vector3 retreatPosition = transform.position + directionAwayFromPlayer * 3f;
+            retreatDirection.Normalize();
+            Vector3 retreatPosition = transform.position + retreatDirection * 5f;
 
             NavMeshHit hit;
             if (NavMesh.SamplePosition(retreatPosition, out hit, 5f, NavMesh.AllAreas))
@@ -471,21 +529,21 @@ public class EnemyAI : MonoBehaviour
         return lanternController.IsLightOn;
     }
 
-    private bool IsNearSafeZone(Vector3 position)
+    private bool IsNearSafeZone(Vector3 position, float checkDistance)
     {
         // Find all objects with SafeZone tag
         GameObject[] safeZones = GameObject.FindGameObjectsWithTag(safeZoneTag);
-        
+
         foreach (GameObject safeZone in safeZones)
         {
             float distanceToSafeZone = Vector3.Distance(position, safeZone.transform.position);
-            
-            if (distanceToSafeZone <= minDistanceFromSafeZone)
+
+            if (distanceToSafeZone <= checkDistance)
             {
                 return true;
             }
         }
-        
+
         return false;
     }
 
@@ -589,5 +647,21 @@ public class EnemyAI : MonoBehaviour
         // Draw safe zone detection range
         Gizmos.color = new Color(1, 1, 0, 0.3f);
         Gizmos.DrawWireSphere(transform.position, safeZoneCheckDistance);
+
+        // Draw safe zone distances around stations
+        GameObject[] safeZones = GameObject.FindGameObjectsWithTag(safeZoneTag);
+        foreach (GameObject safeZone in safeZones)
+        {
+            if (safeZone != null)
+            {
+                // Normal minimum distance from station (yellow)
+                Gizmos.color = new Color(1, 1, 0, 0.5f);
+                Gizmos.DrawWireSphere(safeZone.transform.position, minDistanceFromSafeZone);
+
+                // Attack mode allowed distance (orange)
+                Gizmos.color = new Color(1, 0.5f, 0, 0.7f);
+                Gizmos.DrawWireSphere(safeZone.transform.position, attackModeStationDistance);
+            }
+        }
     }
 }
