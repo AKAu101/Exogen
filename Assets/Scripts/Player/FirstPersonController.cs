@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class FirstPersonController : MonoBehaviour
 {
+    // Events
+    public static event Action OnPausePressed;
     [Header("Movement Settings")] [SerializeField]
     private float walkSpeed = 5f;
     [SerializeField] private float sprintSpeed = 8f;
@@ -65,9 +68,13 @@ public class FirstPersonController : MonoBehaviour
     private Vector3 velocity;
 
     private void Awake()
-    { 
+    {
         Application.targetFrameRate = -1;
-       controller = GetComponent<CharacterController>();
+
+        // Ensure game is unpaused when scene loads
+        Time.timeScale = 1f;
+
+        controller = GetComponent<CharacterController>();
 
         // Lock and hide cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -120,7 +127,7 @@ public class FirstPersonController : MonoBehaviour
         if (uiStateManagement == null && ServiceLocator.Instance.IsRegistered<IUIStateManagement>())
             uiStateManagement = ServiceLocator.Instance.Get<IUIStateManagement>();
 
-        bool uiIsOpen = uiStateManagement != null && uiStateManagement.IsInventoryVisible;
+        bool uiIsOpen = uiStateManagement != null && uiStateManagement.IsAnyUIVisible;
 
         // Only apply horizontal movement if UI is not open
         if (!uiIsOpen)
@@ -139,9 +146,12 @@ public class FirstPersonController : MonoBehaviour
     {
         // Lazy initialization if service wasn't available at Start()
         if (uiStateManagement == null && ServiceLocator.Instance.IsRegistered<IUIStateManagement>())
+        {
             uiStateManagement = ServiceLocator.Instance.Get<IUIStateManagement>();
+            Debug.Log("FirstPersonController: UIStateManagement initialized");
+        }
 
-        if (uiStateManagement != null && uiStateManagement.IsInventoryVisible)
+        if (uiStateManagement != null && uiStateManagement.IsAnyUIVisible)
         {
             // Clear look input to prevent camera rotation while UI is open
             lookInput = Vector2.zero;
@@ -242,5 +252,14 @@ public class FirstPersonController : MonoBehaviour
     public void OnSprint(InputAction.CallbackContext context)
     {
         isSprinting = context.performed || context.started;
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("FirstPersonController: OnPause called, invoking OnPausePressed event");
+            OnPausePressed?.Invoke();
+        }
     }
 }

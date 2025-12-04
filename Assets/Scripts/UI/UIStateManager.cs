@@ -10,10 +10,14 @@ using UnityEngine;
 public class UIStateManager : Singleton<UIStateManager>, IUIStateManagement
 {
     private HashSet<InventoryUI> openInventories = new HashSet<InventoryUI>();
+    private bool isPauseMenuVisible = false;
 
     public bool IsInventoryVisible => openInventories.Count > 0;
+    public bool IsPauseMenuVisible => isPauseMenuVisible;
+    public bool IsAnyUIVisible => IsInventoryVisible || IsPauseMenuVisible;
 
     public event Action<bool> OnInventoryVisibilityChanged;
+    public event Action<bool> OnPauseMenuVisibilityChanged;
 
     protected override void Awake()
     {
@@ -64,8 +68,55 @@ public class UIStateManager : Singleton<UIStateManager>, IUIStateManagement
 
     public void ToggleInventory()
     {
-        // This method is part of the interface but not used by the centralized manager
-        // Individual InventoryUI instances handle their own toggling
-        Debug.LogWarning("ToggleInventory called on UIStateManager - use individual InventoryUI.ToggleInventory instead");
+        DebugManager.Log($"UIStateManager.ToggleInventory called. Open inventories count: {openInventories.Count}");
+
+        // Close all open inventories
+        if (openInventories.Count > 0)
+        {
+            // Create a copy to avoid modifying collection during iteration
+            var inventoriesToClose = new List<InventoryUI>(openInventories);
+            foreach (var inventory in inventoriesToClose)
+            {
+                if (inventory != null)
+                {
+                    DebugManager.Log($"UIStateManager: Closing inventory {inventory.name}");
+                    inventory.ToggleInventory();
+                }
+            }
+        }
+    }
+
+    public void SetPauseMenuVisible(bool visible)
+    {
+        DebugManager.Log($"UIStateManager.SetPauseMenuVisible called with visible={visible}, current isPauseMenuVisible={isPauseMenuVisible}");
+
+        if (isPauseMenuVisible == visible)
+        {
+            DebugManager.Log("UIStateManager: State already set, returning early");
+            return;
+        }
+
+        isPauseMenuVisible = visible;
+        DebugManager.Log($"UIStateManager: IsPauseMenuVisible={isPauseMenuVisible}, IsAnyUIVisible={IsAnyUIVisible}");
+
+        // Only track state, don't handle cursor - let PauseMenu handle it like inventory does
+        OnPauseMenuVisibilityChanged?.Invoke(visible);
+
+        DebugManager.Log($"UIStateManager: Pause menu visibility changed to: {visible}");
+    }
+
+    public void TogglePauseMenu()
+    {
+        SetPauseMenuVisible(!isPauseMenuVisible);
+    }
+
+    /// <summary>
+    /// Resets the pause state without triggering cursor lock (used when scene loads).
+    /// </summary>
+    public void ResetPauseState()
+    {
+        DebugManager.Log("UIStateManager: ResetPauseState called");
+        isPauseMenuVisible = false;
+        OnPauseMenuVisibilityChanged?.Invoke(false);
     }
 }

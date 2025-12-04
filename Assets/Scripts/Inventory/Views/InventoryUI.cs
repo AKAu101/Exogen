@@ -223,6 +223,16 @@ public class InventoryUI : MonoBehaviour
 
     public void ToggleInventory()
     {
+        // Check if pause menu is open - if so, don't open inventory
+        if (!IsInventoryVisible && ServiceLocator.Instance.IsRegistered<IUIStateManagement>())
+        {
+            var uiState = ServiceLocator.Instance.Get<IUIStateManagement>();
+            if (uiState.IsPauseMenuVisible)
+            {
+                return; // Don't open inventory when pause menu is open
+            }
+        }
+
         SetInventoryVisible(!IsInventoryVisible);
     }
 
