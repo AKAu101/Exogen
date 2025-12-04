@@ -18,10 +18,11 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField] private float itemScale = 0.5f;
 
     [Header("Mouse Follow Settings")]
-    [SerializeField] private float mouseSensitivity = 2f;
-    [SerializeField] private float maxRotationX = 45f;
-    [SerializeField] private float maxRotationY = 45f;
-    [SerializeField] private float rotationSmoothness = 10f;
+    [SerializeField] private float mouseSensitivity = 80f;
+    [SerializeField] private float maxRotationX = 35f;
+    [SerializeField] private float maxRotationY = 35f;
+    [SerializeField] private float rotationSmoothTime = 0.1f;
+    [SerializeField] private float maxRotationSpeed = 200f;
 
     // Runtime state
     private IInventorySystem inventorySystem;
@@ -30,6 +31,7 @@ public class EquipmentManager : MonoBehaviour
     private GameObject rightHandItem;
     private Vector2 lookInput;
     private Vector2 currentRotation;
+    private Vector2 rotationVelocity;
     private IUIStateManagement uiStateManagement;
 
     private void Start()
@@ -294,17 +296,22 @@ public class EquipmentManager : MonoBehaviour
         // Don't update rotations if inventory is open
         if (uiStateManagement != null && uiStateManagement.IsInventoryVisible) return;
 
-        // Calculate target rotation based on mouse input
-        float targetX = lookInput.y * mouseSensitivity;
-        float targetY = -lookInput.x * mouseSensitivity;
+        // Convert mouse delta to velocity (frame-rate independent)
+        // lookInput is delta per frame, divide by Time.deltaTime to get velocity
+        float mouseVelocityY = Time.deltaTime > 0 ? lookInput.y / Time.deltaTime : 0;
+        float mouseVelocityX = Time.deltaTime > 0 ? lookInput.x / Time.deltaTime : 0;
 
-        // Clamp the rotation
+        // Calculate target rotation based on mouse velocity (scaled down since velocity is large)
+        float targetX = mouseVelocityY * mouseSensitivity * 0.01f;
+        float targetY = -mouseVelocityX * mouseSensitivity * 0.01f;
+
+        // Clamp the target rotation
         targetX = Mathf.Clamp(targetX, -maxRotationX, maxRotationX);
         targetY = Mathf.Clamp(targetY, -maxRotationY, maxRotationY);
 
-        // Smoothly interpolate to target rotation
-        currentRotation.x = Mathf.Lerp(currentRotation.x, targetX, Time.deltaTime * rotationSmoothness);
-        currentRotation.y = Mathf.Lerp(currentRotation.y, targetY, Time.deltaTime * rotationSmoothness);
+        // Smoothly interpolate current rotation to target using SmoothDamp (frame-rate independent)
+        currentRotation.x = Mathf.SmoothDamp(currentRotation.x, targetX, ref rotationVelocity.x, rotationSmoothTime, maxRotationSpeed);
+        currentRotation.y = Mathf.SmoothDamp(currentRotation.y, targetY, ref rotationVelocity.y, rotationSmoothTime, maxRotationSpeed);
 
         // Apply rotation relative to camera
         if (leftHandItem != null)

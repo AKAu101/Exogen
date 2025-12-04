@@ -65,8 +65,9 @@ public class FirstPersonController : MonoBehaviour
     private Vector3 velocity;
 
     private void Awake()
-    {
-        controller = GetComponent<CharacterController>();
+    { 
+        Application.targetFrameRate = -1;
+       controller = GetComponent<CharacterController>();
 
         // Lock and hide cursor
         Cursor.lockState = CursorLockMode.Locked;
