@@ -1,6 +1,7 @@
     using System.CodeDom;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Events;
 using FMODUnity;
 using FMOD.Studio;
 
@@ -8,6 +9,7 @@ using FMOD.Studio;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] EventReference FootstepsSprint;
+    [SerializeField] EventReference FootstepsWalk;
     [SerializeField] EventReference Wind;
     [SerializeField] GameObject player;
     [SerializeField] FirstPersonController controller;
@@ -16,11 +18,18 @@ public class AudioManager : MonoBehaviour
     [Header("Volume Control")]
     [SerializeField] [Range(0f, 1f)] private float masterVolume = 1f;
 
-    private EventInstance footstepInstance;
+    [SerializeField] EventReference luminiPickupSound;
+    
+    private LuminiPickup[] allLumini;
+
+    private EventInstance footstepSprintInstance;
+    private EventInstance footstepWalkInstance;
     private EventInstance windInstance;
     private bool wasPlayingLastFrame = false;
     private bool wasGroundedLastFrame = true;
     private bool wasWindyLastFrame = false;
+    private bool wasWalkingLastFrame = false;
+    private bool LuminiSoundOn = false;
 
     // VCA for volume control
     private VCA masterVCA;
@@ -28,7 +37,8 @@ public class AudioManager : MonoBehaviour
     {
         RuntimeManager.LoadBank("Master", true);
         RuntimeManager.LoadBank("Master.strings", true);
-        footstepInstance = RuntimeManager.CreateInstance(FootstepsSprint);
+        footstepSprintInstance = RuntimeManager.CreateInstance(FootstepsSprint);
+        footstepWalkInstance = RuntimeManager.CreateInstance(FootstepsWalk);
         windInstance = RuntimeManager.CreateInstance(Wind);
         EventDescription jumpDesc = RuntimeManager.GetEventDescription("event:/Footsteps Stone Jump");
         EventDescription landDesc = RuntimeManager.GetEventDescription("event:/Footsteps Stone Land");
@@ -38,6 +48,17 @@ public class AudioManager : MonoBehaviour
         landDesc.loadSampleData();
         metalJumpDesc.loadSampleData();
         metalLandDesc.loadSampleData();
+
+        allLumini = FindObjectsOfType<LuminiPickup>();
+
+        foreach (var lumini in allLumini)
+        {
+            var interactable = lumini.GetComponent<Interactable>();
+            if (interactable != null)
+            {
+                interactable.OnInteract.AddListener(OnLuminiPickedUp);
+            }
+        }
 
         // Initialize VCA for volume control
         try
@@ -55,23 +76,42 @@ public class AudioManager : MonoBehaviour
         bool isGrounded = controller.IsGrounded;
         bool isSprinting = controller.IsSprinting;
         bool jumpPressed = controller.JumpPressed;
+        bool isWalking = controller.IsWalking;
         // Started sprinting
         bool shouldPlay = isSprinting && isGrounded;
         
         // Started meeting conditions
         if (shouldPlay && !wasPlayingLastFrame)
         {
-            footstepInstance.start();
+            footstepSprintInstance.start();
         }
         // Stopped meeting conditions
         else if (!shouldPlay && wasPlayingLastFrame)
         {
-            footstepInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            footstepSprintInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
-        
+
         wasPlayingLastFrame = shouldPlay;
+
+        if(isWalking & !wasWalkingLastFrame)
+        {
+            footstepWalkInstance.start();
+        }
+        else if (!isWalking && wasWalkingLastFrame)
+        {
+            footstepWalkInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+
+        wasWalkingLastFrame = isWalking;
+
         JumpAudio();
         OutdoorSounds();
+    }
+
+    private void OnLuminiPickedUp(GameObject interactor)
+    {
+        // Play the pickup sound
+        RuntimeManager.PlayOneShot(luminiPickupSound);
     }
 
     void JumpAudio()
@@ -110,13 +150,15 @@ public class AudioManager : MonoBehaviour
         {
             wasWindyLastFrame = true;
             windInstance.setParameterByName("Volume", 1);
-            footstepInstance.setParameterByName("Surface", 0);
+            footstepSprintInstance.setParameterByName("Surface", 0);
+            footstepWalkInstance.setParameterByName("Surface", 0);
         }
         else if (atmosphere.IsInside)
         {
             wasWindyLastFrame = true;
             windInstance.setParameterByName("Volume", 0);
-            footstepInstance.setParameterByName("Surface", 1);
+            footstepSprintInstance.setParameterByName("Surface", 1);
+            footstepWalkInstance.setParameterByName("Surface", 1);
         }
     }
     
@@ -144,9 +186,26 @@ public class AudioManager : MonoBehaviour
     void OnDestroy()
     {
         // Clean up the instance
-        footstepInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        footstepInstance.release();
+        footstepSprintInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        footstepSprintInstance.release();
+        footstepWalkInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        footstepWalkInstance.release();
         windInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         windInstance.release();
+        
+        if (allLumini != null)
+        {
+            foreach (var lumini in allLumini)
+            {
+                if (lumini != null)
+                {
+                    var interactable = lumini.GetComponent<Interactable>();
+                    if (interactable != null)
+                    {
+                        interactable.OnInteract.RemoveListener(OnLuminiPickedUp);
+                    }
+                }
+            }
+        }
     }
 }
