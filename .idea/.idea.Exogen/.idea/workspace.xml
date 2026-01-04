@@ -5,13 +5,166 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/SPACE SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/SPACE SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/DumbbellRecipe.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/DumbbellRecipe.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Crafting/CraftingSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Crafting/CraftingSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Crafting/CraftingUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Crafting/CraftingUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/RecipeData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/RecipeData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/DoorLeftModel.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/DoorLeftModel.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/DoorRightModel.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/DoorRightModel.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/Mainstation.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/Mainstation.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/StationMainModel.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/StationMainModel.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/StationModel1Old.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/StationModel1Old.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/StationSubModel.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/StationSubModel.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/StationTopModel.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Buildings/StationTopModel.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Capsule.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Capsule.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Glass.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Glass.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Halo.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Halo.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Hologram_1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Hologram_1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Hologram_2.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Hologram_2.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Hologram_3.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Hologram_3.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Supports.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaMaterials/Supports.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/CapsulaTexture.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Capsula_Animation.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Capsula_Animation.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Capsula_Animation.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Capsula_Animation.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRL.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRL.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRLTexture.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRLTexture/Scifictrl_low_Emissive_TX_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRLTexture/Scifictrl_low_Emissive_TX_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRLTexture/Scifictrl_low_Emissive_TX_Emissive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRLTexture/Scifictrl_low_Emissive_TX_Emissive.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRLTexture/Scifictrl_low_Table_TX_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRLTexture/Scifictrl_low_Table_TX_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRLTexture/Scifictrl_low_Table_TX_Emissive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRLTexture/Scifictrl_low_Table_TX_Emissive.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRLTexture/Scifictrl_low_Table_TX_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRLTexture/Scifictrl_low_Table_TX_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRLTexture/Scifictrl_low_Table_TX_OcclusionRoughnessM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/FinalCTRLTexture/Scifictrl_low_Table_TX_OcclusionRoughnessM.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Prop_Chair.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Prop_Chair.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Prop_Chest.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Prop_Chest.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Prop_Desk_L.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Prop_Desk_L.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Prop_Mug.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Prop_Mug.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Sci-Fi Bed.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Furniture/Sci-Fi Bed.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Trees.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Trees/TreeModel1.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Trees/TreeModel1.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Trees/TreeModel2.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Trees/TreeModel2.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Trees/TreeModel3.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Trees/TreeModel3.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Trees/TreeModel4.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Trees/TreeModel4.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Trees/TreeModel5.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/3D Assets/Trees/TreeModel5.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Materials/Tree1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Materials/Tree1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Buildings.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Capsula_Low_Capsule_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Capsula_Low_Capsule_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Animation.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Animation.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Capsule_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Capsule_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Capsule_Emissive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Capsule_Emissive.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Capsule_Metallic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Capsule_Metallic.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Capsule_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Capsule_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Capsule_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Capsule_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Glass_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Glass_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Glass_Emissive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Glass_Emissive.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Glass_Opacity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Glass_Opacity.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Supports_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Supports_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Supports_Emissive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Supports_Emissive.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Supports_Metallic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Supports_Metallic.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Supports_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Supports_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Supports_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Capsula_Low_Supports_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Scifictrl_low_Emissive_TX_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Scifictrl_low_Emissive_TX_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Scifictrl_low_Emissive_TX_Emissive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Scifictrl_low_Emissive_TX_Emissive.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Scifictrl_low_Table_TX_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Scifictrl_low_Table_TX_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Scifictrl_low_Table_TX_Emissive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Scifictrl_low_Table_TX_Emissive.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Scifictrl_low_Table_TX_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Scifictrl_low_Table_TX_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Scifictrl_low_Table_TX_OcclusionRoughnessM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/Scifictrl_low_Table_TX_OcclusionRoughnessM.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/hexagon_keyboard_by_hxtremechaos_d865owr-f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/hexagon_keyboard_by_hxtremechaos_d865owr-f.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/kisspng-light-green-white-point-halo-green.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/kisspng-light-green-white-point-halo-green.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/mascara1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/mascara1.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/mascara2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Furniture/mascara2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/New Folder.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Textures/Trees.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FinalCTRL.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FinalCTRL.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Fog and Air Trigger/BreathableAtmosphere.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Fog and Air Trigger/BreathableAtmosphere.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/LightingData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/LightingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/LightingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_dir.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_dir.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_dir.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_light.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_light.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/ReflectionProbe-0.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/ReflectionProbe-0.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/ReflectionProbe-0.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +288,8 @@
       <workItem from="1764328734947" duration="1996000" />
       <workItem from="1764341480282" duration="4266000" />
       <workItem from="1764636062379" duration="589000" />
+      <workItem from="1767381068281" duration="1222000" />
+      <workItem from="1767552125621" duration="1891000" />
     </task>
     <servers />
   </component>

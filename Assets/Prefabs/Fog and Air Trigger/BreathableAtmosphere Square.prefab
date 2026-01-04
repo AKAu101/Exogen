@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1666754365467323930
+--- !u!1 &6491583530695718682
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2303739688791049061}
-  - component: {fileID: 1613600475108112381}
-  - component: {fileID: 7179695648403949341}
-  - component: {fileID: 4401753893695530008}
-  - component: {fileID: -7783470739385318250}
+  - component: {fileID: 7406904872449095066}
+  - component: {fileID: 67550160873101219}
+  - component: {fileID: 6719873705837853535}
+  - component: {fileID: 5478367564774860266}
   m_Layer: 0
-  m_Name: FogTrigger
-  m_TagString: Untagged
+  m_Name: Cube
+  m_TagString: OxygenArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2303739688791049061
+--- !u!4 &7406904872449095066
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666754365467323930}
+  m_GameObject: {fileID: 6491583530695718682}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.0043032467, z: -0, w: 0.9999908}
-  m_LocalPosition: {x: -2.830722, y: 1.3903333, z: 1.7186371}
-  m_LocalScale: {x: 0.16074951, y: 1.2084115, z: 1.0789785}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -89.856, z: 0}
---- !u!33 &1613600475108112381
+  m_Father: {fileID: 8223877549566639666}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &67550160873101219
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666754365467323930}
+  m_GameObject: {fileID: 6491583530695718682}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7179695648403949341
+--- !u!23 &6719873705837853535
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666754365467323930}
-  m_Enabled: 0
+  m_GameObject: {fileID: 6491583530695718682}
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -68,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 9875a245ac49007498213638a307faa1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,13 +90,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4401753893695530008
+--- !u!65 &5478367564774860266
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666754365467323930}
+  m_GameObject: {fileID: 6491583530695718682}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -112,27 +111,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-7783470739385318250
-MonoBehaviour:
+--- !u!1 &7637281322502340821
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666754365467323930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 033489522b8f47b7ae5544bd02c39cb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnterBuildingFogTrigger
-  postProcessVolume: {fileID: 0}
-  transitionSpeed: 1
-  outsideFogDensity: 1
-  outsideBloom: 490
-  outsideFilmGrain: 0.7
-  outsideChromatic: 0.2
-  outsideMotionBlur: 0.4
-  insideFogDensity: 0
-  insideBloom: 100
-  insideFilmGrain: 0.3
-  insideChromatic: 0.05
-  insideMotionBlur: 0.1
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8223877549566639666}
+  m_Layer: 0
+  m_Name: BreathableAtmosphere Square
+  m_TagString: OxygenArea
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8223877549566639666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7637281322502340821}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7406904872449095066}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
