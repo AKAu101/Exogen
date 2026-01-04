@@ -4676,6 +4676,13 @@ MonoBehaviour:
       Data3: 1835564967
       Data4: -1172727188
     Path: event:/Footsteps Run
+  FootstepsWalk:
+    Guid:
+      Data1: -641233039
+      Data2: 1103488485
+      Data3: 170842812
+      Data4: 662919680
+    Path: event:/Footsteps Walk
   Wind:
     Guid:
       Data1: -1335847785
@@ -4687,6 +4694,13 @@ MonoBehaviour:
   controller: {fileID: 3285536276046815513}
   atmosphere: {fileID: 1062821180}
   masterVolume: 1
+  luminiPickupSound:
+    Guid:
+      Data1: 737518031
+      Data2: 1197881683
+      Data3: 859011761
+      Data4: 745577380
+    Path: event:/Lumini Caught
 --- !u!4 &1170346671
 Transform:
   m_ObjectHideFlags: 0
