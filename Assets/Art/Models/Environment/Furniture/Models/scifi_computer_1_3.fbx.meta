@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: 93a123df4a5fea24e9fa0b3ed01e9001
+guid: 066330609bace4a448c4c5b88c56bee3
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: digital_display_sides
+    second: {fileID: 2100000, guid: b567c44831a9b2d4089ca8ff283f960d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: digital_displays
+    second: {fileID: 2100000, guid: 7b940990ed404c94784e9e1758769002, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_1
+    second: {fileID: 2100000, guid: 8d0e52a25ab3a0841a52eabe97239edd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metal_2
+    second: {fileID: 2100000, guid: c411377a2acad5040ad395cef4a70143, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
