@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d162ed0d42c7e5b4fae9913d3979d0a8
+guid: 5e4347eedd786114abec524af974e372
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,10 +7,15 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: 686e4fda4ac109f4e95c46d8db91bb4a, type: 2}
+      name: treetrunk 2
+    second: {fileID: 2100000, guid: 3f159b7e497aef049aac851a773041d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vines 2
+    second: {fileID: 2100000, guid: 2b14e311a65a6704bb30a4d820bbe519, type: 2}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
