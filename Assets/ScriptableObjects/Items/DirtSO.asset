@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf93a23b7d461c4bb592c642e4e4af9, type: 3}
+  m_Name: DirtSO
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSO
+  name: Dirt
+  icon: {fileID: 21300000, guid: 6a6f9377b5799bf4994bb92abe74b48f, type: 3}
+  iconSize: {x: 200, y: 200}
+  description: Dirt
+  amount: 1
+  isConsumable: 0
+  itemPrefab: {fileID: 4168843507142889419, guid: c8bb8fb89cec98f44901fa58756cf99b, type: 3}

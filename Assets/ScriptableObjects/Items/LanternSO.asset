@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: LanternSO
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   name: Lantern
-  icon: {fileID: 21300000, guid: a3e0023e2e6e25748ba72854fb0e9811, type: 3}
+  icon: {fileID: 21300000, guid: ab50ffcaaade984499685acce8155411, type: 3}
   iconSize: {x: 200, y: 200}
   description: Light
   amount: 1
-  isConsumable: 1
+  isConsumable: 0
   itemPrefab: {fileID: 2283926307359397650, guid: 7f04297a3bf014346b93eac26712e33b, type: 3}

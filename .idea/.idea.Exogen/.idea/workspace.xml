@@ -6,16 +6,53 @@
   <component name="ChangeListManager">
     <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/BerryModel.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/BerryModel.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/LanternModel.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/LanternModel.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/VineLanternModel.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/VineLanternModel.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/Berry Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/Berry Icon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/Dumbbell Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/Dumbbell Icon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/IMG_0710.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/IMG_0710.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/IMG_3155.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/IMG_3155.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/Money Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/Money Icon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Skyboxes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Skyboxes/Skybox.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Skyboxes/Skybox.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/AstroFood.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/AstroFood.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Berry.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Berry.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Dumbell.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Dumbell.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Lantern.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Lantern.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Money.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Money.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/AstroFoodSO.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/AstroFoodSO.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/BerrySO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/BerrySO.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/DumbbellSO.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/DumbbellSO.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/LanternSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/LanternSO.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/MoneySO.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/MoneySO.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/AstroFoodRecipe.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/AstroFoodRecipe.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/LanternRecipe.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/LanternRecipe.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/MoneyRecipe.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/MoneyRecipe.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/LightingData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_dir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_light.exr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_dir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_light.exr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_dir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_light.exr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_dir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_light.exr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +98,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.7f2\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.4f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\adikr\Documents\Unity\Exogen -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\adikr\Documents\Unity\Exogen" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -71,7 +108,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.7f2\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.4f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\adikr\Documents\Unity\Exogen -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\adikr\Documents\Unity\Exogen" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -142,6 +179,7 @@
       <workItem from="1767381068281" duration="1222000" />
       <workItem from="1767552125621" duration="1891000" />
       <workItem from="1768011232001" duration="989000" />
+      <workItem from="1768599852794" duration="1269000" />
     </task>
     <servers />
   </component>
