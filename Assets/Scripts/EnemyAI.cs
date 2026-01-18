@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform player;
     [SerializeField] private LanternController lanternController;
+    [SerializeField] private Animator animator;
 
     [Header("Distance Settings")]
     [SerializeField] private float safeDistance = 30f; // How far the enemy wants to stay away when you have light
@@ -54,6 +55,10 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float attackCooldown = 2f; // Time between attacks (seconds)
     [SerializeField] private int attackDamage = 30; // Damage dealt per attack
     [SerializeField] private float attackReach = 2f; // How close enemy must be to hit player
+
+    [Header("Animation Settings")]
+    [SerializeField] private float runSpeedThreshold = 3f; // Speed above which to use run animation
+    [SerializeField] private float animationSmoothTime = 0.1f; // How smoothly animations transition
 
     // Components
     private NavMeshAgent agent;
@@ -157,6 +162,9 @@ public class EnemyAI : MonoBehaviour
             updateTimer = 0f;
             UpdateBehavior();
         }
+
+        // Update animations every frame for smooth movement
+        UpdateAnimations();
     }
 
     private void UpdateBehavior()
@@ -465,6 +473,12 @@ public class EnemyAI : MonoBehaviour
     {
         Debug.Log($"EnemyAI: Attacking player for {attackDamage} damage!");
 
+        // Trigger attack animation
+        if (animator != null)
+        {
+            animator.SetTrigger("Attack");
+        }
+
         var playerHealth = player.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
@@ -474,6 +488,28 @@ public class EnemyAI : MonoBehaviour
         {
             player.SendMessage("TakeDamage", attackDamage, SendMessageOptions.DontRequireReceiver);
         }
+    }
+
+    private void UpdateAnimations()
+    {
+        if (animator == null) return;
+
+        // Get the current speed from the NavMeshAgent
+        float currentSpeed = agent.velocity.magnitude;
+
+        // Update speed parameter for blend tree (normalized 0-1 range)
+        // This allows smooth blending between idle, walk, and run
+        float normalizedSpeed = Mathf.Clamp01(currentSpeed / retreatSpeed);
+        animator.SetFloat("Speed", normalizedSpeed);
+
+        // Alternative: Use a boolean for simple walk/run switching
+        // Uncomment this if you prefer discrete walk/run states instead of blending
+        // bool isRunning = currentSpeed >= runSpeedThreshold;
+        // animator.SetBool("IsRunning", isRunning);
+
+        // Set walking boolean (useful if you have separate idle/walk/run states)
+        bool isMoving = currentSpeed > 0.1f;
+        animator.SetBool("IsMoving", isMoving);
     }
 
     private void HandleRetreat(float currentDistance)
