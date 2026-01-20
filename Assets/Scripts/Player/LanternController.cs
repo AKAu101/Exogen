@@ -25,6 +25,7 @@ public class LanternController : MonoBehaviour
 
     private IInventorySystem inventorySystem;
     private IInventoryData playerInventory;
+    private PlayerAnimationController animController;
     private bool isLeftHand; // Track which hand has the lantern
     private float currentLanternTime; // Current remaining time for the lantern
     private bool hasLanternEquipped; // Whether a lantern is currently equipped
@@ -76,6 +77,9 @@ public class LanternController : MonoBehaviour
         {
             DebugManager.LogError("LanternController: IInventorySystem not found in ServiceLocator!");
         }
+
+        // Get animation controller
+        animController = GetComponent<PlayerAnimationController>();
 
         // Ensure lantern light is off at start
         if (lanternLight != null)
@@ -234,6 +238,31 @@ public class LanternController : MonoBehaviour
         else
         {
             DebugManager.Log("LanternController: No lantern equipped, light DISABLED");
+        }
+
+        // Update hand animations
+        UpdateHandAnimations();
+    }
+
+    private void UpdateHandAnimations()
+    {
+        if (animController == null) return;
+
+        if (hasLanternEquipped)
+        {
+            if (isLeftHand)
+            {
+                animController.SetLeftHandItem(PlayerAnimationController.HandItem.Lantern);
+            }
+            else
+            {
+                animController.SetRightHandItem(PlayerAnimationController.HandItem.Lantern);
+            }
+        }
+        else
+        {
+            animController.SetLeftHandItem(PlayerAnimationController.HandItem.Nothing);
+            animController.SetRightHandItem(PlayerAnimationController.HandItem.Nothing);
         }
     }
 

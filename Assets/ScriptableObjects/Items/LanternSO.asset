@@ -18,4 +18,4 @@ MonoBehaviour:
   description: Light
   amount: 1
   isConsumable: 0
-  itemPrefab: {fileID: 2283926307359397650, guid: 7f04297a3bf014346b93eac26712e33b, type: 3}
+  itemPrefab: {fileID: 1729465065569692945, guid: 7f04297a3bf014346b93eac26712e33b, type: 3}

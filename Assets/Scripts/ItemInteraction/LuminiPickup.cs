@@ -148,6 +148,13 @@ public class LuminiPickup : MonoBehaviour
         isBeingPickedUp = true;
         DebugManager.Log($"Lumini picked up by {interactor.name}, recharging lantern for {rechargeTime} seconds");
 
+        // Trigger grab animation
+        var animController = interactor.GetComponent<PlayerAnimationController>();
+        if (animController != null)
+        {
+            animController.TriggerGrab();
+        }
+
         // Find and recharge the lantern
         var lanternController = FindFirstObjectByType<LanternController>();
         if (lanternController != null)

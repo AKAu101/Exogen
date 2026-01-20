@@ -6,53 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/BerryModel.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/BerryModel.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/LanternModel.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/LanternModel.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/VineLanternModel.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/VineLanternModel.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Sprites.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/Berry Icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/Berry Icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/Dumbbell Icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/Dumbbell Icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/IMG_0710.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/IMG_0710.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/IMG_3155.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/IMG_3155.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/Money Icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/Money Icon.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Skyboxes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Skyboxes/Skybox.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Skyboxes/Skybox.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/AstroFood.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/AstroFood.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Berry.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Berry.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Dumbell.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Dumbell.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Lantern.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Lantern.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Money.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/Money.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/AstroFoodSO.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/AstroFoodSO.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/BerrySO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/BerrySO.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/DumbbellSO.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/DumbbellSO.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/animations/hundemonster/gegner.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/animations/hundemonster/gegner.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/Beere_small.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/Beere_small.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/BerryModel.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/BerryModel.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/BerryModel.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/BerryModel.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/Laterne 1.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/Laterne 1.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/beere_smallest.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/beere_smallest.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Prefabs/Lantern.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items/Prefabs/Lantern.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Prefabs/Lantern.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items/Prefabs/Lantern.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/LanternSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/LanternSO.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/MoneySO.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/MoneySO.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/AstroFoodRecipe.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/AstroFoodRecipe.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/LanternRecipe.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/LanternRecipe.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/MoneyRecipe.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Recipes/MoneyRecipe.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/PickupItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/PickupItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemInteraction/LuminiPickup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ItemInteraction/LuminiPickup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/FirstPersonController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/FirstPersonController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/LanternController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/LanternController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,6 +149,7 @@
       <workItem from="1767552125621" duration="1891000" />
       <workItem from="1768011232001" duration="989000" />
       <workItem from="1768599852794" duration="1269000" />
+      <workItem from="1768924387951" duration="5064000" />
     </task>
     <servers />
   </component>

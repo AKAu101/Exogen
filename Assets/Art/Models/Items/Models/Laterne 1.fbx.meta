@@ -3,7 +3,47 @@ guid: 93c9977b38d9bd24b8c7b787d00df22e
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base
+    second: {fileID: 2100000, guid: 281442fe25b113f49959083620a363ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: beams
+    second: {fileID: 2100000, guid: 1fe602576ff02f1499243f6f2e373716, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handle
+    second: {fileID: 2100000, guid: 5a9190eb24ecee7489397bb9584970a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: schanier
+    second: {fileID: 2100000, guid: 63cec8a59c34d4c448093494e436971b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: top
+    second: {fileID: 2100000, guid: 4948e191a9c039646b639c9a4f6b60dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: verschluss scheibe
+    second: {fileID: 2100000, guid: b8f5e32e20df5b241953f254bf4f87ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: verschluss tuer
+    second: {fileID: 2100000, guid: ac3e5982315d6d549879dbd81689995b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vines
+    second: {fileID: 2100000, guid: cef4039c48f7a0a48a1a2e5bf12ba038, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

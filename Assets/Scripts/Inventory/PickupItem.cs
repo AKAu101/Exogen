@@ -28,6 +28,18 @@ public class PickupItem : MonoBehaviour
             if (inventorySystem != null && inventorySystem.PlayerInventory != null)
             {
                 inventoryManagement.AddItem(inventorySystem.PlayerInventory, itemType);
+
+                // Trigger grab animation
+                var player = GameObject.FindGameObjectWithTag("Player");
+                if (player != null)
+                {
+                    var animController = player.GetComponent<PlayerAnimationController>();
+                    if (animController != null)
+                    {
+                        animController.TriggerGrab();
+                    }
+                }
+
                 Destroy(gameObject);
             }
             else
