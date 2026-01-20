@@ -10,6 +10,7 @@ public class LanternController : MonoBehaviour
     [SerializeField] private Light lanternLight; // Light component
     [SerializeField] private Transform cameraTransform; // Camera transform reference
     [SerializeField] private string lanternItemName = "Lantern"; // Name of the lantern item
+    [SerializeField] private string scannerItemName = "Scanner"; // Name of the scanner item
     [SerializeField] private int leftHandSlot = 17;
     [SerializeField] private int rightHandSlot = 18;
 
@@ -246,24 +247,37 @@ public class LanternController : MonoBehaviour
 
     private void UpdateHandAnimations()
     {
-        if (animController == null) return;
+        if (animController == null || playerInventory == null) return;
 
-        if (hasLanternEquipped)
+        // Check left hand
+        PlayerAnimationController.HandItem leftItem = PlayerAnimationController.HandItem.Nothing;
+        if (playerInventory.SlotToStack.TryGetValue(leftHandSlot, out var leftStack))
         {
-            if (isLeftHand)
-            {
-                animController.SetLeftHandItem(PlayerAnimationController.HandItem.Lantern);
-            }
-            else
-            {
-                animController.SetRightHandItem(PlayerAnimationController.HandItem.Lantern);
-            }
+            leftItem = GetHandItemType(leftStack.ItemType.name);
         }
-        else
+        animController.SetLeftHandItem(leftItem);
+
+        // Check right hand
+        PlayerAnimationController.HandItem rightItem = PlayerAnimationController.HandItem.Nothing;
+        if (playerInventory.SlotToStack.TryGetValue(rightHandSlot, out var rightStack))
         {
-            animController.SetLeftHandItem(PlayerAnimationController.HandItem.Nothing);
-            animController.SetRightHandItem(PlayerAnimationController.HandItem.Nothing);
+            rightItem = GetHandItemType(rightStack.ItemType.name);
         }
+        animController.SetRightHandItem(rightItem);
+    }
+
+    private PlayerAnimationController.HandItem GetHandItemType(string itemName)
+    {
+        if (string.IsNullOrEmpty(itemName))
+            return PlayerAnimationController.HandItem.Nothing;
+
+        if (itemName.Equals(lanternItemName, System.StringComparison.OrdinalIgnoreCase))
+            return PlayerAnimationController.HandItem.Lantern;
+
+        if (itemName.Equals(scannerItemName, System.StringComparison.OrdinalIgnoreCase))
+            return PlayerAnimationController.HandItem.Radar;
+
+        return PlayerAnimationController.HandItem.Other;
     }
 
     /// <summary>

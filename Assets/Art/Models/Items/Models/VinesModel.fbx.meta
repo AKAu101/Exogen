@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 66b81bd4df39c374998d34909b0ba2a1
+guid: 5f0a223260bdbaa40939719eecbcbd1c
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ranken
+    second: {fileID: 2100000, guid: 63817ba03ca6fd542be39d7f6edb25fa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

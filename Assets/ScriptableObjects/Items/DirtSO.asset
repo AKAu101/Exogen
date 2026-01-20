@@ -18,4 +18,4 @@ MonoBehaviour:
   description: Dirt
   amount: 1
   isConsumable: 0
-  itemPrefab: {fileID: 4168843507142889419, guid: c8bb8fb89cec98f44901fa58756cf99b, type: 3}
+  itemPrefab: {fileID: 4758825982219373572, guid: 6f41260aefcb29346a8af62c75c7652c, type: 3}

@@ -18,4 +18,4 @@ MonoBehaviour:
   description: yummy berry
   amount: 1
   isConsumable: 1
-  itemPrefab: {fileID: 4092167719356156206, guid: 35fad9c130c347c4a98c7481e1379106, type: 3}
+  itemPrefab: {fileID: 1596578000499820050, guid: 75c06c2b2fb67de4396ad77feb9db036, type: 3}

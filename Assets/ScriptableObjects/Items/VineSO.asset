@@ -18,4 +18,4 @@ MonoBehaviour:
   description: heavy
   amount: 1
   isConsumable: 0
-  itemPrefab: {fileID: 3538834392430873350, guid: b8419a77af58e6349abf8c7faeca4cda, type: 3}
+  itemPrefab: {fileID: 1416624883502350588, guid: a5915321e1a118048adefe165a4eb1ce, type: 3}

@@ -40,7 +40,6 @@ public class FirstPersonController : MonoBehaviour
 
     // Components
     private CharacterController controller;
-    private PlayerAnimationController animController;
     
     //Getters for Audio/FMOD
     public bool IsSprinting => isSprinting;
@@ -76,7 +75,6 @@ public class FirstPersonController : MonoBehaviour
         Time.timeScale = 1f;
 
         controller = GetComponent<CharacterController>();
-        animController = GetComponent<PlayerAnimationController>();
 
         // Lock and hide cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -106,19 +104,9 @@ public class FirstPersonController : MonoBehaviour
         HandleMouseLook();
         HandleJump();
         HandleDuck();
-        UpdateAnimations();
 
         // Clear single-frame flags at end of update
         jumpPressedThisFrame = false;
-    }
-
-    private void UpdateAnimations()
-    {
-        if (animController == null) return;
-
-        // Player is moving if there's input and grounded
-        bool isMoving = moveInput.sqrMagnitude > 0.01f && isGrounded;
-        animController.SetMoving(isMoving);
     }
 
     private void HandleGroundCheck()
