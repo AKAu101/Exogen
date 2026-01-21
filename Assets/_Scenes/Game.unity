@@ -9493,6 +9493,20 @@ MonoBehaviour:
       Data3: 859011761
       Data4: 745577380
     Path: event:/Lumini Caught
+  itemAddedSound:
+    Guid:
+      Data1: 549949587
+      Data2: 1231330779
+      Data3: 1425235074
+      Data4: -1058799839
+    Path: event:/Pick Up Item
+  itemMovedSound:
+    Guid:
+      Data1: -586779488
+      Data2: 1116724918
+      Data3: -1327248496
+      Data4: 675075251
+    Path: event:/Move Item
 --- !u!4 &1170346671
 Transform:
   m_ObjectHideFlags: 0

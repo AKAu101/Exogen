@@ -19,7 +19,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] [Range(0f, 1f)] private float masterVolume = 1f;
 
     [SerializeField] EventReference luminiPickupSound;
+
+    [SerializeField] EventReference itemAddedSound;
+    [SerializeField] EventReference itemMovedSound;
     
+    private InventorySystem inventorySystem;
     private LuminiPickup[] allLumini;
 
     private EventInstance footstepSprintInstance;
@@ -70,6 +74,18 @@ public class AudioManager : MonoBehaviour
         {
             UnityEngine.Debug.LogWarning($"Could not find Master VCA. Make sure you have a VCA called 'Master' in your FMOD project. Error: {e.Message}");
         }
+
+        inventorySystem = InventorySystem.Instance;
+        
+        if (inventorySystem != null)
+        {
+            inventorySystem.OnItemAdded += PlayItemAddedSound;
+            inventorySystem.OnItemMoved += PlayItemMovedSound;
+        }
+        else
+        {
+            UnityEngine.Debug.LogError("AudioManager: Could not find InventorySystem!");
+        }
     }
     void Update()
     {
@@ -112,6 +128,16 @@ public class AudioManager : MonoBehaviour
     {
         // Play the pickup sound
         RuntimeManager.PlayOneShot(luminiPickupSound);
+    }
+
+    private void PlayItemAddedSound(IInventoryData inventory, ItemData item, int slot)
+    {
+        RuntimeManager.PlayOneShot(itemAddedSound);
+    }
+    
+    private void PlayItemMovedSound(IInventoryData fromInventory, int fromSlot, IInventoryData toInventory, int toSlot)
+    {
+        RuntimeManager.PlayOneShot(itemMovedSound);
     }
 
     void JumpAudio()
@@ -192,6 +218,11 @@ public class AudioManager : MonoBehaviour
         footstepWalkInstance.release();
         windInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         windInstance.release();
+        if (inventorySystem != null)
+        {
+            inventorySystem.OnItemAdded -= PlayItemAddedSound;
+            inventorySystem.OnItemMoved -= PlayItemMovedSound;
+        }
         
         if (allLumini != null)
         {
