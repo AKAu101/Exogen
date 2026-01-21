@@ -6,16 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/BerryModel.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/BerryModel.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/BerryModel.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/BerryModel.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/ScannerModel.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/ScannerModel.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/ScannerModel.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items/Models/ScannerModel.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Prefabs/Berry.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items/Prefabs/Berry.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Prefabs/Berry.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items/Prefabs/Berry.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/BerrySO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/BerrySO.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/ScannerSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/ScannerSO.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/animations/character/anim_player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/animations/character/anim_player.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Prefabs/Lantern.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items/Prefabs/Lantern.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/EquipmentManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/EquipmentManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimationController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,6 +138,7 @@
       <workItem from="1768011232001" duration="989000" />
       <workItem from="1768599852794" duration="1269000" />
       <workItem from="1768924387951" duration="7381000" />
+      <workItem from="1769019284540" duration="4764000" />
     </task>
     <servers />
   </component>

@@ -10757,7 +10757,7 @@ Transform:
   m_GameObject: {fileID: 880171690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.018, y: 0.07, z: -0.002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12962,6 +12962,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7691864479053352511, guid: daf31e4067f12824f9a35707cb13e67f, type: 3}
   m_PrefabInstance: {fileID: 1008617550}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1014524392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1014524393}
+  m_Layer: 0
+  m_Name: Socket_R
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1014524393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014524392}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.023, y: 0.053, z: 0.005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1804084916}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1016409821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23265,8 +23296,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -5122275615282856030, guid: b5da8f98bed89714db0ef2789cf528ee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 880171691}
+    - targetCorrespondingSourceObject: {fileID: 1288883667613316862, guid: b5da8f98bed89714db0ef2789cf528ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1014524393}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5da8f98bed89714db0ef2789cf528ee, type: 3}
+--- !u!4 &1804084916 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1288883667613316862, guid: b5da8f98bed89714db0ef2789cf528ee, type: 3}
+  m_PrefabInstance: {fileID: 1804084915}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1809315812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30693,8 +30732,10 @@ MonoBehaviour:
   leftHandSlot: 17
   rightHandSlot: 18
   cameraTransform: {fileID: 4313150040180428302}
-  leftHandOffset: {x: -0.3, y: -0.2, z: 0.5}
-  rightHandOffset: {x: 0.3, y: -0.2, z: 0.5}
+  socketLeft: {fileID: 880171691}
+  socketRight: {fileID: 1014524393}
+  leftHandRotation: {x: 0, y: 0, z: 0}
+  rightHandRotation: {x: 0, y: 0, z: 0}
   itemScale: 0.5
   mouseSensitivity: 2
   maxRotationX: 45

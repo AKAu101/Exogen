@@ -13,9 +13,15 @@ public class EquipmentManager : MonoBehaviour
 
     [Header("Item Positioning")]
     [SerializeField] private Transform cameraTransform;
-    [SerializeField] private Vector3 leftHandOffset = new Vector3(-0.3f, -0.2f, 0.5f);
-    [SerializeField] private Vector3 rightHandOffset = new Vector3(0.3f, -0.2f, 0.5f);
+    [SerializeField] private Transform socketLeft;  // Socket_L - left hand bone socket
+    [SerializeField] private Transform socketRight; // Socket_R - right hand bone socket
+    [SerializeField] private Vector3 leftHandRotation = new Vector3(0f, 0f, -75f);
+    [SerializeField] private Vector3 rightHandRotation = new Vector3(0f, 0f, 75f);
     [SerializeField] private float itemScale = 1f;
+
+    [Header("Lantern Specific Rotation")]
+    [SerializeField] private Vector3 lanternLeftHandRotation = new Vector3(0f, 0f, -75f);
+    [SerializeField] private Vector3 lanternRightHandRotation = new Vector3(0f, 0f, 75f);
 
     [Header("Mouse Follow Settings")]
     [SerializeField] private float mouseSensitivity = 80f;
@@ -93,7 +99,8 @@ public class EquipmentManager : MonoBehaviour
 
     private void Update()
     {
-        UpdateItemPositions();
+        // Items are parented to sockets, so they follow automatically
+        // Only update rotation jiggle effect
         UpdateItemRotations();
     }
 
@@ -111,12 +118,12 @@ public class EquipmentManager : MonoBehaviour
         if (slot == leftHandSlot)
         {
             DebugManager.Log($"EquipmentManager: Equipping to LEFT hand (slot {leftHandSlot})");
-            EquipItem(itemData, ref leftHandItem, leftHandOffset);
+            EquipItem(itemData, ref leftHandItem, socketLeft, IsLantern(itemData) ? lanternLeftHandRotation : leftHandRotation);
         }
         else if (slot == rightHandSlot)
         {
             DebugManager.Log($"EquipmentManager: Equipping to RIGHT hand (slot {rightHandSlot})");
-            EquipItem(itemData, ref rightHandItem, rightHandOffset);
+            EquipItem(itemData, ref rightHandItem, socketRight, IsLantern(itemData) ? lanternRightHandRotation : rightHandRotation);
         }
         else
         {
@@ -156,12 +163,12 @@ public class EquipmentManager : MonoBehaviour
             if (targetSlot == leftHandSlot)
             {
                 DebugManager.Log($"EquipmentManager: Item moved TO left hand slot");
-                RefreshHandSlot(leftHandSlot, ref leftHandItem, leftHandOffset);
+                RefreshHandSlot(leftHandSlot, ref leftHandItem, socketLeft, leftHandSlot, true);
             }
             else if (targetSlot == rightHandSlot)
             {
                 DebugManager.Log($"EquipmentManager: Item moved TO right hand slot");
-                RefreshHandSlot(rightHandSlot, ref rightHandItem, rightHandOffset);
+                RefreshHandSlot(rightHandSlot, ref rightHandItem, socketRight, rightHandSlot, false);
             }
         }
 
@@ -189,15 +196,15 @@ public class EquipmentManager : MonoBehaviour
         // Check if swap involves hand slots
         if (sourceSlot == leftHandSlot || targetSlot == leftHandSlot)
         {
-            RefreshHandSlot(leftHandSlot, ref leftHandItem, leftHandOffset);
+            RefreshHandSlot(leftHandSlot, ref leftHandItem, socketLeft, leftHandSlot, true);
         }
         if (sourceSlot == rightHandSlot || targetSlot == rightHandSlot)
         {
-            RefreshHandSlot(rightHandSlot, ref rightHandItem, rightHandOffset);
+            RefreshHandSlot(rightHandSlot, ref rightHandItem, socketRight, rightHandSlot, false);
         }
     }
 
-    private void EquipItem(ItemData itemData, ref GameObject handItem, Vector3 offset)
+    private void EquipItem(ItemData itemData, ref GameObject handItem, Transform socket, Vector3 rotation)
     {
         DebugManager.Log($"EquipmentManager: EquipItem called for {itemData.name}");
 
@@ -211,10 +218,17 @@ public class EquipmentManager : MonoBehaviour
             return;
         }
 
+        // Check if socket is assigned
+        if (socket == null)
+        {
+            DebugManager.LogWarning($"EquipmentManager: Cannot equip {itemData.name}: socket not assigned!");
+            return;
+        }
+
         DebugManager.Log($"EquipmentManager: Instantiating prefab {itemData.itemPrefab.name}");
 
-        // Spawn the item prefab
-        handItem = Instantiate(itemData.itemPrefab);
+        // Spawn the item prefab as child of socket
+        handItem = Instantiate(itemData.itemPrefab, socket);
 
         if (handItem == null)
         {
@@ -222,7 +236,11 @@ public class EquipmentManager : MonoBehaviour
             return;
         }
 
-        DebugManager.Log($"EquipmentManager: Item instantiated successfully at position {handItem.transform.position}");
+        // Reset local position and rotation to match socket
+        handItem.transform.localPosition = Vector3.zero;
+        handItem.transform.localRotation = Quaternion.Euler(rotation);
+
+        DebugManager.Log($"EquipmentManager: Item instantiated at socket {socket.name} with rotation {rotation}");
 
         // Disable any pickup-related components
         var pickupComponent = handItem.GetComponent<PickupItem>();
@@ -260,7 +278,7 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
-    private void RefreshHandSlot(int slot, ref GameObject handItem, Vector3 offset)
+    private void RefreshHandSlot(int slot, ref GameObject handItem, Transform socket, int targetSlot, bool isLeftHand)
     {
         // Clear current item
         UnequipItem(ref handItem);
@@ -268,27 +286,40 @@ public class EquipmentManager : MonoBehaviour
         // Check if slot has an item now
         if (playerInventory.SlotToStack.TryGetValue(slot, out var stack))
         {
-            EquipItem(stack.ItemType, ref handItem, offset);
+            // Determine the correct rotation based on item type
+            Vector3 rotation;
+            if (IsLantern(stack.ItemType))
+            {
+                rotation = isLeftHand ? lanternLeftHandRotation : lanternRightHandRotation;
+            }
+            else
+            {
+                rotation = isLeftHand ? leftHandRotation : rightHandRotation;
+            }
+            
+            EquipItem(stack.ItemType, ref handItem, socket, rotation);
         }
     }
 
-    private void UpdateItemPositions()
+    private bool IsLantern(ItemData itemData)
     {
-        if (cameraTransform == null) return;
-
-        // Position left hand item
-        if (leftHandItem != null)
-        {
-            Vector3 worldOffset = cameraTransform.TransformDirection(leftHandOffset);
-            leftHandItem.transform.position = cameraTransform.position + worldOffset;
-        }
-
-        // Position right hand item
-        if (rightHandItem != null)
-        {
-            Vector3 worldOffset = cameraTransform.TransformDirection(rightHandOffset);
-            rightHandItem.transform.position = cameraTransform.position + worldOffset;
-        }
+        // Check if this item is a lantern
+        // You might want to use a more robust check, like:
+        // 1. Check item type/category
+        // 2. Check item name contains "lantern"
+        // 3. Or add a specific component/script to lantern items
+        
+        // Option 1: Check by name (simple)
+        if (itemData.name.ToLower().Contains("lantern"))
+            return true;
+            
+        // Option 2: You could add an "ItemCategory" enum to ItemData and check it
+        // return itemData.category == ItemCategory.Lantern;
+        
+        // Option 3: Check for a specific tag or component
+        // return itemData.tags.Contains("Lantern");
+        
+        return false;
     }
 
     private void UpdateItemRotations()
@@ -297,7 +328,6 @@ public class EquipmentManager : MonoBehaviour
         if (uiStateManagement != null && uiStateManagement.IsInventoryVisible) return;
 
         // Convert mouse delta to velocity (frame-rate independent)
-        // lookInput is delta per frame, divide by Time.deltaTime to get velocity
         float mouseVelocityY = Time.deltaTime > 0 ? lookInput.y / Time.deltaTime : 0;
         float mouseVelocityX = Time.deltaTime > 0 ? lookInput.x / Time.deltaTime : 0;
 
@@ -313,15 +343,41 @@ public class EquipmentManager : MonoBehaviour
         currentRotation.x = Mathf.SmoothDamp(currentRotation.x, targetX, ref rotationVelocity.x, rotationSmoothTime, maxRotationSpeed);
         currentRotation.y = Mathf.SmoothDamp(currentRotation.y, targetY, ref rotationVelocity.y, rotationSmoothTime, maxRotationSpeed);
 
-        // Apply rotation relative to camera
+        // Apply jiggle rotation as local rotation offset (preserve base hand rotation)
         if (leftHandItem != null)
         {
-            leftHandItem.transform.rotation = cameraTransform.rotation * Quaternion.Euler(currentRotation.x, currentRotation.y, 0f);
+            // Determine base rotation based on item type
+            Vector3 baseRotation;
+            if (playerInventory.SlotToStack.TryGetValue(leftHandSlot, out var leftStack) && IsLantern(leftStack.ItemType))
+            {
+                baseRotation = lanternLeftHandRotation;
+            }
+            else
+            {
+                baseRotation = leftHandRotation;
+            }
+            
+            Quaternion baseRot = Quaternion.Euler(baseRotation);
+            Quaternion jiggle = Quaternion.Euler(currentRotation.x, currentRotation.y, 0f);
+            leftHandItem.transform.localRotation = baseRot * jiggle;
         }
 
         if (rightHandItem != null)
         {
-            rightHandItem.transform.rotation = cameraTransform.rotation * Quaternion.Euler(currentRotation.x, currentRotation.y, 0f);
+            // Determine base rotation based on item type
+            Vector3 baseRotation;
+            if (playerInventory.SlotToStack.TryGetValue(rightHandSlot, out var rightStack) && IsLantern(rightStack.ItemType))
+            {
+                baseRotation = lanternRightHandRotation;
+            }
+            else
+            {
+                baseRotation = rightHandRotation;
+            }
+            
+            Quaternion baseRot = Quaternion.Euler(baseRotation);
+            Quaternion jiggle = Quaternion.Euler(currentRotation.x, currentRotation.y, 0f);
+            rightHandItem.transform.localRotation = baseRot * jiggle;
         }
     }
 
