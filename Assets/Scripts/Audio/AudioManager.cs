@@ -37,10 +37,13 @@ public class AudioManager : MonoBehaviour
 
     // VCA for volume control
     private VCA masterVCA;
+    void Awake()
+{
+    RuntimeManager.LoadBank("Master", true);
+    RuntimeManager.LoadBank("Master.strings", true);
+}
     void Start()
     {
-        RuntimeManager.LoadBank("Master", true);
-        RuntimeManager.LoadBank("Master.strings", true);
         footstepSprintInstance = RuntimeManager.CreateInstance(FootstepsSprint);
         footstepWalkInstance = RuntimeManager.CreateInstance(FootstepsWalk);
         windInstance = RuntimeManager.CreateInstance(Wind);

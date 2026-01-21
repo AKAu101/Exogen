@@ -1,14 +1,19 @@
-{3cbbd952-d745-4223-8b89-9220a73b8aa7} bank:/Footsteps Grass
-{7a19b4eb-dae1-46c2-8e34-b3c88afea3b4} bank:/Footsteps Metal
-{070f97cc-f304-4f5c-9e80-92535654ca2a} bank:/Lumini
 {7f5a9f3d-3011-4032-bb78-8cb7db5fdf77} bank:/Master
 {e747bfe9-416a-0c70-3d31-06492aacd9ef} bank:/Master.strings
 {c484f15a-7cc4-4b26-a993-814045a8d06e} bus:/
 {54971083-c6bb-4e0c-b626-560fad160721} bus:/Reverb
-{42252985-e993-40a5-972e-5ebe7cb6659e} event:/Footsteps Grass Run
-{01d192e2-d710-4f5a-bfad-067219f63cd0} event:/Footsteps Grass Walk
+{7d13e7f7-9810-43d4-8a68-9f322dced81b} event:/Footsteps Grass Jump
 {2e777134-600f-4bd5-a9e1-98d2433e3949} event:/Footsteps Metal Jump
-{b36c4388-ef74-4f46-b909-7af35b2e6840} event:/Footsteps Metal Run
-{83057777-28d7-4ee6-99eb-3f83f876397e} event:/Footsteps Metal Walk
+{fdb5f52a-a3e3-4a01-95a3-2cedf01bdb84} event:/Footsteps Metal Land
+{991b959c-a357-4963-a77f-686d6c9a19ba} event:/Footsteps Run
+{e099fbee-9dca-4e5b-8c17-07bf952e9a45} event:/Footsteps Stone Jump
+{8f4366b9-02e1-4195-af6a-5a273cf0369e} event:/Footsteps Stone Land
+{d9c78f71-e5e5-41c5-bcda-2e0a005a8327} event:/Footsteps Walk
 {2bf5a1cf-3953-4766-b17a-3333a49b702c} event:/Lumini Caught
 {792e9517-ee94-4054-8c54-c8844272b6a5} event:/Lumini Hover
+{dd0674a0-deb6-428f-90cb-e3b0b3d43c28} event:/Move Item
+{20c79093-9ddb-4964-825c-f35421ffe3c0} event:/Pick Up Item
+{b0609497-a9b1-43a7-b0c2-4969bcc9296e} event:/Wind
+{c7e68ec7-e18a-4ca7-8633-61220315b432} parameter:/Surface
+{60299a6b-5bc8-456a-9aa3-3af2694ceb41} parameter:/Volume
+{a04b17b6-bb31-4837-8249-436cce1283ef} vca:/VCA

@@ -8465,6 +8465,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7947698582375907715, guid: 37fc8a5adefd92d42986123b53f4707a, type: 3}
   m_PrefabInstance: {fileID: 1032257602}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1032749500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1799893811953928502, guid: 6377eb35e8a68a2499344d0d286dad3c, type: 3}
+  m_PrefabInstance: {fileID: 3603978248718767750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1032749507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032749500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2033095959
+      Data2: 1079307924
+      Data3: -2067245940
+      Data4: -1514769854
+    Path: event:/Lumini Hover
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 3.7
+  OverrideMaxDistance: 95
 --- !u!1001 &1043230145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12595,7 +12631,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1799893811953928502, guid: 6377eb35e8a68a2499344d0d286dad3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1622660186}
   m_SourcePrefab: {fileID: 100100000, guid: 6377eb35e8a68a2499344d0d286dad3c, type: 3}
 --- !u!1 &1557104186 stripped
 GameObject:
@@ -13044,6 +13083,42 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1349540298}
   m_SourcePrefab: {fileID: 100100000, guid: 7c8fa75cf8d57264aac8f4f4d1c2e2b4, type: 3}
+--- !u!1 &1622660185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1799893811953928502, guid: 6377eb35e8a68a2499344d0d286dad3c, type: 3}
+  m_PrefabInstance: {fileID: 1552990871}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1622660186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622660185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 2033095959
+      Data2: 1079307924
+      Data3: -2067245940
+      Data4: -1514769854
+    Path: event:/Lumini Hover
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0.6
+  OverrideMaxDistance: 15
 --- !u!1 &1624189627 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1866541325593924960, guid: 65954d63e47d0014dbbbd11660e7a139, type: 3}
@@ -18462,7 +18537,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1799893811953928502, guid: 6377eb35e8a68a2499344d0d286dad3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1032749507}
   m_SourcePrefab: {fileID: 100100000, guid: 6377eb35e8a68a2499344d0d286dad3c, type: 3}
 --- !u!23 &3785378709179342336
 MeshRenderer:
@@ -19495,7 +19573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
   nonRigidbodyVelocity: 0
-  attenuationObject: {fileID: 1971861281667583386}
+  attenuationObject: {fileID: 2072334466961873856}
 --- !u!136 &6018714978487782012
 CapsuleCollider:
   m_ObjectHideFlags: 0
