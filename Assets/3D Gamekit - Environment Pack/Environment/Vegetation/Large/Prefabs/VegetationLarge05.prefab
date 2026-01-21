@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 6806468595961966987}
   - component: {fileID: 6806468595961196969}
   - component: {fileID: 6806468595960197993}
+  - component: {fileID: 5942134449917707600}
   m_Layer: 0
   m_Name: VegetationLarge05_LOD00
   m_TagString: Untagged
@@ -152,6 +153,29 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &5942134449917707600
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6806468595962195371}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.62
+  m_Height: 6.21
+  m_Direction: 1
+  m_Center: {x: -0.13, y: 2.77, z: -0.2}
 --- !u!1 &6806468595962195373
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +187,7 @@ GameObject:
   - component: {fileID: 6806468595961966989}
   - component: {fileID: 6806468595961196971}
   - component: {fileID: 6806468595960197995}
+  - component: {fileID: 5366423827989771392}
   m_Layer: 0
   m_Name: VegetationLarge05_LOD01
   m_TagString: Untagged
@@ -242,6 +267,29 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &5366423827989771392
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6806468595962195373}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.62
+  m_Height: 6.21
+  m_Direction: 1
+  m_Center: {x: -0.13, y: 2.77, z: -0.2}
 --- !u!1 &6806468595962195375
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +301,7 @@ GameObject:
   - component: {fileID: 6806468595961966991}
   - component: {fileID: 6806468595961196973}
   - component: {fileID: 6806468595960197997}
+  - component: {fileID: 1876470728888686715}
   m_Layer: 0
   m_Name: VegetationLarge05_LOD02
   m_TagString: Untagged
@@ -332,3 +381,26 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &1876470728888686715
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6806468595962195375}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.62
+  m_Height: 6.21
+  m_Direction: 1
+  m_Center: {x: -0.13, y: 2.77, z: -0.2}

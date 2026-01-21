@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3759874570695322120}
   - component: {fileID: 3759874570696649258}
   - component: {fileID: 3759874570697615594}
+  - component: {fileID: 8749859875898950464}
   m_Layer: 0
   m_Name: RockSwamp01_LOD00
   m_TagString: Untagged
@@ -90,6 +91,28 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8749859875898950464
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759874570695620136}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 0e7a0cbe96ebe3747a42d2e165016ddc, type: 3}
 --- !u!1 &3759874570695620138
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +186,7 @@ GameObject:
   - component: {fileID: 3759874570695322124}
   - component: {fileID: 3759874570696649262}
   - component: {fileID: 3759874570697615598}
+  - component: {fileID: 8669831061943917987}
   m_Layer: 0
   m_Name: RockSwamp01_LOD02
   m_TagString: Untagged
@@ -242,6 +266,28 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8669831061943917987
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759874570695620140}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300004, guid: 0e7a0cbe96ebe3747a42d2e165016ddc, type: 3}
 --- !u!1 &3759874570695620142
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +299,7 @@ GameObject:
   - component: {fileID: 3759874570695322126}
   - component: {fileID: 3759874570696649256}
   - component: {fileID: 3759874570697615592}
+  - component: {fileID: 8461383314963553261}
   m_Layer: 0
   m_Name: RockSwamp01_LOD01
   m_TagString: Untagged
@@ -332,3 +379,25 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8461383314963553261
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3759874570695620142}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 0e7a0cbe96ebe3747a42d2e165016ddc, type: 3}

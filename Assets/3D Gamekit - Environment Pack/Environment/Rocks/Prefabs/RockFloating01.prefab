@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 3737556252176551861}
   - component: {fileID: 3737556252179451799}
   - component: {fileID: 3737556252178451799}
+  - component: {fileID: 2544862398220130632}
   m_Layer: 0
   m_Name: RockFloating01_LOD1
   m_TagString: Untagged
@@ -152,6 +153,28 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2544862398220130632
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3737556252176257941}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300004, guid: 2be1311ba057652448cee2e5e7f1e84b, type: 3}
 --- !u!1 &3737556252176257943
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +186,7 @@ GameObject:
   - component: {fileID: 3737556252176551863}
   - component: {fileID: 3737556252179451793}
   - component: {fileID: 3737556252178451793}
+  - component: {fileID: 9066017493528349390}
   m_Layer: 0
   m_Name: RockFloating01_LOD0
   m_TagString: Untagged
@@ -242,6 +266,28 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &9066017493528349390
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3737556252176257943}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 2be1311ba057652448cee2e5e7f1e84b, type: 3}
 --- !u!1 &3737556252176257947
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +299,7 @@ GameObject:
   - component: {fileID: 3737556252176551867}
   - component: {fileID: 3737556252179451797}
   - component: {fileID: 3737556252178451797}
+  - component: {fileID: 5347266288808515497}
   m_Layer: 0
   m_Name: RockFloating01_LOD2
   m_TagString: Untagged
@@ -332,3 +379,25 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5347266288808515497
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3737556252176257947}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300006, guid: 2be1311ba057652448cee2e5e7f1e84b, type: 3}
