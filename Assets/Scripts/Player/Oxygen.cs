@@ -79,6 +79,23 @@ public class Oxygen : MonoBehaviour
     }
 
     /// <summary>
+    /// Get the current oxygen level
+    /// </summary>
+    public float OxygenLevel
+    {
+        get { return oxygenLevel; }
+        private set { oxygenLevel = Mathf.Clamp(value, 0, oxygenMaxCapacity); }
+    }
+
+    /// <summary>
+    /// Get the current oxygen level as a percentage (0-1)
+    /// </summary>
+    public float OxygenPercentage
+    {
+        get { return oxygenLevel / oxygenMaxCapacity; }
+    }
+
+    /// <summary>
     /// Check if oxygen has been depleted
     /// </summary>
     public bool IsOxygenDepleted()
