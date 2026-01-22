@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6d6287585070d0141a978720372e5499, type: 3}
       propertyPath: m_Name
-      value: Cucumber 1
+      value: Cucumber
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6d6287585070d0141a978720372e5499, type: 3}
       propertyPath: m_TagString
