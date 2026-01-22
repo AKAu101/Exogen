@@ -31,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
     private bool isDead = false;
     private IInventorySystem inventorySystem;
     private IInventoryData playerInventory;
+    public static event System.Action OnPlayerDamaged; // Event for Audio Manager
 
     private void Start()
     {
@@ -112,6 +113,8 @@ public class PlayerHealth : MonoBehaviour
 
         DebugManager.Log($"PlayerHealth: Took {damage} damage. Current health: {currentHealth}");
         UpdateHealthUI();
+
+        OnPlayerDamaged?.Invoke(); // Event for Audio Manager
 
         if (currentHealth <= 0f)
         {

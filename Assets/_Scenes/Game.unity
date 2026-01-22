@@ -9817,7 +9817,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 11b403004b8152f4b8ff9f10428053a2, type: 3}
       insertIndex: 5
       addedObject: {fileID: 669302213}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2208777629892111928, guid: 11b403004b8152f4b8ff9f10428053a2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 984638124}
   m_SourcePrefab: {fileID: 100100000, guid: 11b403004b8152f4b8ff9f10428053a2, type: 3}
 --- !u!4 &638025971 stripped
 Transform:
@@ -14157,6 +14160,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982849235}
   m_CullTransparentMesh: 1
+--- !u!1 &984638119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2208777629892111928, guid: 11b403004b8152f4b8ff9f10428053a2, type: 3}
+  m_PrefabInstance: {fileID: 633536724}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &984638124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984638119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1483179673
+      Data2: 1302056477
+      Data3: 1809320863
+      Data4: -238250000
+    Path: event:/Computer Ambiance
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 7.8
 --- !u!1001 &985037525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17018,6 +17057,14 @@ MonoBehaviour:
   player: {fileID: 1971861281667583386}
   controller: {fileID: 3285536276046815513}
   atmosphere: {fileID: 1683326132}
+  playerDamageSound:
+    Guid:
+      Data1: -1833772099
+      Data2: 1317420799
+      Data3: 1176031879
+      Data4: 225686709
+    Path: event:/Player Damage
+  eat: {fileID: 5424041643873507585}
   masterVolume: 1
   luminiPickupSound:
     Guid:
@@ -17040,6 +17087,13 @@ MonoBehaviour:
       Data3: -1327248496
       Data4: 675075251
     Path: event:/Move Item
+  eatSound:
+    Guid:
+      Data1: 1524883687
+      Data2: 1142097329
+      Data3: -2108471888
+      Data4: 2004207484
+    Path: event:/Eating
 --- !u!4 &1170346671
 Transform:
   m_ObjectHideFlags: 0

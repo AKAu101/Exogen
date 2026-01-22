@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] FirstPersonController controller;
     [SerializeField] AtmosphereTransition atmosphere;
+    [SerializeField] EventReference playerDamageSound;
+    [SerializeField] PlayerConsumptionManager eat;
 
     [Header("Volume Control")]
     [SerializeField] [Range(0f, 1f)] private float masterVolume = 1f;
@@ -22,6 +24,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] EventReference itemAddedSound;
     [SerializeField] EventReference itemMovedSound;
+    [SerializeField] EventReference eatSound;
     
     private InventorySystem inventorySystem;
     private LuminiPickup[] allLumini;
@@ -31,9 +34,9 @@ public class AudioManager : MonoBehaviour
     private EventInstance windInstance;
     private bool wasPlayingLastFrame = false;
     private bool wasGroundedLastFrame = true;
+    private bool wasEatingLastFrame = true;
     private bool wasWindyLastFrame = false;
     private bool wasWalkingLastFrame = false;
-    private bool LuminiSoundOn = false;
 
     // VCA for volume control
     private VCA masterVCA;
@@ -85,10 +88,7 @@ public class AudioManager : MonoBehaviour
             inventorySystem.OnItemAdded += PlayItemAddedSound;
             inventorySystem.OnItemMoved += PlayItemMovedSound;
         }
-        else
-        {
-            UnityEngine.Debug.LogError("AudioManager: Could not find InventorySystem!");
-        }
+        PlayerHealth.OnPlayerDamaged += PlayPlayerDamageSound;
     }
     void Update()
     {
@@ -123,13 +123,24 @@ public class AudioManager : MonoBehaviour
 
         wasWalkingLastFrame = isWalking;
 
+        if (eat.IsConsuming&&!wasEatingLastFrame)
+        {
+            RuntimeManager.PlayOneShot(eatSound);
+        }
+
+        wasEatingLastFrame = eat.IsConsuming;
+
         JumpAudio();
         OutdoorSounds();
     }
 
+    private void PlayPlayerDamageSound()
+    {
+        RuntimeManager.PlayOneShot(playerDamageSound);
+    }
+
     private void OnLuminiPickedUp(GameObject interactor)
     {
-        // Play the pickup sound
         RuntimeManager.PlayOneShot(luminiPickupSound);
     }
 
@@ -221,6 +232,8 @@ public class AudioManager : MonoBehaviour
         footstepWalkInstance.release();
         windInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         windInstance.release();
+        PlayerHealth.OnPlayerDamaged -= PlayPlayerDamageSound;
+
         if (inventorySystem != null)
         {
             inventorySystem.OnItemAdded -= PlayItemAddedSound;
