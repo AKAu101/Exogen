@@ -23,6 +23,7 @@ public class ItemContextMenu : MonoBehaviour
     //Properties
     private int currentSlotIndex;
     private IInventorySystem inventoryManagement;
+    private PlayerConsumptionManager consumptionManager; // Added reference
 
     private void Awake()
     {
@@ -31,15 +32,20 @@ public class ItemContextMenu : MonoBehaviour
 
         // Setup button listeners
         if (consumeButton != null) consumeButton.onClick.AddListener(OnConsumeClicked);
-
         if (dropButton != null) dropButton.onClick.AddListener(OnDropClicked);
     }
 
     private void Start()
     {
         // Get the inventory service from the ServiceLocator
-        // Using Start() instead of Awake() to ensure singletons have registered themselves
         inventoryManagement = ServiceLocator.Instance.Get<IInventorySystem>();
+        
+        // Find consumption manager in the scene
+        consumptionManager = FindObjectOfType<PlayerConsumptionManager>();
+        if (consumptionManager == null)
+        {
+            Debug.LogError("ItemContextMenu: Could not find PlayerConsumptionManager in scene!");
+        }
     }
 
     private void Update()
@@ -77,7 +83,28 @@ public class ItemContextMenu : MonoBehaviour
             currentItemData = itemData;
 
             // Show/hide consume button based on isConsumable
-            if (consumeButton != null) consumeButton.gameObject.SetActive(itemData != null && itemData.isConsumable);
+            bool canConsume = itemData != null && itemData.isConsumable;
+            if (consumeButton != null) 
+            {
+                consumeButton.gameObject.SetActive(canConsume);
+                
+                // Update button text based on item type
+                if (canConsume)
+                {
+                    // Check what type of consumable it is
+                    string consumeText = "Consume";
+                    if (itemData.healthRestore > 0)
+                        consumeText = "Eat";
+                    else if (itemData.oxygenRestore > 0)
+                        consumeText = "Drink";
+                    else if (itemData.staminaRestore > 0)
+                        consumeText = "Use";
+                        
+                    var text = consumeButton.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+                    if (text != null)
+                        text.text = consumeText;
+                }
+            }
 
             // Position the menu at the cursor
             menuPanel.transform.position = position;
@@ -102,13 +129,22 @@ public class ItemContextMenu : MonoBehaviour
         {
             if (currentItemData.isConsumable)
             {
-                var inv = currentItemView.InventoryUI.AssignedInventory;
-                inventoryManagement.RemoveItemFromSlot(inv,currentSlotIndex);
-                Debug.Log($"Consumed {currentItemData.name} from slot {currentSlotIndex}");
+                // Try to consume the item
+                if (consumptionManager != null && consumptionManager.TryConsumeItem(currentItemData))
+                {
+                    // Only remove from inventory if consumption started successfully
+                    var inv = currentItemView.InventoryUI.AssignedInventory;
+                    inventoryManagement.RemoveItemFromSlot(inv, currentSlotIndex);
+                    DebugManager.Log($"Consumed {currentItemData.name} from slot {currentSlotIndex}");
+                }
+                else
+                {
+                    DebugManager.LogWarning($"Could not consume {currentItemData.name}!");
+                }
             }
             else
             {
-                Debug.LogWarning($"Item {currentItemData.name} is not consumable!");
+                DebugManager.LogWarning($"Item {currentItemData.name} is not consumable!");
             }
         }
 
@@ -126,7 +162,7 @@ public class ItemContextMenu : MonoBehaviour
             var slotView = hit.transform.gameObject.GetComponent<ItemSlot>();
             if(slotView == null || slotView.InventoryUI == null)
             {
-                Debug.LogError("Could not find inventory corresponding to item you are trying to drop");
+                DebugManager.LogError("Could not find inventory corresponding to item you are trying to drop");
                 return;
             }
 

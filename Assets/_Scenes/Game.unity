@@ -19756,7 +19756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1339575392
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19772,10 +19772,10 @@ RectTransform:
   - {fileID: 627594287}
   m_Father: {fileID: 267566400}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -540}
+  m_SizeDelta: {x: 640, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1339575393
 MonoBehaviour:
@@ -32874,6 +32874,7 @@ GameObject:
   - component: {fileID: 1559392329470563563}
   - component: {fileID: 5424041643873507584}
   - component: {fileID: 5424041643873507583}
+  - component: {fileID: 5424041643873507585}
   m_Layer: 0
   m_Name: Inventory Manager
   m_TagString: Untagged
@@ -32921,6 +32922,22 @@ MonoBehaviour:
   dropAreaLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &5424041643873507585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5424041643873507582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57e843dccff470bb6925b519a08930c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerConsumptionManager
+  playerHealth: {fileID: 7530630501979765726}
+  oxygenSystem: {fileID: 7530630501979765723}
+  playerController: {fileID: 3285536276046815513}
+  consumptionCooldown: 0.5
 --- !u!154 &5425511400354896308
 TerrainCollider:
   m_ObjectHideFlags: 0

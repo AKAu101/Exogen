@@ -1,17 +1,35 @@
 using UnityEngine;
 
-/// <summary>
-///     Scriptable Object defining an item's properties including icon, name, description, and prefab.
-///     Used for both inventory items and world item pickups.
-/// </summary>
-[CreateAssetMenu(fileName = "ItemData", menuName = "Scriptable Objects/ItemData")]
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
 public class ItemData : ScriptableObject
 {
-    public new string name;
-    public Sprite icon;
-    public Vector2 iconSize = new Vector2(200f, 200f);
+    [Header("Basic Information")]
+    public string itemName;
     public string description;
-    public int amount;
-    public bool isConsumable;
-    public GameObject itemPrefab; //world item that spawns when dropping
+    public Sprite icon;
+    public GameObject itemPrefab;
+    public int maxStack = 1;
+    
+    [Header("Display Settings")]
+    public Vector2 iconSize = new Vector2(100, 100); // Add this line
+    
+    [Header("Item Type")]
+    public ItemType itemType;
+    public bool isConsumable = false;
+    
+    [Header("Food Properties (if consumable)")]
+    public float healthRestore = 0f;
+    public float oxygenRestore = 0f;
+    public float staminaRestore = 0f;
+    public float consumeTime = 1f;
+    
+    public enum ItemType
+    {
+        Resource,
+        Consumable,
+        Equipment,
+        Quest
+    }
+    
+
 }

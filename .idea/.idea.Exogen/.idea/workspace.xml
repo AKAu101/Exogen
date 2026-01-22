@@ -5,21 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/OxygenDisplay.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/OxygenDisplay.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerConsumptionManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerConsumptionManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/animations/character/anim_player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/animations/character/anim_player.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Models/treetrunk 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Models/treetrunk 1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Models/treetrunk 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Models/treetrunk 2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Models/treetrunk 3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Models/treetrunk 3.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Models/treetrunk 4.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Models/treetrunk 4.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Models/treetrunk 5.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Models/treetrunk 5.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Sprites/Inventar komplett_weiß.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Sprites/Inventar komplett_weiß.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Terrain/Terrain D.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Terrain/Terrain D.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Oxygen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Oxygen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/BerrySO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/BerrySO.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/Views/ItemContextMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/Views/ItemContextMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/ItemData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/ItemData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/MainMenu.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +24,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/InventorySystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/OxygenDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerConsumptionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/ItemData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/RecipeData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/enemyAI.cs" root0="FORCE_HIGHLIGHTING" />
@@ -148,7 +141,7 @@
       <workItem from="1768599852794" duration="1269000" />
       <workItem from="1768924387951" duration="7381000" />
       <workItem from="1769019284540" duration="4764000" />
-      <workItem from="1769047875622" duration="1943000" />
+      <workItem from="1769047875622" duration="3363000" />
     </task>
     <servers />
   </component>
