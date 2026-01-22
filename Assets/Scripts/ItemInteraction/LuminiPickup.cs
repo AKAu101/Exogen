@@ -103,8 +103,8 @@ public class LuminiPickup : MonoBehaviour
             if (playerInventory != null)
             {
                 // Check left hand slot (17) and right hand slot (18)
-                int leftHandSlot = 17;
-                int rightHandSlot = 18;
+                int leftHandSlot = 16;
+                int rightHandSlot = 17;
                 string lanternItemName = "Lantern";
 
                 // Check left hand

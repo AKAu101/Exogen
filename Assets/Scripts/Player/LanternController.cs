@@ -11,8 +11,8 @@ public class LanternController : MonoBehaviour
     [SerializeField] private Transform cameraTransform; // Camera transform reference
     [SerializeField] private string lanternItemName = "Lantern"; // Name of the lantern item
     [SerializeField] private string scannerItemName = "Scanner"; // Name of the scanner item
-    [SerializeField] private int leftHandSlot = 17;
-    [SerializeField] private int rightHandSlot = 18;
+    [SerializeField] private int leftHandSlot = 16;
+    [SerializeField] private int rightHandSlot = 17;
 
     [Header("Timer Settings")]
     [SerializeField] private float maxLanternTime = 30f; // Maximum time the lantern can be lit

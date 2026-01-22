@@ -8,21 +8,21 @@ public class AtmosphereTransition : MonoBehaviour
     public Volume postProcessVolume;
     
     [Header("Transition")]
-    public float transitionSpeed = 1f;
+    public float transitionSpeed = 2f; // Increased for better speed control
     
     [Header("Outside Values")]
-    public float outsideFogDensity = 1f;
-    public float outsideBloom = 490f;
-    public float outsideFilmGrain = 0.7f;
-    public float outsideChromatic = 0.2f;
-    public float outsideMotionBlur = 0.4f;
+    public float outsideFogDensity = 0.06f;
+    public float outsideBloom = 0.5f;
+    public float outsideFilmGrain = 200f;
+    public float outsideChromatic = 0.4f;
+    public float outsideMotionBlur = 0f;
     
     [Header("Inside Values")]
-    public float insideFogDensity = 0f;
-    public float insideBloom = 100f;
-    public float insideFilmGrain = 0.3f;
-    public float insideChromatic = 0.05f;
-    public float insideMotionBlur = 0.1f;
+    public float insideFogDensity = 0.06f;
+    public float insideBloom = 0f;
+    public float insideFilmGrain = 0f;
+    public float insideChromatic = 0f;
+    public float insideMotionBlur = 0f;
     
     private bool isInside = false;
 
@@ -44,45 +44,48 @@ public class AtmosphereTransition : MonoBehaviour
         postProcessVolume.profile.TryGet(out filmGrain);
         postProcessVolume.profile.TryGet(out chromatic);
         postProcessVolume.profile.TryGet(out motionBlur);
+        
+        // Initialize to outside values
+        ApplyValues(currentLerp);
     }
     
     void Update()
     {
-        // Smoothly transition
-        float target;
-        if (isInside)
-        {
-            target = 0f;
-        }
-        else
-        {
-            target = 1f;
-        }
+        // Determine direction based on isInside
+        float direction = isInside ? -1f : 1f;
         
-        currentLerp = Mathf.Lerp(currentLerp, target, Time.deltaTime * transitionSpeed);
+        // Update currentLerp with smooth transition
+        currentLerp = Mathf.Clamp01(currentLerp + (direction * transitionSpeed * Time.deltaTime));
         
+        // Apply all values based on current lerp
+        ApplyValues(currentLerp);
+    }
+    
+    private void ApplyValues(float lerpValue)
+    {
         // Apply fog
-        RenderSettings.fogDensity = Mathf.Lerp(insideFogDensity, outsideFogDensity, currentLerp);
+        RenderSettings.fogDensity = Mathf.Lerp(insideFogDensity, outsideFogDensity, lerpValue);
         
         // Apply post processing
         if (bloom != null)
-            bloom.intensity.value = Mathf.Lerp(insideBloom, outsideBloom, currentLerp);
+            bloom.intensity.value = Mathf.Lerp(insideBloom, outsideBloom, lerpValue);
         
         if (filmGrain != null)
-            filmGrain.intensity.value = Mathf.Lerp(insideFilmGrain, outsideFilmGrain, currentLerp);
+            filmGrain.intensity.value = Mathf.Lerp(insideFilmGrain, outsideFilmGrain, lerpValue);
         
         if (chromatic != null)
-            chromatic.intensity.value = Mathf.Lerp(insideChromatic, outsideChromatic, currentLerp);
+            chromatic.intensity.value = Mathf.Lerp(insideChromatic, outsideChromatic, lerpValue);
         
         if (motionBlur != null)
-            motionBlur.intensity.value = Mathf.Lerp(insideMotionBlur, outsideMotionBlur, currentLerp);
+            motionBlur.intensity.value = Mathf.Lerp(insideMotionBlur, outsideMotionBlur, lerpValue);
     }
     
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            RenderSettings.fog = false;
+            // Don't disable fog immediately - let it transition
+            // RenderSettings.fog = false;
             isInside = true;
         }
     }
@@ -91,7 +94,8 @@ public class AtmosphereTransition : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            RenderSettings.fog = true;
+            // Don't enable fog immediately - let it transition
+            // RenderSettings.fog = true;
             isInside = false;
         }
     }

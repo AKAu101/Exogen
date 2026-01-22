@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EpipenSO
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   name: Epipen
-  icon: {fileID: 0}
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   iconSize: {x: 200, y: 200}
   description: food
   amount: 1

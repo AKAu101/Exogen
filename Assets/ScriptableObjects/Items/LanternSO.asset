@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LanternSO
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   name: Lantern
-  icon: {fileID: 21300000, guid: ab50ffcaaade984499685acce8155411, type: 3}
+  icon: {fileID: 21300000, guid: a3dcad8f6b4f39a4aa56bc0140700a9b, type: 3}
   iconSize: {x: 200, y: 200}
   description: Light
   amount: 1

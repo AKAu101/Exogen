@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CucumberSO
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   name: Cucumber
-  icon: {fileID: 21300000, guid: 0d91704f9322e0a4093eff6c793f8c12, type: 3}
+  icon: {fileID: 21300000, guid: 7ac9bf7135e7c1d4fb15d1bf00e179aa, type: 3}
   iconSize: {x: 200, y: 200}
   description: Cucumber yummy
   amount: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ScannerSO
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   name: Scanner
-  icon: {fileID: 21300000, guid: 024c32d087df2594387a356f38b1aad4, type: 3}
+  icon: {fileID: 21300000, guid: 47fcb9b87618c3f41bdae56535f6c036, type: 3}
   iconSize: {x: 200, y: 200}
   description: ScannyWannny
   amount: 1

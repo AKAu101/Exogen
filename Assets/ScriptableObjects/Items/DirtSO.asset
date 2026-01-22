@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DirtSO
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   name: Dirt
-  icon: {fileID: 21300000, guid: 6a6f9377b5799bf4994bb92abe74b48f, type: 3}
+  icon: {fileID: 21300000, guid: 481a74089a889df4090598ac7ceae6eb, type: 3}
   iconSize: {x: 200, y: 200}
   description: Dirt
   amount: 1

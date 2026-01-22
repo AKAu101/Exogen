@@ -7,8 +7,32 @@
     <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/animations/character/anim_player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/animations/character/anim_player.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Items/Prefabs/Lantern.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Items/Prefabs/Lantern.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/EquipmentManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/EquipmentManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/BerryIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/BerryIcon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/CucumberIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/CucumberIcon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/DirtIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/DirtIcon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/LanternIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/LanternIcon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/ScannerIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/ScannerIcon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/SpaceFoodIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/SpaceFoodIcon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/VineIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Textures/Icons/VineIcon.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/BerrySO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/BerrySO.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/CucumberSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/CucumberSO.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/DirtSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/DirtSO.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/EpipenSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/EpipenSO.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/LanternSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/LanternSO.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/ScannerSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/ScannerSO.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/SpaceFoodSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/SpaceFoodSO.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/VineSO.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Items/VineSO.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Environment/AtmosphereTransition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/AtmosphereTransition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ItemInteraction/LuminiPickup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ItemInteraction/LuminiPickup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/LanternController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/LanternController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,14 +44,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/InventorySystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/ItemData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/RecipeData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/enemyAI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scenes/Game.unity" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@be6c4fd0abf5/InputSystem/Editor/ProjectWideActions/ProjectWideActionsAsset.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@ba467ec059b9/Shaders/Lit.shader" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@ba467ec059b9/Shaders/Terrain/TerrainLit.shader" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@02433b2481ab/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
