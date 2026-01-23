@@ -96,9 +96,14 @@ public class AudioManager : MonoBehaviour
         bool isSprinting = controller.IsSprinting;
         bool jumpPressed = controller.JumpPressed;
         bool isWalking = controller.IsWalking;
+       
+        //Volume control with U and I keys
+        HandleVolumeInput();
+        
         // Started sprinting
         bool shouldPlay = isSprinting && isGrounded;
-        
+
+
         // Started meeting conditions
         if (shouldPlay && !wasPlayingLastFrame)
         {
@@ -132,6 +137,37 @@ public class AudioManager : MonoBehaviour
 
         JumpAudio();
         OutdoorSounds();
+    }
+
+    private void HandleVolumeInput()
+    {
+        // Increase volume with U key (only if not already at max)
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            if (masterVolume < 1f)
+            {
+                SetMasterVolume(masterVolume + 0.1f);
+                UnityEngine.Debug.Log($"Master Volume: {masterVolume * 100}%");
+            }
+            else
+            {
+                UnityEngine.Debug.Log("Volume already at maximum (100%)");
+            }
+        }
+
+        // Decrease volume with I key (only if not already at min)
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (masterVolume > 0f)
+            {
+                SetMasterVolume(masterVolume - 0.1f);
+                UnityEngine.Debug.Log($"Master Volume: {masterVolume * 100}%");
+            }
+            else
+            {
+                UnityEngine.Debug.Log("Volume already at minimum (0%)");
+            }
+        }
     }
 
     private void PlayPlayerDamageSound()

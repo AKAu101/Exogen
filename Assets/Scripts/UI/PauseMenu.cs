@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 /// <summary>
 /// Manages the pause menu UI and handles pause/resume functionality.
 /// Listens to FirstPersonController.OnPausePressed event (Escape key).
@@ -9,6 +10,8 @@ public class PauseMenu : MonoBehaviour
 {
     [Header("UI References")]
     [SerializeField] private GameObject pauseMenuPanel;
+    [SerializeField] private GameObject optionsMenuPanel;
+    [SerializeField] private OptionsMenu optionsMenu;
 
     private IUIStateManagement uiStateManagement;
     private bool isPaused = false;
@@ -175,5 +178,16 @@ public class PauseMenu : MonoBehaviour
         #else
         Application.Quit();
         #endif
+    }
+    public void OpenOptions()
+    {
+        if (optionsMenu != null)
+        {
+            optionsMenu.OpenOptionsMenu();
+        }
+        else
+        {
+            DebugManager.LogError("PauseMenu: OptionsMenu reference not set!");
+        }
     }
 }
