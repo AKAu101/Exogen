@@ -169,6 +169,10 @@ public class EnemyAI : MonoBehaviour
 
     private void UpdateBehavior()
     {
+        //
+        animator.ResetTrigger("Attack");
+        //
+        
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         bool hasLight = IsPlayerLightOn();
 

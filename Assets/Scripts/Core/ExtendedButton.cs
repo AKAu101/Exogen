@@ -18,7 +18,6 @@ public class ExtendedButton : Button
 
     protected override void DoStateTransition(SelectionState state, bool instant)
     {
-        Debug.Log("DOING STATE TRANSITION OF EXTNEDE BUTTON");
         base.DoStateTransition(state, instant);
         if (text == null)
             return;
