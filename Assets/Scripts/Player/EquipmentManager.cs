@@ -7,36 +7,43 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class EquipmentManager : MonoBehaviour
 {
-    [Header("Hand Slot Configuration")]
-    [SerializeField] private int leftHandSlot = 17;
-    [SerializeField] private int rightHandSlot = 18;
+    [Header("Hand Slot Configuration")] 
+    [SerializeField] private int leftHandSlot = 16;
+    [SerializeField] private int rightHandSlot = 17;
 
-    [Header("Item Positioning")]
-    [SerializeField] private Transform cameraTransform;
-    [SerializeField] private Transform socketLeft;  // Socket_L - left hand bone socket
+    [Header("Item Positioning")] [SerializeField]
+    private Transform cameraTransform;
+
+    [SerializeField] private Transform socketLeft; // Socket_L - left hand bone socket
     [SerializeField] private Transform socketRight; // Socket_R - right hand bone socket
-    [SerializeField] private Vector3 leftHandRotation = new Vector3(0f, 0f, -75f);
-    [SerializeField] private Vector3 rightHandRotation = new Vector3(0f, 0f, 75f);
+    [SerializeField] private Vector3 leftHandRotation = new(0f, 0f, -75f);
+    [SerializeField] private Vector3 rightHandRotation = new(0f, 0f, 75f);
     [SerializeField] private float itemScale = 1f;
 
-    [Header("Lantern Specific Rotation")]
-    [SerializeField] private Vector3 lanternLeftHandRotation = new Vector3(0f, 0f, -75f);
-    [SerializeField] private Vector3 lanternRightHandRotation = new Vector3(0f, 0f, 75f);
+    [Header("Lantern Specific Rotation")] [SerializeField]
+    private Vector3 lanternLeftHandRotation = new(0f, 0f, -75f);
 
-    [Header("Mouse Follow Settings")]
-    [SerializeField] private float mouseSensitivity = 80f;
+    [SerializeField] private Vector3 lanternRightHandRotation = new(0f, 0f, 75f);
+
+    [Header("Mouse Follow Settings")] [SerializeField]
+    private float mouseSensitivity = 80f;
+
     [SerializeField] private float maxRotationX = 35f;
     [SerializeField] private float maxRotationY = 35f;
     [SerializeField] private float rotationSmoothTime = 0.1f;
     [SerializeField] private float maxRotationSpeed = 200f;
 
+    [Header("Animation Coordination")] [SerializeField]
+    private HandAnimationManager handAnimationManager;
+
+    private Vector2 currentRotation;
+
     // Runtime state
     private IInventorySystem inventorySystem;
-    private IInventoryData playerInventory;
     private GameObject leftHandItem;
-    private GameObject rightHandItem;
     private Vector2 lookInput;
-    private Vector2 currentRotation;
+    private IInventoryData playerInventory;
+    private GameObject rightHandItem;
     private Vector2 rotationVelocity;
     private IUIStateManagement uiStateManagement;
 
@@ -45,10 +52,7 @@ public class EquipmentManager : MonoBehaviour
         DebugManager.Log("EquipmentManager: Starting initialization");
 
         // Find camera if not assigned
-        if (cameraTransform == null)
-        {
-            cameraTransform = Camera.main.transform;
-        }
+        if (cameraTransform == null) cameraTransform = Camera.main.transform;
 
         DebugManager.Log($"EquipmentManager: Camera found: {cameraTransform != null}");
 
@@ -78,11 +82,16 @@ public class EquipmentManager : MonoBehaviour
 
         // Get UI state management
         if (ServiceLocator.Instance.IsRegistered<IUIStateManagement>())
-        {
             uiStateManagement = ServiceLocator.Instance.Get<IUIStateManagement>();
-        }
 
         DebugManager.Log("EquipmentManager: Initialization complete");
+    }
+
+    private void Update()
+    {
+        // Items are parented to sockets, so they follow automatically
+        // Only update rotation jiggle effect
+        UpdateItemRotations();
     }
 
     private void OnDestroy()
@@ -97,33 +106,29 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        // Items are parented to sockets, so they follow automatically
-        // Only update rotation jiggle effect
-        UpdateItemRotations();
-    }
-
     private void HandleItemAdded(IInventoryData inv, ItemData itemData, int slot)
     {
-        DebugManager.Log($"EquipmentManager: HandleItemAdded called - Slot: {slot}, Item: {itemData.name}, Is PlayerInv: {inv == playerInventory}");
+        DebugManager.Log(
+            $"EquipmentManager: HandleItemAdded called - Slot: {slot}, Item: {itemData.name}, Is PlayerInv: {inv == playerInventory}");
 
         // Only handle player inventory
         if (inv != playerInventory)
         {
-            DebugManager.Log($"EquipmentManager: Not player inventory, ignoring");
+            DebugManager.Log("EquipmentManager: Not player inventory, ignoring");
             return;
         }
 
         if (slot == leftHandSlot)
         {
             DebugManager.Log($"EquipmentManager: Equipping to LEFT hand (slot {leftHandSlot})");
-            EquipItem(itemData, ref leftHandItem, socketLeft, IsLantern(itemData) ? lanternLeftHandRotation : leftHandRotation);
+            EquipItem(itemData, ref leftHandItem, socketLeft,
+                IsLantern(itemData) ? lanternLeftHandRotation : leftHandRotation);
         }
         else if (slot == rightHandSlot)
         {
             DebugManager.Log($"EquipmentManager: Equipping to RIGHT hand (slot {rightHandSlot})");
-            EquipItem(itemData, ref rightHandItem, socketRight, IsLantern(itemData) ? lanternRightHandRotation : rightHandRotation);
+            EquipItem(itemData, ref rightHandItem, socketRight,
+                IsLantern(itemData) ? lanternRightHandRotation : rightHandRotation);
         }
         else
         {
@@ -133,16 +138,15 @@ public class EquipmentManager : MonoBehaviour
 
     private void HandleItemRemoved(IInventoryData inv, ItemData itemData, int slot)
     {
-        // Only handle player inventory
         if (inv != playerInventory) return;
 
         if (slot == leftHandSlot)
         {
-            UnequipItem(ref leftHandItem);
+            UnequipItem(ref leftHandItem, socketLeft);
         }
         else if (slot == rightHandSlot)
         {
-            UnequipItem(ref rightHandItem);
+            UnequipItem(ref rightHandItem, socketRight);
         }
     }
 
@@ -157,33 +161,33 @@ public class EquipmentManager : MonoBehaviour
             return;
         }
 
+        // Check if item was moved FROM a hand slot
+        if (invOne == playerInventory)
+        {
+            if (sourceSlot == leftHandSlot)
+            {
+                Debug.Log($"EquipmentManager: Item moved FROM left hand slot");
+                UnequipItem(ref leftHandItem, socketLeft);
+            }
+            else if (sourceSlot == rightHandSlot)
+            {
+                Debug.Log($"EquipmentManager: Item moved FROM right hand slot");
+                UnequipItem(ref rightHandItem, socketRight);
+            }
+        }
+
         // Check if item was moved TO a hand slot
         if (invTwo == playerInventory)
         {
             if (targetSlot == leftHandSlot)
             {
                 DebugManager.Log($"EquipmentManager: Item moved TO left hand slot");
-                RefreshHandSlot(leftHandSlot, ref leftHandItem, socketLeft, leftHandSlot, true);
+                RefreshHandSlot(leftHandSlot, ref leftHandItem, socketLeft, true);
             }
             else if (targetSlot == rightHandSlot)
             {
                 DebugManager.Log($"EquipmentManager: Item moved TO right hand slot");
-                RefreshHandSlot(rightHandSlot, ref rightHandItem, socketRight, rightHandSlot, false);
-            }
-        }
-
-        // Check if item was moved FROM a hand slot
-        if (invOne == playerInventory)
-        {
-            if (sourceSlot == leftHandSlot)
-            {
-                DebugManager.Log($"EquipmentManager: Item moved FROM left hand slot");
-                UnequipItem(ref leftHandItem);
-            }
-            else if (sourceSlot == rightHandSlot)
-            {
-                DebugManager.Log($"EquipmentManager: Item moved FROM right hand slot");
-                UnequipItem(ref rightHandItem);
+                RefreshHandSlot(rightHandSlot, ref rightHandItem, socketRight, false);
             }
         }
     }
@@ -196,20 +200,20 @@ public class EquipmentManager : MonoBehaviour
         // Check if swap involves hand slots
         if (sourceSlot == leftHandSlot || targetSlot == leftHandSlot)
         {
-            RefreshHandSlot(leftHandSlot, ref leftHandItem, socketLeft, leftHandSlot, true);
+            RefreshHandSlot(leftHandSlot, ref leftHandItem, socketLeft, true);
         }
         if (sourceSlot == rightHandSlot || targetSlot == rightHandSlot)
         {
-            RefreshHandSlot(rightHandSlot, ref rightHandItem, socketRight, rightHandSlot, false);
+            RefreshHandSlot(rightHandSlot, ref rightHandItem, socketRight, false);
         }
     }
 
     private void EquipItem(ItemData itemData, ref GameObject handItem, Transform socket, Vector3 rotation)
     {
-        DebugManager.Log($"EquipmentManager: EquipItem called for {itemData.name}");
+        DebugManager.Log($"EquipmentManager: EquipItem called for {itemData?.name ?? "NULL"}");
 
         // Clear existing item first
-        UnequipItem(ref handItem);
+        UnequipItem(ref handItem, socket);
 
         // Check if item has a prefab
         if (itemData.itemPrefab == null)
@@ -244,10 +248,7 @@ public class EquipmentManager : MonoBehaviour
 
         // Disable any pickup-related components
         var pickupComponent = handItem.GetComponent<PickupItem>();
-        if (pickupComponent != null)
-        {
-            Destroy(pickupComponent);
-        }
+        if (pickupComponent != null) Destroy(pickupComponent);
 
         // Disable physics
         var rb = handItem.GetComponent<Rigidbody>();
@@ -258,30 +259,48 @@ public class EquipmentManager : MonoBehaviour
         }
 
         var collider = handItem.GetComponent<Collider>();
-        if (collider != null)
-        {
-            collider.enabled = false;
-        }
+        if (collider != null) collider.enabled = false;
 
         // Apply item scale
         handItem.transform.localScale = Vector3.one * itemScale;
 
+        // UPDATE ANIMATION STATE
+        if (handAnimationManager != null)
+        {
+            // Determine which slot this is based on which socket
+            int currentSlot = (socket == socketLeft) ? leftHandSlot : rightHandSlot;
+            handAnimationManager.UpdateHandAnimation(currentSlot, itemData);
+        }
+
         DebugManager.Log($"EquipmentManager: Equipped {itemData.name} in hand with scale {itemScale}");
     }
 
-    private void UnequipItem(ref GameObject handItem)
+    private void UnequipItem(ref GameObject handItem, Transform socket = null)
     {
         if (handItem != null)
         {
             Destroy(handItem);
             handItem = null;
         }
+
+        // UPDATE ANIMATION STATE
+        if (handAnimationManager != null && socket != null)
+        {
+            int currentSlot = (socket == socketLeft) ? leftHandSlot : rightHandSlot;
+            handAnimationManager.UpdateHandAnimation(currentSlot, null);
+        }
     }
 
-    private void RefreshHandSlot(int slot, ref GameObject handItem, Transform socket, int targetSlot, bool isLeftHand)
+    // Overload for backward compatibility
+    private void UnequipItem(ref GameObject handItem)
+    {
+        UnequipItem(ref handItem, null);
+    }
+
+    private void RefreshHandSlot(int slot, ref GameObject handItem, Transform socket, bool isLeftHand)
     {
         // Clear current item
-        UnequipItem(ref handItem);
+        UnequipItem(ref handItem, socket);
 
         // Check if slot has an item now
         if (playerInventory.SlotToStack.TryGetValue(slot, out var stack))
@@ -296,7 +315,7 @@ public class EquipmentManager : MonoBehaviour
             {
                 rotation = isLeftHand ? leftHandRotation : rightHandRotation;
             }
-            
+        
             EquipItem(stack.ItemType, ref handItem, socket, rotation);
         }
     }
@@ -304,21 +323,16 @@ public class EquipmentManager : MonoBehaviour
     private bool IsLantern(ItemData itemData)
     {
         // Check if this item is a lantern
-        // You might want to use a more robust check, like:
-        // 1. Check item type/category
-        // 2. Check item name contains "lantern"
-        // 3. Or add a specific component/script to lantern items
-        
+        if (itemData == null) return false;
+
         // Option 1: Check by name (simple)
         if (itemData.name.ToLower().Contains("lantern"))
             return true;
-            
-        // Option 2: You could add an "ItemCategory" enum to ItemData and check it
-        // return itemData.category == ItemCategory.Lantern;
-        
-        // Option 3: Check for a specific tag or component
-        // return itemData.tags.Contains("Lantern");
-        
+
+        // Option 2: Check if it has the Lantern animation type (new system)
+        if (itemData.animationType == ItemData.HandItemAnimation.Lantern)
+            return true;
+
         return false;
     }
 
@@ -328,37 +342,36 @@ public class EquipmentManager : MonoBehaviour
         if (uiStateManagement != null && uiStateManagement.IsInventoryVisible) return;
 
         // Convert mouse delta to velocity (frame-rate independent)
-        float mouseVelocityY = Time.deltaTime > 0 ? lookInput.y / Time.deltaTime : 0;
-        float mouseVelocityX = Time.deltaTime > 0 ? lookInput.x / Time.deltaTime : 0;
+        var mouseVelocityY = Time.deltaTime > 0 ? lookInput.y / Time.deltaTime : 0;
+        var mouseVelocityX = Time.deltaTime > 0 ? lookInput.x / Time.deltaTime : 0;
 
         // Calculate target rotation based on mouse velocity (scaled down since velocity is large)
-        float targetX = mouseVelocityY * mouseSensitivity * 0.01f;
-        float targetY = -mouseVelocityX * mouseSensitivity * 0.01f;
+        var targetX = mouseVelocityY * mouseSensitivity * 0.01f;
+        var targetY = -mouseVelocityX * mouseSensitivity * 0.01f;
 
         // Clamp the target rotation
         targetX = Mathf.Clamp(targetX, -maxRotationX, maxRotationX);
         targetY = Mathf.Clamp(targetY, -maxRotationY, maxRotationY);
 
         // Smoothly interpolate current rotation to target using SmoothDamp (frame-rate independent)
-        currentRotation.x = Mathf.SmoothDamp(currentRotation.x, targetX, ref rotationVelocity.x, rotationSmoothTime, maxRotationSpeed);
-        currentRotation.y = Mathf.SmoothDamp(currentRotation.y, targetY, ref rotationVelocity.y, rotationSmoothTime, maxRotationSpeed);
+        currentRotation.x = Mathf.SmoothDamp(currentRotation.x, targetX, ref rotationVelocity.x, rotationSmoothTime,
+            maxRotationSpeed);
+        currentRotation.y = Mathf.SmoothDamp(currentRotation.y, targetY, ref rotationVelocity.y, rotationSmoothTime,
+            maxRotationSpeed);
 
         // Apply jiggle rotation as local rotation offset (preserve base hand rotation)
         if (leftHandItem != null)
         {
             // Determine base rotation based on item type
             Vector3 baseRotation;
-            if (playerInventory.SlotToStack.TryGetValue(leftHandSlot, out var leftStack) && IsLantern(leftStack.ItemType))
-            {
+            if (playerInventory.SlotToStack.TryGetValue(leftHandSlot, out var leftStack) &&
+                IsLantern(leftStack.ItemType))
                 baseRotation = lanternLeftHandRotation;
-            }
             else
-            {
                 baseRotation = leftHandRotation;
-            }
-            
-            Quaternion baseRot = Quaternion.Euler(baseRotation);
-            Quaternion jiggle = Quaternion.Euler(currentRotation.x, currentRotation.y, 0f);
+
+            var baseRot = Quaternion.Euler(baseRotation);
+            var jiggle = Quaternion.Euler(currentRotation.x, currentRotation.y, 0f);
             leftHandItem.transform.localRotation = baseRot * jiggle;
         }
 
@@ -366,17 +379,14 @@ public class EquipmentManager : MonoBehaviour
         {
             // Determine base rotation based on item type
             Vector3 baseRotation;
-            if (playerInventory.SlotToStack.TryGetValue(rightHandSlot, out var rightStack) && IsLantern(rightStack.ItemType))
-            {
+            if (playerInventory.SlotToStack.TryGetValue(rightHandSlot, out var rightStack) &&
+                IsLantern(rightStack.ItemType))
                 baseRotation = lanternRightHandRotation;
-            }
             else
-            {
                 baseRotation = rightHandRotation;
-            }
-            
-            Quaternion baseRot = Quaternion.Euler(baseRotation);
-            Quaternion jiggle = Quaternion.Euler(currentRotation.x, currentRotation.y, 0f);
+
+            var baseRot = Quaternion.Euler(baseRotation);
+            var jiggle = Quaternion.Euler(currentRotation.x, currentRotation.y, 0f);
             rightHandItem.transform.localRotation = baseRot * jiggle;
         }
     }

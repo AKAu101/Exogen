@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf93a23b7d461c4bb592c642e4e4af9, type: 3}
   m_Name: EpipenSO
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  name: Epipen
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  iconSize: {x: 200, y: 200}
+  itemName: Epipen
   description: food
-  amount: 1
-  isConsumable: 1
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   itemPrefab: {fileID: 8724358333445405255, guid: 7d3ed498c50624747927610f4a042cc7, type: 3}
+  maxStack: 1
+  iconSize: {x: 200, y: 200}
+  itemType: 2
+  itemCategory: 3
+  isConsumable: 1
+  animationType: 3
+  healthRestore: 0
+  oxygenRestore: 0
+  staminaRestore: 0
+  consumeTime: 1

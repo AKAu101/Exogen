@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf93a23b7d461c4bb592c642e4e4af9, type: 3}
   m_Name: VineSO
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  name: Vine
-  icon: {fileID: 21300000, guid: 116851e55e626364bba42668b73907a9, type: 3}
-  iconSize: {x: 200, y: 200}
+  itemName: Vine
   description: heavy
-  amount: 1
-  isConsumable: 0
+  icon: {fileID: 21300000, guid: 116851e55e626364bba42668b73907a9, type: 3}
   itemPrefab: {fileID: 1416624883502350588, guid: a5915321e1a118048adefe165a4eb1ce, type: 3}
+  maxStack: 1
+  iconSize: {x: 200, y: 200}
+  itemType: 0
+  itemCategory: 0
+  isConsumable: 0
+  animationType: 3
+  healthRestore: 0
+  oxygenRestore: 0
+  staminaRestore: 0
+  consumeTime: 1

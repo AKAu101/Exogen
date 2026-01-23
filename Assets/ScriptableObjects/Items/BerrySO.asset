@@ -19,9 +19,10 @@ MonoBehaviour:
   maxStack: 10
   iconSize: {x: 200, y: 200}
   itemType: 1
+  itemCategory: 5
   isConsumable: 1
+  animationType: 3
   healthRestore: 50
   oxygenRestore: 0
   staminaRestore: 0
   consumeTime: 1
-  value: 0

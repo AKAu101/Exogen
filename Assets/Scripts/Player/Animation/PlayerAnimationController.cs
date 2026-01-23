@@ -11,9 +11,8 @@ public class PlayerAnimationController : MonoBehaviour
     [SerializeField] private Animator animator;
 
     // Animation parameter names
-    private static readonly int PARAM_ITEM_LEFT = Animator.StringToHash("Item_Links");
-    private static readonly int PARAM_ITEM_RIGHT = Animator.StringToHash("Item_Rechts");
-    private static readonly int PARAM_ATTACK = Animator.StringToHash("Attack");
+    private static readonly int PARAM_ITEM_LEFT = Animator.StringToHash("ItemLeft");
+    private static readonly int PARAM_ITEM_RIGHT = Animator.StringToHash("ItemRight");
     private static readonly int PARAM_GRAB = Animator.StringToHash("Grab");
 
     // Hand item values
@@ -31,6 +30,7 @@ public class PlayerAnimationController : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
+        Debug.Log($"PlayerAnimationController: Initialized with Animator '{animator?.name}' on GameObject '{gameObject.name}'");
     }
 
     #region Public API
@@ -42,7 +42,16 @@ public class PlayerAnimationController : MonoBehaviour
     {
         if (animator != null)
         {
-            animator.SetInteger(PARAM_ITEM_LEFT, (int)item);
+            int value = (int)item;
+            animator.SetInteger(PARAM_ITEM_LEFT, value);
+
+            // Debug: verify the value was actually set
+            int actualValue = animator.GetInteger(PARAM_ITEM_LEFT);
+            Debug.Log($"PlayerAnimationController: SetLeftHandItem({item}) = {value}, Animator now has: {actualValue}");
+        }
+        else
+        {
+            Debug.LogWarning("PlayerAnimationController: SetLeftHandItem called but animator is null!");
         }
     }
 
@@ -53,18 +62,16 @@ public class PlayerAnimationController : MonoBehaviour
     {
         if (animator != null)
         {
-            animator.SetInteger(PARAM_ITEM_RIGHT, (int)item);
-        }
-    }
+            int value = (int)item;
+            animator.SetInteger(PARAM_ITEM_RIGHT, value);
 
-    /// <summary>
-    /// Trigger the attack animation.
-    /// </summary>
-    public void TriggerAttack()
-    {
-        if (animator != null)
+            // Debug: verify the value was actually set
+            int actualValue = animator.GetInteger(PARAM_ITEM_RIGHT);
+            Debug.Log($"PlayerAnimationController: SetRightHandItem({item}) = {value}, Animator now has: {actualValue}, Animator: {animator.name}");
+        }
+        else
         {
-            animator.SetTrigger(PARAM_ATTACK);
+            Debug.LogWarning("PlayerAnimationController: SetRightHandItem called but animator is null!");
         }
     }
 

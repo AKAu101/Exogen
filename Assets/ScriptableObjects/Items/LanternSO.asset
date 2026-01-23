@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf93a23b7d461c4bb592c642e4e4af9, type: 3}
   m_Name: LanternSO
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  name: Lantern
-  icon: {fileID: 21300000, guid: a3dcad8f6b4f39a4aa56bc0140700a9b, type: 3}
-  iconSize: {x: 200, y: 200}
+  itemName: Lantern
   description: Light
-  amount: 1
-  isConsumable: 0
+  icon: {fileID: 21300000, guid: a3dcad8f6b4f39a4aa56bc0140700a9b, type: 3}
   itemPrefab: {fileID: 1729465065569692945, guid: 7f04297a3bf014346b93eac26712e33b, type: 3}
+  maxStack: 1
+  iconSize: {x: 200, y: 200}
+  itemType: 2
+  itemCategory: 1
+  isConsumable: 0
+  animationType: 1
+  healthRestore: 0
+  oxygenRestore: 0
+  staminaRestore: 0
+  consumeTime: 1

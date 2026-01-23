@@ -13173,7 +13173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &801183965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13773,7 +13773,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d159ec4742923314eb05f566d2bcf5f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d159ec4742923314eb05f566d2bcf5f9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13781,7 +13781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d159ec4742923314eb05f566d2bcf5f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d159ec4742923314eb05f566d2bcf5f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15497,7 +15497,7 @@ Transform:
   m_GameObject: {fileID: 968204062}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -41.1, y: 0, z: -5.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25992,7 +25992,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d159ec4742923314eb05f566d2bcf5f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.63
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d159ec4742923314eb05f566d2bcf5f9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26000,7 +26000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d159ec4742923314eb05f566d2bcf5f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.86
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d159ec4742923314eb05f566d2bcf5f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27825,6 +27825,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4281832727444676242, guid: 935130d45460deb4bae644c7cae3ddcd, type: 3}
   m_PrefabInstance: {fileID: 1781409774}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1783050005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1783050007}
+  - component: {fileID: 1783050006}
+  m_Layer: 0
+  m_Name: Animation Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1783050006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783050005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91dead3681d44e1abc8208b229ce09f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandAnimationManager
+  equipmentManager: {fileID: 7530630501979765724}
+  animationController: {fileID: 7530630501979765727}
+  leftHandSlot: 16
+  rightHandSlot: 17
+--- !u!4 &1783050007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783050005}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1783075812
 GameObject:
   m_ObjectHideFlags: 0
@@ -28057,15 +28105,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b5da8f98bed89714db0ef2789cf528ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0050001144
+      value: 0.011
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b5da8f98bed89714db0ef2789cf528ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0699999
+      value: -0.043
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b5da8f98bed89714db0ef2789cf528ee, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.062999725
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b5da8f98bed89714db0ef2789cf528ee, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29839,7 +29887,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d159ec4742923314eb05f566d2bcf5f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.84
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d159ec4742923314eb05f566d2bcf5f9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29847,7 +29895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d159ec4742923314eb05f566d2bcf5f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d159ec4742923314eb05f566d2bcf5f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -34510,10 +34558,10 @@ GameObject:
   - component: {fileID: 7530630501979765723}
   - component: {fileID: 7530630501979765722}
   - component: {fileID: 2576745055624470217}
+  - component: {fileID: 7530630501979765727}
   - component: {fileID: 6018714978487782012}
   - component: {fileID: 1194211718145497636}
   - component: {fileID: 7530630501979765728}
-  - component: {fileID: 7530630501979765727}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -36344,6 +36392,7 @@ MonoBehaviour:
   maxRotationY: 45
   rotationSmoothTime: 0.1
   maxRotationSpeed: 200
+  handAnimationManager: {fileID: 1783050006}
 --- !u!114 &7530630501979765725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36786,6 +36835,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1467685934}
+  - {fileID: 1783050007}
   - {fileID: 1292449456}
   - {fileID: 1559392329470563563}
   - {fileID: 1170346671}

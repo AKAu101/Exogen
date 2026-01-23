@@ -26,7 +26,6 @@ public class LanternController : MonoBehaviour
 
     private IInventorySystem inventorySystem;
     private IInventoryData playerInventory;
-    private PlayerAnimationController animController;
     private bool isLeftHand; // Track which hand has the lantern
     private float currentLanternTime; // Current remaining time for the lantern
     private bool hasLanternEquipped; // Whether a lantern is currently equipped
@@ -78,9 +77,6 @@ public class LanternController : MonoBehaviour
         {
             DebugManager.LogError("LanternController: IInventorySystem not found in ServiceLocator!");
         }
-
-        // Get animation controller
-        animController = GetComponent<PlayerAnimationController>();
 
         // Ensure lantern light is off at start
         if (lanternLight != null)
@@ -241,43 +237,7 @@ public class LanternController : MonoBehaviour
             DebugManager.Log("LanternController: No lantern equipped, light DISABLED");
         }
 
-        // Update hand animations
-        UpdateHandAnimations();
-    }
-
-    private void UpdateHandAnimations()
-    {
-        if (animController == null || playerInventory == null) return;
-
-        // Check left hand
-        PlayerAnimationController.HandItem leftItem = PlayerAnimationController.HandItem.Nothing;
-        if (playerInventory.SlotToStack.TryGetValue(leftHandSlot, out var leftStack))
-        {
-            leftItem = GetHandItemType(leftStack.ItemType.name);
-        }
-        animController.SetLeftHandItem(leftItem);
-
-        // Check right hand
-        PlayerAnimationController.HandItem rightItem = PlayerAnimationController.HandItem.Nothing;
-        if (playerInventory.SlotToStack.TryGetValue(rightHandSlot, out var rightStack))
-        {
-            rightItem = GetHandItemType(rightStack.ItemType.name);
-        }
-        animController.SetRightHandItem(rightItem);
-    }
-
-    private PlayerAnimationController.HandItem GetHandItemType(string itemName)
-    {
-        if (string.IsNullOrEmpty(itemName))
-            return PlayerAnimationController.HandItem.Nothing;
-
-        if (itemName.Equals(lanternItemName, System.StringComparison.OrdinalIgnoreCase))
-            return PlayerAnimationController.HandItem.Lantern;
-
-        if (itemName.Equals(scannerItemName, System.StringComparison.OrdinalIgnoreCase))
-            return PlayerAnimationController.HandItem.Radar;
-
-        return PlayerAnimationController.HandItem.Other;
+        // Hand animations are handled by HandAnimationManager via EquipmentManager
     }
 
     /// <summary>

@@ -11,11 +11,15 @@ public class ItemData : ScriptableObject
     public int maxStack = 1;
     
     [Header("Display Settings")]
-    public Vector2 iconSize = new Vector2(100, 100); // Add this line
+    public Vector2 iconSize = new Vector2(100, 100);
     
-    [Header("Item Type")]
+    [Header("Item Type & Category")]
     public ItemType itemType;
+    public ItemCategory itemCategory; // NEW: More specific category
     public bool isConsumable = false;
+    
+    [Header("Animation Settings")]
+    public HandItemAnimation animationType = HandItemAnimation.Nothing; // NEW
     
     [Header("Food Properties (if consumable)")]
     public float healthRestore = 0f;
@@ -31,5 +35,23 @@ public class ItemData : ScriptableObject
         Quest
     }
     
-
+    // NEW: Specific categories for better organization
+    public enum ItemCategory
+    {
+        General,
+        Lantern,
+        Scanner,
+        Tool,
+        Weapon,
+        Food
+    }
+    
+    // NEW: Animation types that match your Animator parameters
+    public enum HandItemAnimation
+    {
+        Nothing = 0,
+        Lantern = 1,
+        Radar = 2,    // Scanner
+        Other = 3
+    }
 }
