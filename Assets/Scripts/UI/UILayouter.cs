@@ -13,22 +13,22 @@ public class UILayouter : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        stateManager = ServiceLocator.Instance.Get<IUIStateManagement>();
+        //stateManager = ServiceLocator.Instance.Get<IUIStateManagement>();
         inventoryXoriginal = InventoryTransform.position.x;
 
     }
     private void OnEnable()
     {
-        stateManager.OnInventoryVisibilityChanged += OnStateChanged;
+        UIStateManager.EnsureInstance().OnInventoryVisibilityChanged += OnStateChanged;
     }
     private void OnDisable()
     {
-        stateManager.OnInventoryVisibilityChanged -= OnStateChanged;
+        UIStateManager.EnsureInstance().OnInventoryVisibilityChanged -= OnStateChanged;
     }
 
     void OnStateChanged(bool b)
     {
-        if (stateManager.visibleInventories > 1) //crafting must be open
+        if (UIStateManager.EnsureInstance().visibleInventories > 1) //crafting must be open
         {
            // Vector3 pos = InventoryTransform.position;
            // pos.x = inventoryXOffsetPos;
