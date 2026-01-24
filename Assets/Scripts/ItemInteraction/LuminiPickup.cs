@@ -16,6 +16,7 @@ public class LuminiPickup : MonoBehaviour
 
     [Header("Requirements")]
     [SerializeField] private string noLanternMessage = "You need a lantern to collect Lumini";
+    [SerializeField] private string fullLanternMessage = "Lantern is fully charged";
 
     private Interactable interactable;
     private AudioSource audioSource;
@@ -58,76 +59,49 @@ public class LuminiPickup : MonoBehaviour
     private void Start()
     {
         // Find the lantern controller
+        FindLanternController();
+    }
+
+    private void Update()
+    {
+        // Update lantern controller reference if needed
+        if (lanternController == null)
+        {
+            FindLanternController();
+        }
+
+        // Check if player has lantern equipped AND can recharge
+        if (lanternController != null && interactable != null)
+        {
+            bool hasLantern = lanternController.HasLanternEquipped;
+            bool canRecharge = lanternController.CanRecharge();
+
+            // Enable/disable interactable based on lantern status
+            interactable.enabled = hasLantern && canRecharge;
+
+            // Update message based on lantern status
+            if (!hasLantern)
+            {
+                interactable.message = noLanternMessage;
+            }
+            else if (!canRecharge)
+            {
+                interactable.message = fullLanternMessage;
+            }
+            else
+            {
+                interactable.message = originalMessage;
+            }
+        }
+    }
+
+    private void FindLanternController()
+    {
         lanternController = FindFirstObjectByType<LanternController>();
         if (lanternController == null)
         {
             DebugManager.LogWarning("LuminiPickup: Could not find LanternController in scene!");
         }
-    }
-
-    private void Update()
-    {
-        // Check if player has lantern equipped
-        if (lanternController != null && interactable != null)
-        {
-            bool hasLanternEquipped = HasLanternEquipped();
-
-            // Enable/disable interactable based on lantern status
-            interactable.enabled = hasLanternEquipped;
-
-            // Update message based on lantern status
-            if (hasLanternEquipped)
-            {
-                interactable.message = originalMessage;
-            }
-            else
-            {
-                interactable.message = noLanternMessage;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Checks if the player has a lantern equipped in either hand slot.
-    /// </summary>
-    private bool HasLanternEquipped()
-    {
-        if (lanternController == null) return false;
-
-        // Access the concrete InventorySystem to get PlayerInventory
-        var inventorySystem = InventorySystem.Instance;
-        if (inventorySystem != null)
-        {
-            var playerInventory = inventorySystem.PlayerInventory;
-
-            if (playerInventory != null)
-            {
-                // Check left hand slot (17) and right hand slot (18)
-                int leftHandSlot = 16;
-                int rightHandSlot = 17;
-                string lanternItemName = "Lantern";
-
-                // Check left hand
-                if (playerInventory.SlotToStack.TryGetValue(leftHandSlot, out var leftStack))
-                {
-                    if (leftStack.ItemType.name.Equals(lanternItemName, System.StringComparison.OrdinalIgnoreCase))
-                    {
-                        return true;
-                    }
-                }
-
-                // Check right hand
-                if (playerInventory.SlotToStack.TryGetValue(rightHandSlot, out var rightStack))
-                {
-                    if (rightStack.ItemType.name.Equals(lanternItemName, System.StringComparison.OrdinalIgnoreCase))
-                    {
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
     }
 
     private void OnDestroy()
@@ -155,15 +129,16 @@ public class LuminiPickup : MonoBehaviour
             animController.TriggerGrab();
         }
 
-        // Find and recharge the lantern
-        var lanternController = FindFirstObjectByType<LanternController>();
-        if (lanternController != null)
+        // Recharge the lantern (lanternController should already be found)
+        if (lanternController != null && lanternController.CanRecharge())
         {
             lanternController.RechargeLantern(rechargeTime);
         }
         else
         {
-            DebugManager.LogWarning("LuminiPickup: Could not find LanternController in scene!");
+            DebugManager.LogWarning("LuminiPickup: Cannot recharge - lantern not equipped or already full!");
+            isBeingPickedUp = false;
+            return;
         }
 
         // Play pickup sound

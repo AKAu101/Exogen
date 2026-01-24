@@ -10,6 +10,9 @@ public class EquipmentManager : MonoBehaviour
     [Header("Hand Slot Configuration")] 
     [SerializeField] private int leftHandSlot = 16;
     [SerializeField] private int rightHandSlot = 17;
+    
+    private ItemData leftHandItemData;
+    private ItemData rightHandItemData;
 
     [Header("Item Positioning")] [SerializeField]
     private Transform cameraTransform;
@@ -46,7 +49,16 @@ public class EquipmentManager : MonoBehaviour
     private GameObject rightHandItem;
     private Vector2 rotationVelocity;
     private IUIStateManagement uiStateManagement;
-
+    
+    //Getters
+    public ItemData LeftHandItem => leftHandItemData;
+    public ItemData RightHandItem => rightHandItemData;
+    public bool IsLanternEquipped => (leftHandItemData != null && IsLantern(leftHandItemData)) || 
+                                     (rightHandItemData != null && IsLantern(rightHandItemData));
+    public bool IsScannerEquipped => (leftHandItemData != null && IsScanner(leftHandItemData)) || 
+                                     (rightHandItemData != null && IsScanner(rightHandItemData));
+    public Transform CameraTransform => cameraTransform;
+    
     private void Start()
     {
         DebugManager.Log("EquipmentManager: Starting initialization");
@@ -166,12 +178,12 @@ public class EquipmentManager : MonoBehaviour
         {
             if (sourceSlot == leftHandSlot)
             {
-                Debug.Log($"EquipmentManager: Item moved FROM left hand slot");
+                //Debug.Log($"EquipmentManager: Item moved FROM left hand slot");
                 UnequipItem(ref leftHandItem, socketLeft);
             }
             else if (sourceSlot == rightHandSlot)
             {
-                Debug.Log($"EquipmentManager: Item moved FROM right hand slot");
+                //Debug.Log($"EquipmentManager: Item moved FROM right hand slot");
                 UnequipItem(ref rightHandItem, socketRight);
             }
         }
@@ -228,6 +240,14 @@ public class EquipmentManager : MonoBehaviour
             DebugManager.LogWarning($"EquipmentManager: Cannot equip {itemData.name}: socket not assigned!");
             return;
         }
+        if (socket == socketLeft)
+        {
+            leftHandItemData = itemData;
+        }
+        else if (socket == socketRight)
+        {
+            rightHandItemData = itemData;
+        }
 
         DebugManager.Log($"EquipmentManager: Instantiating prefab {itemData.itemPrefab.name}");
 
@@ -282,6 +302,16 @@ public class EquipmentManager : MonoBehaviour
             Destroy(handItem);
             handItem = null;
         }
+        
+        // Clear the item data tracking
+        if (socket == socketLeft)
+        {
+            leftHandItemData = null;
+        }
+        else if (socket == socketRight)
+        {
+            rightHandItemData = null;
+        }
 
         // UPDATE ANIMATION STATE
         if (handAnimationManager != null && socket != null)
@@ -333,6 +363,21 @@ public class EquipmentManager : MonoBehaviour
         if (itemData.animationType == ItemData.HandItemAnimation.Lantern)
             return true;
 
+        return false;
+    }
+    
+    private bool IsScanner(ItemData itemData)
+    {
+        if (itemData == null) return false;
+    
+        // Check by name
+        if (itemData.name.ToLower().Contains("scanner") || itemData.name.ToLower().Contains("radar"))
+            return true;
+    
+        // Check animation type
+        if (itemData.animationType == ItemData.HandItemAnimation.Radar)
+            return true;
+        
         return false;
     }
 
