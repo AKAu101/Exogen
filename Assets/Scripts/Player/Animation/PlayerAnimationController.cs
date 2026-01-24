@@ -30,7 +30,6 @@ public class PlayerAnimationController : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
-        Debug.Log($"PlayerAnimationController: Initialized with Animator '{animator?.name}' on GameObject '{gameObject.name}'");
     }
 
     #region Public API
@@ -42,16 +41,7 @@ public class PlayerAnimationController : MonoBehaviour
     {
         if (animator != null)
         {
-            int value = (int)item;
-            animator.SetInteger(PARAM_ITEM_LEFT, value);
-
-            // Debug: verify the value was actually set
-            int actualValue = animator.GetInteger(PARAM_ITEM_LEFT);
-            Debug.Log($"PlayerAnimationController: SetLeftHandItem({item}) = {value}, Animator now has: {actualValue}");
-        }
-        else
-        {
-            Debug.LogWarning("PlayerAnimationController: SetLeftHandItem called but animator is null!");
+            animator.SetInteger(PARAM_ITEM_LEFT, (int)item);
         }
     }
 
@@ -62,16 +52,7 @@ public class PlayerAnimationController : MonoBehaviour
     {
         if (animator != null)
         {
-            int value = (int)item;
-            animator.SetInteger(PARAM_ITEM_RIGHT, value);
-
-            // Debug: verify the value was actually set
-            int actualValue = animator.GetInteger(PARAM_ITEM_RIGHT);
-            Debug.Log($"PlayerAnimationController: SetRightHandItem({item}) = {value}, Animator now has: {actualValue}, Animator: {animator.name}");
-        }
-        else
-        {
-            Debug.LogWarning("PlayerAnimationController: SetRightHandItem called but animator is null!");
+            animator.SetInteger(PARAM_ITEM_RIGHT, (int)item);
         }
     }
 

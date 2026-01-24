@@ -7,47 +7,36 @@ using UnityEngine;
 public class TestInventoryDump : MonoBehaviour
 {
     [SerializeField] private KeyCode dumpKey = KeyCode.K;
-    [SerializeField] private InventoryData playerInventory;
-
-    private IInventorySystem inventorySystem;
-
-    private void Start()
-    {
-        inventorySystem = ServiceLocator.Instance.Get<IInventorySystem>();
-    }
 
     private void Update()
     {
         if (Input.GetKeyDown(dumpKey))
         {
-            // Lazy initialization
-            if (inventorySystem == null)
+            if (InventorySystem.Instance == null)
             {
-                inventorySystem = ServiceLocator.Instance.Get<IInventorySystem>();
-            }
-
-            if (inventorySystem == null)
-            {
-                Debug.LogError("InventorySystem not found!");
+                Debug.LogError("InventorySystem.Instance is null!");
                 return;
             }
 
-            Debug.Log("Testing inventory dump...");
-
-            // Spawn the drop chest at player position
-            var inventorySystemConcrete = inventorySystem as InventorySystem;
-            if (inventorySystemConcrete != null)
+            var playerInventory = InventorySystem.Instance.PlayerInventory;
+            if (playerInventory == null)
             {
-                var chest = inventorySystemConcrete.SpawnDropChestAtPlayer(playerInventory, transform);
+                Debug.LogError("PlayerInventory is null!");
+                return;
+            }
 
-                if (chest != null)
-                {
-                    Debug.Log($"Drop chest spawned successfully at {transform.position}");
-                }
-                else
-                {
-                    Debug.Log("No chest spawned (inventory might be empty or prefab not assigned)");
-                }
+            int itemCount = playerInventory.SlotToStack?.Count ?? 0;
+            Debug.Log($"Testing inventory dump... Inventory has {itemCount} item stacks");
+
+            var chest = InventorySystem.Instance.SpawnDropChestAtPlayer(playerInventory, transform);
+
+            if (chest != null)
+            {
+                Debug.Log($"Drop chest spawned successfully at {transform.position}");
+            }
+            else
+            {
+                Debug.Log("No chest spawned - check InventorySystem for inventoryDropChestPrefab assignment");
             }
         }
     }

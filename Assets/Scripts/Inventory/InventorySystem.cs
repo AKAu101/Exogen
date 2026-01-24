@@ -457,6 +457,13 @@ public class InventorySystem : Singleton<InventorySystem>, IInventorySystem
             return null;
         }
 
-        return SpawnDropChest(inv,playerTransform.position);
+        // Raycast down to find the floor
+        Vector3 spawnPosition = playerTransform.position;
+        if (Physics.Raycast(playerTransform.position, Vector3.down, out RaycastHit hit, 10f))
+        {
+            spawnPosition = hit.point;
+        }
+
+        return SpawnDropChest(inv, spawnPosition);
     }
 }

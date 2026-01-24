@@ -35,13 +35,13 @@ public static class DebugManager
 
     public static void LogError(object message)
     {
-        if (enableDebugLogs)
-            Debug.LogError(message);
+        // Errors always show regardless of debug flag
+        Debug.LogError(message);
     }
 
     public static void LogError(object message, Object context)
     {
-        if (enableDebugLogs)
-            Debug.LogError(message, context);
+        // Errors always show regardless of debug flag
+        Debug.LogError(message, context);
     }
 }
