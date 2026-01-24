@@ -3,6 +3,7 @@ using System;
 public interface IUIStateManagement
 {
     // Properties
+    int visibleInventories {  get; }
     bool IsInventoryVisible { get; }
     bool IsPauseMenuVisible { get; }
     bool IsAnyUIVisible { get; }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Generals;
+using Unity.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -12,6 +13,7 @@ public class UIStateManager : Singleton<UIStateManager>, IUIStateManagement
     private HashSet<InventoryUI> openInventories = new HashSet<InventoryUI>();
     private bool isPauseMenuVisible = false;
 
+    public int visibleInventories => openInventories.Count;
     public bool IsInventoryVisible => openInventories.Count > 0;
     public bool IsPauseMenuVisible => isPauseMenuVisible;
     public bool IsAnyUIVisible => IsInventoryVisible || IsPauseMenuVisible;
@@ -41,22 +43,24 @@ public class UIStateManager : Singleton<UIStateManager>, IUIStateManagement
     {
         bool wasAnyOpen = IsInventoryVisible;
         openInventories.Add(inventory);
-
-        if (!wasAnyOpen && IsInventoryVisible)
-        {
-            OnInventoryVisibilityChanged?.Invoke(true);
-        }
+        OnInventoryVisibilityChanged?.Invoke(true);
+        //wofür war das Adrian?
+        //if (!wasAnyOpen && IsInventoryVisible)
+        //{
+        //    
+        //}
     }
 
     public void RegisterInventoryClosed(InventoryUI inventory)
     {
         bool wasAnyOpen = IsInventoryVisible;
         openInventories.Remove(inventory);
-
-        if (wasAnyOpen && !IsInventoryVisible)
-        {
-            OnInventoryVisibilityChanged?.Invoke(false);
-        }
+        OnInventoryVisibilityChanged?.Invoke(false);
+        //wofür war das Adrian?
+        //if (wasAnyOpen && !IsInventoryVisible)
+        //{
+        //    
+        //}
     }
 
     public void SetInventoryVisible(bool visible)
