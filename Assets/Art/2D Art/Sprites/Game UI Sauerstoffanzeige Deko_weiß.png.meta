@@ -49,7 +49,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 19}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -95,21 +95,373 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_4"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 127
+        width: 30
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e698f9d697e823e4288f846ff2a34b4d
+      internalID: -1768700926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_5"
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 167
+        width: 53
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d4d0892cf9067b4298db4f932a95651
+      internalID: 275996981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_6"
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 161
+        width: 125
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f773e60ac4e968f47ad079f3c7bd3edb
+      internalID: 1906808568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_7"
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 127
+        width: 74
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6361c1038191dbd48a82eaa929828506
+      internalID: -1894086500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_8"
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 29
+        width: 39
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8b9bb269e3b41d4db288e08fede8492
+      internalID: -1813513095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_9"
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 81
+        width: 13
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdb9470cd9f00f44a8f1de4ed55b632
+      internalID: 885739648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_10"
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 60
+        width: 25
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b2cbcd733199a4d85521bcf5f832fe
+      internalID: 65633630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_11"
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 45
+        width: 41
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dafbd33d537bf9d40a8be16fc6eb6c4a
+      internalID: -1899854960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_12"
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 76
+        width: 17
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cd6a75adf565fe4396383174ee6060e
+      internalID: 138456061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_13"
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 52
+        width: 24
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c14aa4c6a1e995740b7c4e770151428d
+      internalID: 571316710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_14"
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 22
+        width: 99
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1939ad710bce684e8d7822fcd73712e
+      internalID: 299217096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_15"
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 36
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7b1bbf6756857b4ca0d2e379919bea0
+      internalID: 1600393476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_16"
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 6
+        width: 25
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73384d6866128af4da961cd9b59ee1b2
+      internalID: 1786294095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_17"
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 1
+        width: 60
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86277864e9388e44a9a993c7c28bdedf
+      internalID: 254109272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Game UI Sauerstoffanzeige Deko_wei\xDF_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 973
+        height: 991
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 607f9b917f392ca4b97873cdf32b3a9d
+      internalID: -225842480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      - key: SpriteEditor.SliceOnImport
+        value: False
+    nameFileIdTable:
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_0": -225842480
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_1": 1741569608
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_10": 65633630
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_11": -1899854960
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_12": 138456061
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_13": 571316710
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_14": 299217096
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_15": 1600393476
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_16": 1786294095
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_17": 254109272
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_2": -1604557230
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_3": 1221289385
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_4": -1768700926
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_5": 275996981
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_6": 1906808568
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_7": -1894086500
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_8": -1813513095
+      "Game UI Sauerstoffanzeige Deko_wei\xDF_9": 885739648
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
