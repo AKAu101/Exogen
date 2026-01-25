@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 
 /// <summary>
 ///     Handles drag and drop behavior for inventory items.
