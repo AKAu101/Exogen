@@ -16,7 +16,7 @@ public class SceneChanger : MonoBehaviour
     [SerializeField] private GameObject loadingScreen; // Optional loading screen UI
     [SerializeField] private UnityEngine.UI.Slider progressBar; // Optional progress bar
 
-    private static SceneChanger instance;
+    public static SceneChanger instance;
 
     private void Awake()
     {
