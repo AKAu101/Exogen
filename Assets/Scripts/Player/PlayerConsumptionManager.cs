@@ -98,9 +98,7 @@ public class PlayerConsumptionManager : MonoBehaviour
         // Apply oxygen restoration
         if (currentConsumable.oxygenRestore > 0 && oxygenSystem != null)
         {
-            // Since your Oxygen script doesn't have a Heal method, we'll need to access the oxygen level directly
-            // You might need to add a public method to Oxygen script like AddOxygen(float amount)
-            DebugManager.Log($"PlayerConsumptionManager: Would restore {currentConsumable.oxygenRestore} oxygen");
+            oxygenSystem.AddOxygen(currentConsumable.oxygenRestore);
         }
         
         // Apply stamina restoration

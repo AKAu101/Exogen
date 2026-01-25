@@ -114,7 +114,19 @@ public class Oxygen : MonoBehaviour
         UpdateVignette();
         DebugManager.Log("Oxygen reset to max capacity");
     }
-    
+
+    /// <summary>
+    /// Add oxygen to current level (used by consumables)
+    /// </summary>
+    public void AddOxygen(float amount)
+    {
+        if (isDead) return;
+
+        oxygenLevel = Mathf.Clamp(oxygenLevel + amount, 0, oxygenMaxCapacity);
+        UpdateOxygenUI();
+        UpdateVignette();
+    }
+
     private void UpdateOxygenUI()
     {
         if (oxygenSlider != null)
