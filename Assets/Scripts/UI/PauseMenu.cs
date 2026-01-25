@@ -84,6 +84,14 @@ public class PauseMenu : MonoBehaviour
     {
         DebugManager.Log($"PauseMenu.HandlePauseInput: uiStateManagement={uiStateManagement != null}, IsInventoryVisible={uiStateManagement?.IsInventoryVisible}, isPaused={isPaused}, justClosedInventory={justClosedInventory}");
 
+        // If options menu is open, close it instead
+        if (optionsMenu != null && optionsMenu.IsOpen)
+        {
+            DebugManager.Log("PauseMenu: Options menu is open, closing it");
+            optionsMenu.CloseOptionsMenu();
+            return;
+        }
+
         // If we just closed inventory, skip this input to prevent pause menu from opening
         if (justClosedInventory)
         {
