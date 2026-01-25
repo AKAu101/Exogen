@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5301352021067769582}
   - component: {fileID: 8484747211387771480}
   - component: {fileID: 3456316471513133762}
-  - component: {fileID: 3562188888837697604}
+  - component: {fileID: 2145891158523555415}
   m_Layer: 0
   m_Name: VegetationSmall03_LOD01
   m_TagString: Untagged
@@ -91,8 +91,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3562188888837697604
-CapsuleCollider:
+--- !u!64 &2145891158523555415
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -109,11 +109,10 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.57
-  m_Height: 1.74
-  m_Direction: 1
-  m_Center: {x: -0.01, y: 0.79440856, z: -0.06}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: b247e1f98f261d648bafb713dd26be2a, type: 3}
 --- !u!1 &2003630670776674872
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +198,7 @@ GameObject:
   - component: {fileID: 2668205645003482595}
   - component: {fileID: 2413154125992806449}
   - component: {fileID: 8934651417005359169}
-  - component: {fileID: 8523365118396009938}
+  - component: {fileID: 4552466803253844994}
   m_Layer: 0
   m_Name: VegetationSmall03_LOD00
   m_TagString: Untagged
@@ -279,8 +278,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8523365118396009938
-CapsuleCollider:
+--- !u!64 &4552466803253844994
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -297,11 +296,10 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.57
-  m_Height: 1.74
-  m_Direction: 1
-  m_Center: {x: -0.01, y: 0.79440856, z: -0.06}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: b247e1f98f261d648bafb713dd26be2a, type: 3}
 --- !u!1 &6597033953499426812
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +311,7 @@ GameObject:
   - component: {fileID: 6006705760687227055}
   - component: {fileID: 3587488689168081406}
   - component: {fileID: 3075797221595421636}
-  - component: {fileID: 2407657287656449481}
+  - component: {fileID: 8462097629929029206}
   m_Layer: 0
   m_Name: VegetationSmall03_LOD02
   m_TagString: Untagged
@@ -393,8 +391,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2407657287656449481
-CapsuleCollider:
+--- !u!64 &8462097629929029206
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -411,11 +409,10 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.57
-  m_Height: 1.74
-  m_Direction: 1
-  m_Center: {x: -0.01, y: 0.7932297, z: -0.06}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300004, guid: b247e1f98f261d648bafb713dd26be2a, type: 3}
 --- !u!1001 &4393725859411642072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -468,7 +465,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cucumber
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 518680909971164264, guid: 896acd83715f8114b92e565287540010, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -535,7 +533,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cucumber (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 518680909971164264, guid: 896acd83715f8114b92e565287540010, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -602,7 +601,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cucumber (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 518680909971164264, guid: 896acd83715f8114b92e565287540010, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

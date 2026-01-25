@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3684297001073044644}
   - component: {fileID: 6225202975837623199}
   - component: {fileID: 296447189089674958}
-  - component: {fileID: 3180197193957910287}
+  - component: {fileID: 5340779086507807814}
   m_Layer: 0
   m_Name: VegetationSmall01_LOD00
   m_TagString: Untagged
@@ -91,8 +91,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3180197193957910287
-CapsuleCollider:
+--- !u!64 &5340779086507807814
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -109,11 +109,10 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.77
-  m_Height: 2.097925
-  m_Direction: 1
-  m_Center: {x: -0.19, y: 0.97, z: -0.09}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 266f03476f36b2945b733736a459bf7a, type: 3}
 --- !u!1 &3782247462957215028
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +124,7 @@ GameObject:
   - component: {fileID: 6042377225965795275}
   - component: {fileID: 7298483254509861897}
   - component: {fileID: 6763645070308395140}
-  - component: {fileID: 303000870951161620}
+  - component: {fileID: 5226900533562446628}
   m_Layer: 0
   m_Name: VegetationSmall01_LOD02
   m_TagString: Untagged
@@ -205,8 +204,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &303000870951161620
-CapsuleCollider:
+--- !u!64 &5226900533562446628
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -223,11 +222,10 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.77
-  m_Height: 2.085342
-  m_Direction: 1
-  m_Center: {x: -0.19, y: 0.97, z: -0.09}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300004, guid: 266f03476f36b2945b733736a459bf7a, type: 3}
 --- !u!1 &8140178821565435204
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +237,7 @@ GameObject:
   - component: {fileID: 4985467082191998480}
   - component: {fileID: 7242783351604810284}
   - component: {fileID: 2589031294061677021}
-  - component: {fileID: 6510366353062464289}
+  - component: {fileID: 982942079053053450}
   m_Layer: 0
   m_Name: VegetationSmall01_LOD01
   m_TagString: Untagged
@@ -319,8 +317,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6510366353062464289
-CapsuleCollider:
+--- !u!64 &982942079053053450
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -337,11 +335,10 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.77
-  m_Height: 2.093907
-  m_Direction: 1
-  m_Center: {x: -0.19, y: 0.97, z: -0.09}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 266f03476f36b2945b733736a459bf7a, type: 3}
 --- !u!1 &8671744879681449652
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +473,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4373173994069414644, guid: 75c06c2b2fb67de4396ad77feb9db036, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -543,7 +541,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4373173994069414644, guid: 75c06c2b2fb67de4396ad77feb9db036, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -610,7 +609,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4373173994069414644, guid: 75c06c2b2fb67de4396ad77feb9db036, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -677,7 +677,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4373173994069414644, guid: 75c06c2b2fb67de4396ad77feb9db036, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -744,7 +745,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4373173994069414644, guid: 75c06c2b2fb67de4396ad77feb9db036, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
