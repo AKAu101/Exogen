@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/HundeMonster/eyes.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Materials/HundeMonster/eyes.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Prefabs/tree_1_w_vines.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Prefabs/tree_1_w_vines.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Prefabs/tree_2_w_vines.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Prefabs/tree_2_w_vines.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Prefabs/tree_3_w_vines.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Prefabs/tree_3_w_vines.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Prefabs/tree_4_w_vines.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Prefabs/tree_4_w_vines.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Prefabs/tree_5_w_vines.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Environment/Trees/Prefabs/tree_5_w_vines.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/SPACE SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/SPACE SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemDragHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemDragHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/PC_RPAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/PC_RPAsset.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/LightingData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_dir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-0_comp_light.exr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_dir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-1_comp_light.exr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_dir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-2_comp_light.exr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_dir.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_dir.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_light.exr" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/Lightmap-3_comp_light.exr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game/NavMesh-NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game/NavMesh-NavMesh.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -173,6 +147,7 @@
       <workItem from="1769019284540" duration="4764000" />
       <workItem from="1769047875622" duration="3363000" />
       <workItem from="1769220098392" duration="677000" />
+      <workItem from="1769316893064" duration="672000" />
     </task>
     <servers />
   </component>
