@@ -3,7 +3,32 @@ guid: fdf25a25ef0404f469dbd5376a89341e
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hands
+    second: {fileID: 2100000, guid: 7753d76954cdf834591bf4c2d0306b9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: helmet
+    second: {fileID: 2100000, guid: b11f72d3a7b4e3b4d940f14ad2bb8c54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tank
+    second: {fileID: 2100000, guid: 8d58c80be76939f40b015a9f687a40e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tubes
+    second: {fileID: 2100000, guid: 8400e752db9d2db43af42dd4e9e50e55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: visor
+    second: {fileID: 2100000, guid: 9340c4e7b6f564f43addaa9f5e79b2c9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
