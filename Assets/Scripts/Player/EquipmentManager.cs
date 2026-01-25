@@ -451,4 +451,105 @@ public class EquipmentManager : MonoBehaviour
     {
         lookInput = context.ReadValue<Vector2>();
     }
+
+    /// <summary>
+    /// Swaps the lantern model between charged and uncharged variants.
+    /// Called by LanternController when charge state changes.
+    /// </summary>
+    public void SwapLanternModel(bool isCharged)
+    {
+        // Check left hand for lantern
+        if (leftHandItemData != null && IsLantern(leftHandItemData))
+        {
+            SwapHandItemModel(ref leftHandItem, socketLeft, leftHandItemData, isCharged, true);
+        }
+
+        // Check right hand for lantern
+        if (rightHandItemData != null && IsLantern(rightHandItemData))
+        {
+            SwapHandItemModel(ref rightHandItem, socketRight, rightHandItemData, isCharged, false);
+        }
+    }
+
+    private void SwapHandItemModel(ref GameObject handItem, Transform socket, ItemData itemData, bool useChargedPrefab, bool isLeftHand)
+    {
+        // Determine which prefab to use
+        GameObject prefabToUse = useChargedPrefab && itemData.chargedPrefab != null
+            ? itemData.chargedPrefab
+            : itemData.itemPrefab;
+
+        if (prefabToUse == null)
+        {
+            DebugManager.LogWarning($"EquipmentManager: No prefab available for {itemData.name}");
+            return;
+        }
+
+        // Check if we're already showing the correct prefab
+        if (handItem != null && handItem.name.Replace("(Clone)", "").Trim() == prefabToUse.name)
+        {
+            return; // Already showing the correct model
+        }
+
+        // Destroy the current model
+        if (handItem != null)
+        {
+            Destroy(handItem);
+        }
+
+        // Spawn the new model
+        handItem = Instantiate(prefabToUse, socket);
+
+        // Get the correct rotation
+        Vector3 rotation = isLeftHand ? lanternLeftHandRotation : lanternRightHandRotation;
+
+        handItem.transform.localPosition = Vector3.zero;
+        handItem.transform.localRotation = Quaternion.Euler(rotation);
+        handItem.transform.localScale = Vector3.one * itemScale;
+
+        // Disable pickup, physics, and outline components (not needed for held items)
+        DisablePickupComponents(handItem);
+
+        DebugManager.Log($"EquipmentManager: Swapped lantern model to {(useChargedPrefab ? "CHARGED" : "UNCHARGED")} variant");
+    }
+
+    /// <summary>
+    /// Disables components that are only needed for world pickups, not held items.
+    /// </summary>
+    private void DisablePickupComponents(GameObject item)
+    {
+        if (item == null) return;
+
+        // Disable PickupItem
+        var pickupComponent = item.GetComponent<PickupItem>();
+        if (pickupComponent != null) Destroy(pickupComponent);
+
+        // Disable Rigidbody
+        var rb = item.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            rb.useGravity = false;
+        }
+
+        // Disable Collider
+        var collider = item.GetComponent<Collider>();
+        if (collider != null) collider.enabled = false;
+
+        // Disable Outline (QuickOutline) - not needed for held items
+        var outline = item.GetComponent<MonoBehaviour>();
+        if (outline != null && outline.GetType().Name == "Outline")
+        {
+            Destroy(outline);
+        }
+
+        // Also check children for Outline components
+        foreach (Transform child in item.transform)
+        {
+            var childOutline = child.GetComponent<MonoBehaviour>();
+            if (childOutline != null && childOutline.GetType().Name == "Outline")
+            {
+                Destroy(childOutline);
+            }
+        }
+    }
 }

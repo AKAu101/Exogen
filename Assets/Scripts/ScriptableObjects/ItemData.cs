@@ -8,6 +8,7 @@ public class ItemData : ScriptableObject
     public string description;
     public Sprite icon;
     public GameObject itemPrefab;
+    public GameObject chargedPrefab; // Optional: alternate prefab when item is "charged" (e.g., glowing lantern)
     public int maxStack = 1;
     
     [Header("Display Settings")]
