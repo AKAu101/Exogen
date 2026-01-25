@@ -64,7 +64,7 @@ public class Oxygen : MonoBehaviour
         else
         {
             // Restore oxygen when in safe zone
-            oxygenLevel += Time.deltaTime * 2f;
+            oxygenLevel += Time.deltaTime * 5f;
             oxygenLevel = Mathf.Clamp(oxygenLevel, 0, oxygenMaxCapacity);
         }
 
