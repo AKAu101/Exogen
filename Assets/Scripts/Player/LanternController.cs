@@ -23,10 +23,12 @@ public class LanternController : MonoBehaviour
     private float currentLanternTime;
     private bool isLeftHand;
     private bool hasLanternEquipped;
+    private bool wasCharged; // Track previous charge state for model swapping
 
     // Public accessor for other systems
     public bool IsLightOn => lanternLight != null && lanternLight.enabled;
     public bool HasLanternEquipped => hasLanternEquipped;
+    public bool IsCharged => currentLanternTime > 0f;
 
     // Properties
     public float CurrentLanternTime => currentLanternTime;
@@ -100,6 +102,13 @@ public class LanternController : MonoBehaviour
         {
             DebugManager.Log($"LanternController: Equipped state changed to {hasLanternEquipped} (left: {leftHasLantern}, right: {rightHasLantern})");
             UpdateLanternLight();
+
+            // When lantern is equipped, set the correct model based on current charge
+            if (hasLanternEquipped)
+            {
+                wasCharged = IsCharged;
+                equipmentManager.SwapLanternModel(IsCharged);
+            }
         }
     }
 
@@ -114,6 +123,13 @@ public class LanternController : MonoBehaviour
                 currentLanternTime = 0f;
                 DebugManager.Log("LanternController: Lantern timer expired");
                 UpdateLanternLight();
+
+                // Swap to uncharged model
+                if (wasCharged)
+                {
+                    wasCharged = false;
+                    equipmentManager.SwapLanternModel(false);
+                }
             }
         }
 
@@ -184,12 +200,20 @@ public class LanternController : MonoBehaviour
             DebugManager.LogWarning("LanternController: Cannot recharge - no lantern equipped!");
             return;
         }
-        
+
+        bool wasChargedBefore = IsCharged;
         currentLanternTime = Mathf.Min(currentLanternTime + time, maxLanternTime);
         DebugManager.Log($"LanternController: Lantern recharged! Current time: {currentLanternTime:F1}s");
 
         // Update the light state
         UpdateLanternLight();
+
+        // Swap to charged model if we just became charged
+        if (!wasChargedBefore && IsCharged)
+        {
+            wasCharged = true;
+            equipmentManager.SwapLanternModel(true);
+        }
     }
     
     // Helper method for LuminiPickup to check if it should recharge

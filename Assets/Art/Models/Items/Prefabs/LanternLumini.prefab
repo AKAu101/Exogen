@@ -92,9 +92,6 @@ PrefabInstance:
       addedObject: {fileID: 3550755404119028843}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 93c9977b38d9bd24b8c7b787d00df22e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4049743745511278192}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 93c9977b38d9bd24b8c7b787d00df22e, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 7009734735555958709}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 93c9977b38d9bd24b8c7b787d00df22e, type: 3}
       insertIndex: -1
@@ -153,24 +150,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4049743745511278192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729465065569692945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Outline
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &7009734735555958709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +219,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1390376420870125483}
     m_Modifications:
+    - target: {fileID: 286679594598115555, guid: 6377eb35e8a68a2499344d0d286dad3c, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 286679594598115555, guid: 6377eb35e8a68a2499344d0d286dad3c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 52bf24bf87a15d74387348e483e799f6, type: 2}
+    - target: {fileID: 286679594598115555, guid: 6377eb35e8a68a2499344d0d286dad3c, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 52bf24bf87a15d74387348e483e799f6, type: 2}
     - target: {fileID: 1419004753655911308, guid: 6377eb35e8a68a2499344d0d286dad3c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.02868346
@@ -296,8 +287,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lumini
       objectReference: {fileID: 0}
+    - target: {fileID: 6030767546926136965, guid: 6377eb35e8a68a2499344d0d286dad3c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3809002804928303250, guid: 6377eb35e8a68a2499344d0d286dad3c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6377eb35e8a68a2499344d0d286dad3c, type: 3}
