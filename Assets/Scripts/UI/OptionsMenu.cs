@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class OptionsMenu : MonoBehaviour
     [Header("Audio Settings")]
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private AudioManager audioManager;
+
+    public bool IsOpen { get; private set; } = false;
 
     private void Start()
     {
@@ -38,6 +41,8 @@ public class OptionsMenu : MonoBehaviour
         {
             pauseMenuPanel.SetActive(false);
         }
+        
+        IsOpen = true;
 
         DebugManager.Log("OptionsMenu: Opened");
     }
@@ -53,6 +58,8 @@ public class OptionsMenu : MonoBehaviour
         {
             pauseMenuPanel.SetActive(true);
         }
+
+        IsOpen = false;
 
         DebugManager.Log("OptionsMenu: Closed, returned to pause menu");
     }
