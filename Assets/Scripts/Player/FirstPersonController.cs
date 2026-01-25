@@ -132,11 +132,12 @@ public class FirstPersonController : MonoBehaviour
 
     private void HandleMouseLook()
     {
-        // Block camera rotation when any UI is open
-        if (UIStateManager.Instance != null && UIStateManager.Instance.IsAnyUIVisible)
+        // Block camera rotation when any UI is open or when the cursor is not locked
+        if (UIStateManager.Instance != null && UIStateManager.Instance.IsAnyUIVisible || Cursor.lockState != CursorLockMode.Locked)
         {
             return;
         }
+        
 
         float mouseX = lookInput.x * mouseSensitivity;
         float mouseY = lookInput.y * mouseSensitivity;
