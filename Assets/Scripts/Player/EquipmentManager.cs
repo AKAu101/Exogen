@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,12 +8,15 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class EquipmentManager : MonoBehaviour
 {
-    [Header("Hand Slot Configuration")] 
+    [Header("Hand Slot Configuration")]
     [SerializeField] private int leftHandSlot = 16;
     [SerializeField] private int rightHandSlot = 17;
-    
+
     private ItemData leftHandItemData;
     private ItemData rightHandItemData;
+
+    // Event fired when equipment changes
+    public event Action<ItemData, ItemData> OnEquipmentChanged;
 
     [Header("Item Positioning")] [SerializeField]
     private Transform cameraTransform;
@@ -292,6 +296,9 @@ public class EquipmentManager : MonoBehaviour
             handAnimationManager.UpdateHandAnimation(currentSlot, itemData);
         }
 
+        // Notify listeners that equipment changed
+        OnEquipmentChanged?.Invoke(leftHandItemData, rightHandItemData);
+
         DebugManager.Log($"EquipmentManager: Equipped {itemData.name} in hand with scale {itemScale}");
     }
 
@@ -319,6 +326,9 @@ public class EquipmentManager : MonoBehaviour
             int currentSlot = (socket == socketLeft) ? leftHandSlot : rightHandSlot;
             handAnimationManager.UpdateHandAnimation(currentSlot, null);
         }
+
+        // Notify listeners that equipment changed
+        OnEquipmentChanged?.Invoke(leftHandItemData, rightHandItemData);
     }
 
     // Overload for backward compatibility

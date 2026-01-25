@@ -64,7 +64,6 @@ public class FirstPersonController : MonoBehaviour
     // Input values
     private Vector2 lookInput;
     private Vector2 moveInput;
-    private IUIStateManagement uiStateManagement;
     private Vector3 velocity;
 
     private void Awake()
@@ -88,14 +87,6 @@ public class FirstPersonController : MonoBehaviour
         cameraBaseHeight = cameraTransform.localPosition.y;
     }
 
-    private void Start()
-    {
-        // Try to get the UI state service from the ServiceLocator
-        // Using Start() instead of Awake() to ensure singletons have registered themselves
-        // This is optional - if not available, input won't be blocked by UI
-        if (ServiceLocator.Instance.IsRegistered<IUIStateManagement>())
-            uiStateManagement = ServiceLocator.Instance.Get<IUIStateManagement>();
-    }
 
     private void Update()
     {
@@ -123,11 +114,8 @@ public class FirstPersonController : MonoBehaviour
 
     private void HandleMovement()
     {
-        // Lazy initialization if service wasn't available at Start()
-        if (uiStateManagement == null && ServiceLocator.Instance.IsRegistered<IUIStateManagement>())
-            uiStateManagement = ServiceLocator.Instance.Get<IUIStateManagement>();
-
-        bool uiIsOpen = uiStateManagement != null && uiStateManagement.IsAnyUIVisible;
+        // Block movement when any UI is open
+        bool uiIsOpen = UIStateManager.Instance != null && UIStateManager.Instance.IsAnyUIVisible;
 
         // Only apply horizontal movement if UI is not open
         if (!uiIsOpen)
@@ -144,17 +132,9 @@ public class FirstPersonController : MonoBehaviour
 
     private void HandleMouseLook()
     {
-        // Lazy initialization if service wasn't available at Start()
-        if (uiStateManagement == null && ServiceLocator.Instance.IsRegistered<IUIStateManagement>())
+        // Block camera rotation when any UI is open
+        if (UIStateManager.Instance != null && UIStateManager.Instance.IsAnyUIVisible)
         {
-            uiStateManagement = ServiceLocator.Instance.Get<IUIStateManagement>();
-            Debug.Log("FirstPersonController: UIStateManagement initialized");
-        }
-
-        if (uiStateManagement != null && uiStateManagement.IsAnyUIVisible)
-        {
-            // Clear look input to prevent camera rotation while UI is open
-            lookInput = Vector2.zero;
             return;
         }
 

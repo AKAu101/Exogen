@@ -62,8 +62,7 @@ public class LanternController : MonoBehaviour
         // Subscribe to EquipmentManager events
         if (equipmentManager != null)
         {
-            // We'll create events in EquipmentManager (see below)
-            // For now, we'll update periodically
+            equipmentManager.OnEquipmentChanged += HandleEquipmentChanged;
         }
 
         // Ensure lantern light is off at start
@@ -76,11 +75,36 @@ public class LanternController : MonoBehaviour
         DebugManager.Log("LanternController: Initialization complete");
     }
 
+    private void OnDestroy()
+    {
+        if (equipmentManager != null)
+        {
+            equipmentManager.OnEquipmentChanged -= HandleEquipmentChanged;
+        }
+    }
+
+    private void HandleEquipmentChanged(ItemData leftItem, ItemData rightItem)
+    {
+        bool leftHasLantern = leftItem != null && IsLanternItem(leftItem);
+        bool rightHasLantern = rightItem != null && IsLanternItem(rightItem);
+
+        bool wasEquipped = hasLanternEquipped;
+        hasLanternEquipped = leftHasLantern || rightHasLantern;
+
+        if (hasLanternEquipped)
+        {
+            isLeftHand = leftHasLantern;
+        }
+
+        if (wasEquipped != hasLanternEquipped)
+        {
+            DebugManager.Log($"LanternController: Equipped state changed to {hasLanternEquipped} (left: {leftHasLantern}, right: {rightHasLantern})");
+            UpdateLanternLight();
+        }
+    }
+
     private void Update()
     {
-        // Update equipped state from EquipmentManager
-        UpdateEquippedState();
-        
         // Countdown the timer if lantern is equipped and has charge
         if (hasLanternEquipped && currentLanternTime > 0f)
         {
@@ -106,33 +130,6 @@ public class LanternController : MonoBehaviour
                 lanternLight.transform.localPosition = rightHandPosition;
                 lanternLight.transform.localRotation = Quaternion.Euler(rightHandRotation);
             }
-        }
-    }
-
-    private void UpdateEquippedState()
-    {
-        if (equipmentManager == null) return;
-        
-        // Check which hand has the lantern
-        bool leftHasLantern = equipmentManager.LeftHandItem != null && 
-                             IsLanternItem(equipmentManager.LeftHandItem);
-        bool rightHasLantern = equipmentManager.RightHandItem != null && 
-                              IsLanternItem(equipmentManager.RightHandItem);
-        
-        bool wasEquipped = hasLanternEquipped;
-        hasLanternEquipped = leftHasLantern || rightHasLantern;
-        
-        // Determine which hand
-        if (hasLanternEquipped)
-        {
-            isLeftHand = leftHasLantern; // Prefer left hand if both have lanterns
-        }
-        
-        // Only update light if state changed
-        if (wasEquipped != hasLanternEquipped)
-        {
-            DebugManager.Log($"LanternController: Equipped state changed to {hasLanternEquipped} (left: {leftHasLantern}, right: {rightHasLantern})");
-            UpdateLanternLight();
         }
     }
 
