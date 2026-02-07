@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="" />
+    <list default="true" id="e705fd6d-cb81-434b-9315-0077e7535adf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Exogen/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Game.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,6 +151,8 @@
       <workItem from="1769047875622" duration="3363000" />
       <workItem from="1769220098392" duration="677000" />
       <workItem from="1769316893064" duration="672000" />
+      <workItem from="1769732772043" duration="372000" />
+      <workItem from="1769744111846" duration="23000" />
     </task>
     <servers />
   </component>
