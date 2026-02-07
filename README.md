@@ -2,32 +2,32 @@
 
 **Out of light. Out of time.**
 
-Ein First-Person Survival-Horror-Spiel, entwickelt von **Vereinigte Verzweiflung** als Studienprojekt an der Hochschule Offenburg.
+A first-person survival horror game developed by **Vereinigte Verzweiflung** as a student project at Offenburg University of Applied Sciences.
 
 ---
 
-## Über das Spiel
+## About the Game
 
-EXOGEN versetzt dich auf einen fremden, dunklen Planeten namens Tenebris im Jahr 2235. Als Klon musst du herausfinden, was mit der verschwundenen Forschungsexpedition geschehen ist. In völliger Finsternis, mit begrenzten Ressourcen und umgeben von feindlichen Kreaturen, ist Überleben deine einzige Priorität.
+EXOGEN drops you onto Tenebris, a hostile alien world shrouded in perpetual darkness, in the year 2235. As a clone, you must uncover what happened to a missing research expedition. With nothing but limited resources, oppressive darkness, and deadly creatures surrounding you, survival is your only priority.
 
 ### Genre
-Survival Science Fiction mit Horror-Elementen
+Survival Science Fiction with Horror Elements
 
-### Kernfeatures
-- **Licht-Management**: Nutze biolumineszente Lichtwesen (Lumini) zum Schutz vor Monstern
-- **Orthogonales Crafting**: Jede Ressource hat multiple Verwendungszwecke - strategische Entscheidungen sind essentiell
-- **Ressourcenmanagement**: Verwalte Gesundheit, Sauerstoff, Hunger und Licht gleichzeitig
-- **Atmosphärisches Storytelling**: Entdecke die Geschichte durch Tagebucheinträge und Hinweise
-- **Klon-System**: Stirb und respawne als neuer Klon - sammle deine verlorenen Items von deiner Leiche
-- **Irreversible Entscheidungen**: Einzigartige Items zwingen zu permanenten Upgrade-Entscheidungen
+### Core Features
+- **Light Management**: Harness bioluminescent creatures (Lumini) to ward off monsters
+- **Orthogonal Crafting**: Every resource has multiple uses—strategic choices matter
+- **Resource Management**: Balance health, oxygen, hunger, and light simultaneously
+- **Environmental Storytelling**: Piece together the narrative through journal entries and environmental clues
+- **Clone System**: Death means respawning as a new clone—retrieve your items from your previous body
+- **Irreversible Decisions**: Unique items force permanent upgrade choices
 
 ---
 
 ## Team
 
-| Rolle | Name | Matrikelnummer |
-|-------|------|----------------|
-| **Projektmanagement** | Sina Nestlen | 
+| Role | Name |
+|------|------|
+| **Project Management** | Sina Nestlen | 
 | **Mechanical Design** | Isabel Stiefvatter |
 | **Graphics Design** | Emma Ringswald | 
 | **Narrative Design** | Lasse Rhode | 
@@ -36,157 +36,146 @@ Survival Science Fiction mit Horror-Elementen
 
 ---
 
-## Technologie
+## Technology Stack
 
 - **Engine**: Unity
-- **Perspektive**: First-Person
-- **Grafik**: 3D, stilisiert mit Semi-Realismus
-- **Plattform**: PC (Konsolenport möglich)
+- **Perspective**: First-Person
+- **Graphics**: 3D with Semi-Realistic rendering
+- **Platform**: PC (Console port feasible)
 
 ---
 
-## Spielmechaniken
+## Game Mechanics
 
-### Ressourcen-System
-Das Spiel basiert auf einem komplexen, vernetzten Ressourcen-System:
+### Resource System
+The game features an interconnected, multi-layered resource economy:
 
-- **Nahrung**: Beeren, Gurken (Cucubo) und spezielle Nahrungsitems
-- **Licht**: Lumini einfangen, füttern oder zu Lichtessenz verarbeiten
-- **Sauerstoff**: Upgrades für längere Erkundungstouren
-- **Crafting**: Über 15 verschiedene herstellbare Items
+- **Food**: Berries, cucumbers (Cucubo), and specialized consumables
+- **Light**: Capture, feed, or process Lumini into light essence
+- **Oxygen**: Upgrade systems for extended exploration
+- **Crafting**: 15+ craftable items with strategic applications
 
-### Orthogonalität
-EXOGEN setzt stark auf orthogonale Spielmechaniken:
+### Orthogonality
+EXOGEN emphasizes orthogonal game design:
 
-- **Multifunktionale Ressourcen**: Eine Gurke kann sofort gegessen, zu Nahrung verarbeitet oder für Lumini-Futter verwendet werden
-- **Exklusive Upgrades**: Die seltene "Elektrochemische Zelle" kann nur für EIN Upgrade verwendet werden
-- **Emergentes Gameplay**: Systeme greifen ineinander und ermöglichen kreative Lösungsansätze
+- **Multi-Purpose Resources**: A cucumber can be eaten immediately, processed into food stores, or used as Lumini feed
+- **Exclusive Upgrades**: Rare items like the "Electrochemical Cell" can only be used for ONE permanent upgrade
+- **Emergent Gameplay**: Interlocking systems enable creative problem-solving approaches
 
 ---
 
-## Die Welt von Tenebris
+## The World of Tenebris
 
-### Umgebung
-- **Planet**: Tenebris - ein dunkler Exoplanet mit dichter CO₂-Atmosphäre
-- **Klima**: Permanent dunkel, warm und schwül durch Treibhauseffekt
-- **Vegetation**: Dschungelartig mit vielen Ranken und Lianen
-- **Schwerkraft**: Erdähnlich
+### Environment
+- **Planet**: Tenebris—a tidally locked exoplanet with a dense CO₂ atmosphere
+- **Climate**: Perpetually dark, hot and humid due to runaway greenhouse effect
+- **Vegetation**: Jungle-like terrain dominated by vines and creepers
+- **Gravity**: Earth-equivalent
 
-### Kreaturen
-1. **Lumini** (Freundlich): Leuchtende Seeengel-artige Wesen, die Monster fernhalten
-2. **Biep-Monster**: Täuscher, der menschliche Stimmen imitiert
-3. **Standard-Monster**: Aggressive Alien-Hunde mit Nachtsicht
-4. **Alien-Eber**: Massive, berserker-artige Bedrohung
-5. **Pflanzenmonster**: Getarnte Fleischfresser mit Schlingenlassos
-6. **Boss: Parasiten-Monster**: Kontrolliert andere Kreaturen und Menschen
+### Creatures
+1. **Lumini** (Friendly): Glowing sea angel-like beings that repel monsters
+2. **Mimic Monster**: Deceitful predator that imitates human voices
+3. **Standard Hunters**: Aggressive alien hounds with natural night vision
+4. **Alien Boar**: Massive, berserker-class threat
+5. **Plant Predators**: Camouflaged carnivorous flora with lasso tendrils
+6. **Boss: Parasite Entity**: Controls other creatures and humans
 
 ---
 
 ## Story
 
-Es ist das Jahr 2235. Eine Forschungsexpedition von über 100 Personen ist auf Tenebris verschollen. Die Kommunikation brach vor zwei Tagen ab. Du bist ein Klon, geschickt um die Wahrheit herauszufinden.
+The year is 2235. A research expedition of over 100 personnel has vanished on Tenebris. Communications went dark two days ago. You are a clone, dispatched to uncover the truth.
 
-Durch Tagebucheinträge, Hinweise und Umgebungserzählung enthüllst du nach und nach:
-- Konflikte innerhalb der Expedition
-- Die Entdeckung der Lumini und ihrer Schutzfunktion
-- Ein mysteriöses Parasiten-Monster
-- Das tragische Schicksal der Forscher
-
----
-
-## Visueller Stil
-
-### Farbpalette
-- **Dunkelheit dominiert**: Tiefe Schwarz- und Grautöne
-- **Lichtpunkte**: Warme Gelb-, Orange- und Weißtöne der Lumini
-- **Vegetation**: Gift- und Dunkelgrün mit gelegentlichen Lila-Akzenten
-- **UI**: Intuitive Farbkodierung (Grün = Sicher, Gelb = Warnung, Rot = Gefahr)
-
-### Design-Prinzipien
-1. **Intuitive Farbkodierung** für Spielerstatus
-2. **Stimmung des Ortes** durch einzigartige Farbpaletten pro Area
-3. **Licht als Verbündeter, Schatten als Feind**
-4. **Unbehagliche Unschärfe** durch Nebel und atmosphärische Effekte
+Through journal entries, clues, and environmental storytelling, you gradually discover:
+- Internal conflicts within the expedition
+- The discovery of Lumini and their protective properties
+- A mysterious parasitic entity
+- The tragic fate of the researchers
 
 ---
 
-## Audio
+## Visual Design
 
-- **Ton-Modus**: Räumliches 3D-Audio für Immersion
-- **Musik**: Atmosphärische, minimalistische Ambient-Tracks
-- **Soundeffekte**: Realistisches Feedback für alle Spieleraktionen
-- **Besonderheit**: Biep-Monster kann Navigationssounds und Hilferufe imitieren
+### Color Palette
+- **Dominant Darkness**: Deep blacks and charcoal grays
+- **Light Sources**: Warm yellows, oranges, and whites from Lumini
+- **Vegetation**: Toxic and dark greens with occasional purple accents
+- **UI**: Intuitive color coding (Green = Safe, Yellow = Warning, Red = Danger)
 
----
-
-## Zielgruppe
-
-### Primär
-- Erfahrene PC-Spieler
-- Hardcore Survival-Enthusiasten (Fans von The Forest, Subnautica, Green Hell)
-- Sci-Fi-Horror-Liebhaber
-- "Immersive Sim"-Fans
-- **FSK**: 16
-
-### Sekundär
-- Lore- und Erkundungsfans
-- Casual Horror-Spieler
-- Fans von Umgebungserzählung
+### Design Principles
+1. **Intuitive Color Coding** for player status feedback
+2. **Location Identity** through unique color palettes per area
+3. **Light as Ally, Shadow as Enemy**
+4. **Unsettling Obscurity** via fog and atmospheric effects
 
 ---
 
-## Projektstruktur
+## Audio Design
 
-```
-Exogen/
-├── Assets/
-│   ├── Animations/
-│   ├── Audio/
-│   ├── Materials/
-│   ├── Models/
-│   ├── Prefabs/
-│   ├── Scenes/
-│   ├── Scripts/
-│   ├── Textures/
-│   └── UI/
-├── Docs/
-│   ├── Game_Design_Document.pdf
-│   ├── Meeting_Protocols/
-│   └── Asset_Lists/
-└── README.md
-```
+- **Sound Mode**: Spatial 3D audio for immersive positioning
+- **Music**: Atmospheric, minimalist ambient soundscapes
+- **Sound Effects**: Realistic feedback for all player actions
+- **Special Feature**: Mimic Monster can replicate navigation sounds and distress calls
 
 ---
 
-## Entwicklung
+## Target Audience
 
-### Zeitplan
-- **Dauer**: 2 Monate
-- **Demo**: Erste 4 Forschungsstationen + Höhlen-Encounter
-- **Vollversion**: Komplette Story mit Boss-Kampf
+### Primary
+- Experienced PC gamers
+- Hardcore survival enthusiasts (fans of The Forest, Subnautica, Green Hell)
+- Sci-fi horror aficionados
+- Immersive sim fans
+- **Age Rating**: 16+
+
+### Secondary
+- Lore and exploration enthusiasts
+- Casual horror players
+- Environmental storytelling fans
 
 ---
 
-## Marktpositionierung
+## Development Timeline
 
-EXOGEN füllt eine Lücke zwischen:
+- **Duration**: 2 months
+- **Demo**: First 4 research stations + cave encounter
+- **Full Version**: Complete story with boss encounter
+
+---
+
+## Market Positioning
+
+EXOGEN fills a unique niche between:
 - **The Forest** (Survival-Crafting) 
-- **Alien: Isolation** (Sci-Fi-Horror)
-- **Subnautica** (Erkundung & Ressourcenmanagement)
+- **Alien: Isolation** (Sci-Fi Horror)
+- **Subnautica** (Exploration & Resource Management)
 
-Unser Alleinstellungsmerkmal ist die Kombination aus:
-- Komplexem, orthogonalen Crafting-System
-- Licht als zentrale Überlebensmechanik
-- Atmosphärischem Sci-Fi-Horror ohne direkten Kampf
+Our unique selling points:
+- Complex orthogonal crafting system
+- Light as core survival mechanic
+- Atmospheric sci-fi horror without direct combat
 
-**Geschätzter Verkaufspreis**: 29,99€  
-**Break-Even-Point**: ~271.500 verkaufte Einheiten
+**Estimated Price**: €29.99  
+**Break-Even Point**: ~271,500 units sold
+
+### Controls
+- **WASD**: Movement
+- **Mouse**: Look around
+- **E**: Interact
+- **Tab**: Inventory
+- **Shift**: Sprint (consumes oxygen faster)
 
 ---
 
-## Lizenz
+## Contributing
 
-Dieses Projekt ist ein Studienprojekt der Hochschule Offenburg.
+This is a student project at Offenburg University of Applied Sciences.
+
+---
+
+## License
+
+This project is a student project created at Offenburg University of Applied Sciences. All rights reserved.
 
 ---
 
