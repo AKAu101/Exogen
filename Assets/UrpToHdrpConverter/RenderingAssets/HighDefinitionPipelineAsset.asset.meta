@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2ada4cae128fbc54caf2c415589da90c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 278997
+  packageName: URP to HDRP Converter
+  packageVersion: 1.0
+  assetPath: Assets/UrpToHdrpConverter/RenderingAssets/HighDefinitionPipelineAsset.asset
+  uploadId: 659704
